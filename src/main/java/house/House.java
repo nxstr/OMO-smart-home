@@ -34,11 +34,11 @@ public class House {
     }
 
     public List<Floor> getFloors() {
-        return floors;
+        return instance.floors;
     }
 
     public List<LivingEntity> getLivingEntities() {
-        return livingEntities;
+        return instance.livingEntities;
     }
 
     public int getHouseId() {

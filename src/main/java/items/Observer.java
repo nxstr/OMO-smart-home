@@ -5,6 +5,7 @@ import items.equipment.SportEquipment;
 import items.sensors.Sensor;
 import items.state.ObjectState;
 import items.state.StateType;
+import livingEntities.Adult;
 import livingEntities.EntityType;
 import livingEntities.LivingEntity;
 import strategy.Strategy;
@@ -44,6 +45,7 @@ public class Observer {
     public void handleDeviceReport(Device device){
 //        device.generateReportForDay();
         //generate task for adult
+        Adult.addTask(device);
     }
 
     public void handleSportReport(SportEquipment equipment){

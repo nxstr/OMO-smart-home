@@ -6,6 +6,7 @@ import items.Observer;
 import items.device.Manual;
 import items.state.*;
 
+import java.time.LocalTime;
 import java.util.Random;
 
 public abstract class Sensor implements ElectricalItem {
@@ -13,7 +14,7 @@ public abstract class Sensor implements ElectricalItem {
     private ObjectState currentState = new ActiveState(this);
     private boolean alarmMode = false;
 
-    private final int usingHours;
+    private final int usingHours = 24*6;
     private final Room currentRoom;
     private int electricityUsed =0;
     private final int electricityInOnState;
@@ -21,9 +22,8 @@ public abstract class Sensor implements ElectricalItem {
     private int brokenTimes =0;
     private Manual manual;
 
-    public Sensor(SensorType type, int usingHours, Room currentRoom, int electricityInOnState, int electricityInBrokeState) {
+    public Sensor(SensorType type, Room currentRoom, int electricityInOnState, int electricityInBrokeState) {
         this.type = type;
-        this.usingHours = usingHours;
         this.currentRoom = currentRoom;
         this.electricityInOnState = electricityInOnState;
         this.electricityInBrokeState = electricityInBrokeState;
@@ -136,7 +136,8 @@ public abstract class Sensor implements ElectricalItem {
         }
     }
 
-    public void usingDevice(){
+    public void usingDevice(LocalTime time){
+        System.out.println(this.getType() + "sensor got event at " + time);
         generateReportForObserver();
     }
 

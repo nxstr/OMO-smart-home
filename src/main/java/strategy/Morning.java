@@ -9,36 +9,29 @@ import items.state.ObjectState;
 import items.state.StateType;
 import livingEntities.LivingEntity;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Morning implements Strategy{
     List <Device> activatedDevices = new ArrayList<>();
     private int currentBackActionProgress = 0;
+    private LocalTime time = LocalTime.of(8, 0);
 
     public Morning() {
         System.out.println("Its morning strategy");
-        try {
-            Device device = deviceFactory.findDeviceByType(DeviceType.COFFEE_MACHINE);
-            device.usingDevice();
-            activatedDevices.add(device);
-            device.setCurrentState(new IdleState(device));
-            device = deviceFactory.findDeviceByType(DeviceType.TV);
-            device.usingDevice();
-            activatedDevices.add(device);
-//            device.setCurrentState(new IdleState(device));
-            //ma vypnout clovek
-            device = deviceFactory.findDeviceByType(DeviceType.PET_FEEDER);
-            device.usingDevice();
-            activatedDevices.add(device);
-            device.setCurrentState(new IdleState(device));
-            device = deviceFactory.findDeviceByType(DeviceType.AIR_CONDITIONER);
-            device.usingDevice();
-            activatedDevices.add(device);
-//            device.setCurrentState(new IdleState(device));
-            //ma vypnout clovek
-        }catch (Exception e){
-            System.out.println("This device doesnot exist in the house");
+
+            String[] arr = new String[]{
+                    "coffee_machine", "tv", "pet_feeder", "air_conditioner"
+            };
+            for(String s:arr){
+                try {
+                    Device device = deviceFactory.findDeviceByType(DeviceType.getTypeByName(s));
+                    device.usingDevice(time);
+                    activatedDevices.add(device);
+                }catch (Exception e){
+                        System.out.println("This device doesnot exist in the house");
+                    }
         }
     }
 
@@ -60,7 +53,6 @@ public class Morning implements Strategy{
 
     public void stopBackAction() {
         this.currentBackActionProgress = 0;
-//        System.out.println("Person switched off the devices");
     }
 
     @Override

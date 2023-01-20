@@ -24,7 +24,7 @@ public class EventHandler {
             }
         }
         if(sens!=null){
-            sens.usingDevice();
+            sens.usingDevice(event.getTime());
         }else{
             Observer.getInstance().eventHandler();
         }

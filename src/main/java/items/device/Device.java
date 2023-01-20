@@ -4,6 +4,7 @@ import house.Room;
 import items.state.*;
 import items.*;
 
+import java.time.LocalTime;
 import java.util.Random;
 
 public abstract class Device implements ElectricalItem{
@@ -32,6 +33,7 @@ public abstract class Device implements ElectricalItem{
         this.electricityInOnState = electricityInOnState;
         this.electricityInOffState = electricityInOffState;
         this.electricityInBrokeState = electricityInOnState;
+//        this.currentRoom.addElectricalItem(this);
     }
 
     public String getName(){
@@ -59,9 +61,9 @@ public abstract class Device implements ElectricalItem{
     }
 
     public int getUsingHours() {
-        if (currentState.getType() != StateType.ACTIVE) {
-            return currentState.getUsingHours();
-        }
+//        if (currentState.getType() != StateType.ACTIVE) {
+//            return currentState.getUsingHours();
+//        }
         return usingHours;
     }
 
@@ -125,10 +127,10 @@ public abstract class Device implements ElectricalItem{
         currentState.getElectricity();
     }
 
-    public void usingDevice(){
+    public void usingDevice(LocalTime time){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-        System.out.println(this.getName() + " is starting");
+        System.out.println(this.getName() + " is starting at " + time);
 //        breakingEvent();
         generateReportForObserver();
     }
@@ -161,7 +163,7 @@ public abstract class Device implements ElectricalItem{
     }
 
     public void generateReportForDay(){
-        int electricity = getElectricityInOnState()*getUsedTimes()+getElectricityInOffState()*(24-getUsingHours());
+        int electricity = getElectricityInOnState()*getUsedTimes()+getElectricityInOffState()*(24*6-getUsingHours());
         System.out.println(electricity + " electricity was used this day by " + this.getType());
         addUsedElectricity(electricity);
 

@@ -1,8 +1,11 @@
 package items.device;
 
 import house.Room;
+import items.state.BrokenState;
 import items.state.IdleState;
 import items.state.ActiveState;
+
+import java.time.LocalTime;
 
 public class PetFountain extends Device{
 
@@ -30,5 +33,18 @@ public class PetFountain extends Device{
             setCurrentState(new IdleState(this));
         }
         System.out.println("Pet Fountain has new filter!");
+    }
+
+    public void usingDevice(LocalTime time){
+        if(!isDirty()) {
+            setUsedTimes(getUsedTimes() + 1);
+            setCurrentState(new ActiveState(this));
+            System.out.println(this.getName() + " is starting at " + time);
+            generateReportForObserver();
+        }else{
+            setCurrentState(new BrokenState(this));
+            System.out.println("Pet Fountain is dirty!");
+            generateReportForObserver();
+        }
     }
 }

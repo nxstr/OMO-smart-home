@@ -4,6 +4,8 @@ import house.Room;
 import items.state.IdleState;
 import items.state.ActiveState;
 
+import java.time.LocalTime;
+
 public class Fridge extends Device{
 
     private static final int usingHours = 24;
@@ -26,11 +28,11 @@ public class Fridge extends Device{
     }
 
 
-    public void usingDevice() {
+    public void usingDevice(LocalTime time) {
         setUsedTimes(getUsedTimes() + 1);
         if (isEmpty()) {
             setCurrentState(new IdleState(this));
-            System.out.println("Food in Fridge is over");
+            System.out.println("Food in Fridge is needs to refill");
         } else {
             setCurrentState(new ActiveState(this));
             currentCapacity--;

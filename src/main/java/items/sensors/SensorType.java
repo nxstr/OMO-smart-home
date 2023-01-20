@@ -4,10 +4,11 @@ package items.sensors;
 import java.util.Objects;
 
 public enum SensorType {
-    TEMPERATURE("temperature"),
-    FIRE("fire"),
-    WATER_LEAK("water_leak"),
-    ELECTRICITY("electricity");
+    TEMPERATURE("temperature"), //activates air conditioner
+    FIRE("fire"), //activate alarm, sets all devices and sensors to idle when all people are out
+    WATER_LEAK("water_leak"), //closes all waterusing devices, sets to resting state an activate alarm
+    ELECTRICITY("electricity"), //sets all devices and sensors to idle, activate alarm
+    HUMAN("human"); //checks if someone is entered/leaved room
 
     private final String name;
 

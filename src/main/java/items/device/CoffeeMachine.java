@@ -4,6 +4,8 @@ import house.Room;
 import items.state.BrokenState;
 import items.state.ActiveState;
 
+import java.time.LocalTime;
+
 public class CoffeeMachine extends Device{
 
     private static final int usingHours = 1;
@@ -25,7 +27,7 @@ public class CoffeeMachine extends Device{
         currentCapacity = maxCapacity;
     }
 
-    public void usingDevice() {
+    public void usingDevice(LocalTime time) {
         if (isEmpty()) {
             setCurrentState(new BrokenState(this));
             System.out.println("Coffee beans in coffee machine are over");
@@ -34,7 +36,7 @@ public class CoffeeMachine extends Device{
             currentCapacity--;
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            System.out.println("Coffee is ready, " + currentCapacity + " portions are/is left");
+            System.out.println("Coffee Machine is starting at " + time + ", " + currentCapacity + " portions are/is left");
         }
     }
 }

@@ -2,6 +2,7 @@ package strategy;
 
 import items.device.Device;
 import items.state.IdleState;
+import items.state.StateType;
 import livingEntities.LivingEntity;
 
 import java.util.ArrayList;
@@ -15,14 +16,16 @@ public class Night implements Strategy{
     public Night() {
         System.out.println("Its night strategy");
         for(Device d: deviceFactory.getDevices()){
-            d.setCurrentState(new IdleState(d));
+            if(d.getCurrentState().getType()!= StateType.IDLE) {
+                d.setCurrentState(new IdleState(d));
+            }
             d.generateReportForDay();
         }
     }
 
     @Override
     public void findActivity(LivingEntity entity) {
-
+        System.out.println(entity.getType() + "is sleeping");
     }
 
     @Override
@@ -39,7 +42,6 @@ public class Night implements Strategy{
 
     public void stopBackAction() {
         this.currentBackActionProgress = 0;
-//        System.out.println("Person switched off the devices");
     }
 
     public void addActiveDevice(Device device){

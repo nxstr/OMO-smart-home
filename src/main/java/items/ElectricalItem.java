@@ -4,6 +4,8 @@ import house.Room;
 import items.device.Manual;
 import items.state.ObjectState;
 
+import java.time.LocalTime;
+
 public interface ElectricalItem {
     String getName();
 
@@ -47,5 +49,5 @@ public interface ElectricalItem {
 
     void breakingEvent();
 
-    void usingDevice();
+    void usingDevice(LocalTime time);
 }
