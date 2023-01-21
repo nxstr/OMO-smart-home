@@ -49,5 +49,5 @@ public interface ElectricalItem {
 
     void breakingEvent();
 
-    void usingDevice(LocalTime time);
+    void usingDevice();
 }

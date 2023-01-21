@@ -9,7 +9,7 @@ import java.time.LocalTime;
 
 public class PetFountain extends Device{
 
-    private static final int usingHours = 1; //using ticks = 10 min
+    private static int usingHours = 1; //using ticks = 10 min
     private static final int electricityInOnState = 2;
     private static final int electricityInOffState = 1;
 
@@ -35,12 +35,12 @@ public class PetFountain extends Device{
         System.out.println("Pet Fountain has new filter!");
     }
 
-    public void usingDevice(LocalTime time){
+    public void usingDevice(){
         if(!isDirty()) {
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            System.out.println(this.getName() + " is starting at " + time);
-            generateReportForObserver();
+            System.out.println(this.getName() + " is starting at " + getHouse().getTime());
+            breakingEvent();
         }else{
             setCurrentState(new BrokenState(this));
             System.out.println("Pet Fountain is dirty!");

@@ -22,4 +22,6 @@ public interface Strategy {
     void stopBackAction();
 
     void addActiveDevice(Device device);
+
+    void removeActiveDevice(Device device);
 }

@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 public class Fridge extends Device{
 
-    private static final int usingHours = 24;
+    private static int usingHours = 24;
     private static final int electricityInOnState = 7;
     private static final int electricityInOffState = 1;
     private static final int maxCapacity = 20;
@@ -28,7 +28,7 @@ public class Fridge extends Device{
     }
 
 
-    public void usingDevice(LocalTime time) {
+    public void usingDevice() {
         setUsedTimes(getUsedTimes() + 1);
         if (isEmpty()) {
             setCurrentState(new IdleState(this));
@@ -36,6 +36,7 @@ public class Fridge extends Device{
         } else {
             setCurrentState(new ActiveState(this));
             currentCapacity--;
+            breakingEvent();
         }
     }
 }

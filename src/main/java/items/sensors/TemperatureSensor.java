@@ -21,16 +21,16 @@ public class TemperatureSensor extends Sensor {
         super(SensorType.TEMPERATURE, currentRoom, electricityInOnState, electricityInBrokeState);
     }
 
-    public void usingDevice(LocalTime time) {
+    public void usingDevice() {
         try {
             if(this.getCurrentState().getType()== StateType.ACTIVE) {
                 List<ElectricalItem> items = getCurrentRoom().getElectricalItems().stream()
                         .filter(d -> d.getMainType() == "device").toList();
 
                 ElectricalItem c = items.stream().filter(i -> i.getName() == DeviceType.AIR_CONDITIONER.toString()).filter(i->i.getCurrentState().getType() == StateType.IDLE).findAny().get();
-                c.usingDevice(time);
+                c.usingDevice();
                 Strategy strategy = Observer.getInstance().getStrategy();
-                if(strategy!=null){
+                if(strategy!=null && c.getCurrentState().getType()==StateType.ACTIVE){
                     strategy.addActiveDevice((Device) c);
                 }
             }else{

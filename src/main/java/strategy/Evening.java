@@ -2,6 +2,7 @@ package strategy;
 
 import items.device.Device;
 import items.device.DeviceType;
+import items.state.StateType;
 import livingEntities.LivingEntity;
 
 import java.time.LocalTime;
@@ -19,12 +20,19 @@ public class Evening implements Strategy {
                 "pet_feeder"
         };
         for(String s:arr){
-            try {
-                Device device = deviceFactory.findDeviceByType(DeviceType.getTypeByName(s));
-                device.usingDevice(time);
-                activatedDevices.add(device);
-            }catch (Exception e){
-                System.out.println("This device does not exist in the house");
+            for(Device d:deviceFactory.getDevices()) {
+
+                if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
+                    try {
+                        d.usingDevice();
+                        if(d.getCurrentState().getType() == StateType.ACTIVE) {
+                            activatedDevices.add(d);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("This device doesnot exist in the house");
+                    }
+                }
+
             }
         }
 
@@ -58,5 +66,10 @@ public class Evening implements Strategy {
     @Override
     public void addActiveDevice(Device device) {
         activatedDevices.add(device);
+    }
+
+    @Override
+    public void removeActiveDevice(Device device) {
+
     }
 }

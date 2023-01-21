@@ -10,7 +10,7 @@ import java.time.LocalTime;
 
 public class Dishwasher extends Device{
 
-    private static final int usingHours = 5;
+    private static int usingHours = 5;
     private static final int electricityInOnState = 10;
     private static final int electricityInOffState = 2;
     private final int maxCapacity = 6;
@@ -40,13 +40,14 @@ public class Dishwasher extends Device{
 
 
 
-    public void usingDevice(LocalTime time){
+    public void usingDevice(){
         if(!isEmpty()) {
             if(!isClean) {
+                breakingEvent();
                 setCurrentState(new ActiveState(this));
                 setUsedTimes(getUsedTimes() + 1);
                 isClean = true;
-                System.out.println("Dishwasher is started at " + time);
+                System.out.println("Dishwasher is started at " + getHouse().getTime());
             }else{
                 System.out.println("Dishwasher is needs to empty");
                 generateReportForObserver();

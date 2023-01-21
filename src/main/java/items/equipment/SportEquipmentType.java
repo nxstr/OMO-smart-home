@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public enum SportEquipmentType {
     BICYCLE("bicycle"),
-    SKI("ski");
+    SKI("ski"),
+    PET_TOY("pet_toy");
 
     private final String name;
 

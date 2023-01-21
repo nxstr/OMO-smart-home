@@ -1,8 +1,8 @@
 package livingEntities;
 
-import items.device.Device;
 import house.House;
 import house.Room;
+import items.device.Device;
 import items.equipment.SportEquipment;
 
 public interface LivingEntity {
@@ -19,14 +19,22 @@ public interface LivingEntity {
 
     void stopCurrentActivity();
 
-    void useDevice(Device device);
+    void useDevice();
 
-    void useEquipment(SportEquipment equipment);
+    void useEquipment();
 
     void goOut();
 
     void comeBack();
 
     EntityType getType();
+
+    int getCurrentBackActionProgress();
+
+    void increaseCBAP();
+
+    Device getCurrentDevice();
+
+    SportEquipment getCurrentEq();
 
 }

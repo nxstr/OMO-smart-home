@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 public class CoffeeMachine extends Device{
 
-    private static final int usingHours = 1;
+    private static int usingHours = 1;
     private static final int electricityInOnState = 5;
     private static final int electricityInOffState = 1;
     private static final int maxCapacity = 10;
@@ -27,7 +27,7 @@ public class CoffeeMachine extends Device{
         currentCapacity = maxCapacity;
     }
 
-    public void usingDevice(LocalTime time) {
+    public void usingDevice() {
         if (isEmpty()) {
             setCurrentState(new BrokenState(this));
             System.out.println("Coffee beans in coffee machine are over");
@@ -36,7 +36,8 @@ public class CoffeeMachine extends Device{
             currentCapacity--;
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            System.out.println("Coffee Machine is starting at " + time + ", " + currentCapacity + " portions are/is left");
+            System.out.println("Coffee Machine is starting at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left");
+            breakingEvent();
         }
     }
 }

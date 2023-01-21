@@ -136,8 +136,8 @@ public abstract class Sensor implements ElectricalItem {
         }
     }
 
-    public void usingDevice(LocalTime time){
-        System.out.println(this.getType() + "sensor got event at " + time);
+    public void usingDevice(){
+        System.out.println(this.getType() + "sensor got event");
         generateReportForObserver();
     }
 

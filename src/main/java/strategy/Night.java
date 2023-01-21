@@ -16,7 +16,7 @@ public class Night implements Strategy{
     public Night() {
         System.out.println("Its night strategy");
         for(Device d: deviceFactory.getDevices()){
-            if(d.getCurrentState().getType()!= StateType.IDLE) {
+            if(d.getCurrentState().getType()== StateType.ACTIVE) {
                 d.setCurrentState(new IdleState(d));
             }
             d.generateReportForDay();
@@ -46,5 +46,10 @@ public class Night implements Strategy{
 
     public void addActiveDevice(Device device){
         activeDevicec.add(device);
+    }
+
+    @Override
+    public void removeActiveDevice(Device device) {
+
     }
 }

@@ -3,16 +3,18 @@ package items.device;
 import house.Room;
 import items.state.BrokenState;
 import items.state.ActiveState;
+import items.state.IdleState;
 
 import java.time.LocalTime;
 
 public class PetFeeder extends Device{
 
-    private static final int usingHours = 1;
+    private static int usingHours = 1;
     private static final int electricityInOnState = 5;
     private static final int electricityInOffState = 2;
     private static final int maxCapacity = 10;
     private int currentCapacity = maxCapacity;
+    private boolean isPortionEated = true;
 
 
     public PetFeeder(Room currentRoom) {
@@ -27,16 +29,39 @@ public class PetFeeder extends Device{
         currentCapacity = maxCapacity;
     }
 
-    public void usingDevice(LocalTime time){
-        if(isEmpty()){
-            setCurrentState(new BrokenState(this));
-            System.out.println("Pet Feeder is empty!");
-            generateReportForObserver();
+    public boolean isPortionEated() {
+        return isPortionEated;
+    }
+
+    public void setPortionEated(boolean portionEated) {
+        isPortionEated = portionEated;
+    }
+
+    public void usingDevice(){
+        if(isPortionEated) {
+            if (isEmpty()) {
+                setCurrentState(new BrokenState(this));
+                System.out.println("Pet Feeder is empty!");
+                generateReportForObserver();
+            } else {
+                currentCapacity--;
+                setPortionEated(false);
+                setUsedTimes(getUsedTimes() + 1);
+                setCurrentState(new ActiveState(this));
+                System.out.println("Pet Feeder pours one portion of food at " + getHouse().getTime() + ", " + + currentCapacity + " portions are/is left");
+                breakingEvent();
+            }
         }else{
-            currentCapacity--;
-            setUsedTimes(getUsedTimes() + 1);
+            System.out.println("Pet feeder is full");
+        }
+    }
+
+    public void usingDeviceByPet(){
+        if(!isPortionEated){
             setCurrentState(new ActiveState(this));
-            System.out.println("Pet Feeder pours one portion of food at " + time + ", " + currentCapacity + " portions are/is left");
+            setUsedTimes(getUsedTimes() + 1);
+            setPortionEated(true);
+            breakingEvent();
         }
     }
 }

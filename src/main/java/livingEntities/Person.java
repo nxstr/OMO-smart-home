@@ -1,6 +1,9 @@
 package livingEntities;
 
 import house.Room;
+import items.device.Device;
+import items.equipment.SportEquipment;
+import items.state.IdleState;
 
 public abstract class Person implements LivingEntity{
     private final String name;
@@ -9,6 +12,8 @@ public abstract class Person implements LivingEntity{
     private final int age;
     private Room prevRoom;
     private int currentBackActionProgress = 0;
+    private Device currentDevice = null;
+    private SportEquipment currentEq = null;
 
 
     public Person(String name, EntityType type, int age, Room room) {
@@ -78,8 +83,36 @@ public abstract class Person implements LivingEntity{
         currentBackActionProgress++;
     }
 
-    public void stopBackAction() {
+    public void stopCurrentActivity() {
+
         this.currentBackActionProgress = 0;
-//        System.out.println("Person switched off the devices");
+        if(getCurrentRoom()==null){
+            comeBack();
+        }
+        if(getCurrentDevice()!=null){
+            getCurrentDevice().stopDevice(this);
+            setCurrentDevice(null);
+        }
+        if(getCurrentEq()!=null){
+            getCurrentEq().setCurrentState(new IdleState(getCurrentEq()));
+            setCurrentEq(null);
+        }
     }
+
+    public Device getCurrentDevice() {
+        return currentDevice;
+    }
+
+    public void setCurrentDevice(Device currentDevice) {
+        this.currentDevice = currentDevice;
+    }
+
+    public SportEquipment getCurrentEq() {
+        return currentEq;
+    }
+
+    public void setCurrentEq(SportEquipment currentEq) {
+        this.currentEq = currentEq;
+    }
+
 }

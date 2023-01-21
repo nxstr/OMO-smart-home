@@ -1,8 +1,10 @@
 package items.device;
 
+import house.House;
 import house.Room;
 import items.state.*;
 import items.*;
+import livingEntities.LivingEntity;
 
 import java.time.LocalTime;
 import java.util.Random;
@@ -14,7 +16,7 @@ public abstract class Device implements ElectricalItem{
 
     private ObjectState currentState = new IdleState(this);
 
-    private final int usingHours;
+    private int usingHours;
     private final Room currentRoom;
     private int electricityUsed =0;
     private final int electricityInOnState;
@@ -23,6 +25,7 @@ public abstract class Device implements ElectricalItem{
     private int usedTimes =0;
     private int brokenTimes =0;
     private Manual manual;
+    private final House house = House.getInstance();
 
 
     public Device(DeviceType type, boolean isForHuman, int usingHours, Room currentRoom, int electricityInOnState, int electricityInOffState) {
@@ -33,7 +36,10 @@ public abstract class Device implements ElectricalItem{
         this.electricityInOnState = electricityInOnState;
         this.electricityInOffState = electricityInOffState;
         this.electricityInBrokeState = electricityInOnState;
-//        this.currentRoom.addElectricalItem(this);
+    }
+
+    public House getHouse() {
+        return house;
     }
 
     public String getName(){
@@ -61,10 +67,11 @@ public abstract class Device implements ElectricalItem{
     }
 
     public int getUsingHours() {
-//        if (currentState.getType() != StateType.ACTIVE) {
-//            return currentState.getUsingHours();
-//        }
         return usingHours;
+    }
+
+    public void setUsingHours(int usingHours) {
+        this.usingHours = usingHours;
     }
 
     public Room getCurrentRoom() {
@@ -127,22 +134,23 @@ public abstract class Device implements ElectricalItem{
         currentState.getElectricity();
     }
 
-    public void usingDevice(LocalTime time){
+    public void usingDevice(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-        System.out.println(this.getName() + " is starting at " + time);
-//        breakingEvent();
+        System.out.println(this.getName() + " is starting at " + house.getTime());
+        breakingEvent();
         generateReportForObserver();
     }
 
     public void breakingItem() {
         brokenTimes++;
         setCurrentState(new BrokenState(this));
-        System.out.println(this.getName() + " is broke");
+        System.out.println(this.getName() + " " + System.identityHashCode(this) + " is -----BROKE----- at " + house.getTime());
         generateReportForObserver();
     }
 
     public void fixingItem() {
+        setUsingHours(12);
         setCurrentState(new FixingState(this));
     }
 
@@ -156,8 +164,8 @@ public abstract class Device implements ElectricalItem{
     }
 
     public void breakingEvent(){
-        int r = new Random().nextInt(0, 100);
-        if(r<=20){
+        int r = new Random().nextInt(100);
+        if(r<=5){
             breakingItem();
         }
     }
@@ -167,5 +175,19 @@ public abstract class Device implements ElectricalItem{
         System.out.println(electricity + " electricity was used this day by " + this.getType());
         addUsedElectricity(electricity);
 
+    }
+
+    public void stopDevice(LivingEntity e){
+        if(e.getCurrentDevice().getCurrentState().getType()== StateType.ACTIVE) {
+            System.out.println(e.getCurrentDevice().getType() + " switched off at " + house.getTime());
+            e.getCurrentDevice().setCurrentState(new IdleState(e.getCurrentDevice()));
+        }
+        else if(e.getCurrentDevice().getCurrentState().getType()== StateType.FIXING) {
+            System.out.println(e.getCurrentDevice().getType() + " is finally fixed at " + house.getTime());
+            e.getCurrentDevice().setCurrentState(new IdleState(e.getCurrentDevice()));
+        }
+        else if(e.getCurrentDevice().getCurrentState().getType()== StateType.BROKEN) {
+            System.out.println(e.getCurrentDevice().getType() + " is broken at  " + house.getTime());
+        }
     }
 }

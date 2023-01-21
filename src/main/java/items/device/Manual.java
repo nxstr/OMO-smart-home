@@ -12,6 +12,6 @@ public class Manual {
 
 
     public void readDeviceManual() {
-        System.out.println("Reading the manual of" + item.getName());
+        System.out.println("Reading the manual of " + item.getName());
     }
 }

@@ -1,8 +1,6 @@
 package house;
 
-import items.ElectricalItem;
 import livingEntities.LivingEntity;
-import strategy.Strategy;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -12,13 +10,16 @@ public class House {
     private static House instance = null;
     private final List<Floor> floors;
     private final List<LivingEntity> livingEntities; //maybe pak udelat get access pres streamy idk
+    private LocalTime time;
+    private final OutSideArea outSideArea;
 
     private final int houseId;
 
-    public House(HouseBuilder builder) {
+    public House(HouseBuilder builder, OutSideArea outSideArea) {
         this.floors = builder.floors;
         this.livingEntities = builder.livingEntities;
         this.houseId = builder.houseId;
+        this.outSideArea = outSideArea;
         instance = this;
     }
 
@@ -29,12 +30,24 @@ public class House {
         return new HouseBuilder();
     }
 
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
     public static House getInstance(){
         return instance;
     }
 
     public List<Floor> getFloors() {
         return instance.floors;
+    }
+
+    public OutSideArea getOutSideArea() {
+        return outSideArea;
     }
 
     public List<LivingEntity> getLivingEntities() {
@@ -46,17 +59,18 @@ public class House {
     }
 
     public void goOut(LivingEntity livingEntity) {
-        livingEntities.remove(livingEntity);
+        outSideArea.addLivingEntity(livingEntity);
     }
 
     public void comeBack(LivingEntity livingEntity) {
-        livingEntities.add(livingEntity);
+        outSideArea.removeLivingEntity(livingEntity);
     }
 
     public static class HouseBuilder {
         private int houseId;
         private List<Floor> floors = new ArrayList<>();
         private List<LivingEntity> livingEntities = new ArrayList<>();
+        private OutSideArea outSideArea;
 
         public HouseBuilder() {
         }
@@ -66,6 +80,14 @@ public class House {
         public HouseBuilder setId(int houseId){
             this.houseId = houseId;
             return this;
+        }
+
+        public OutSideArea getOutSideArea() {
+            return outSideArea;
+        }
+
+        public void setOutSideArea(OutSideArea outSideArea) {
+            this.outSideArea = outSideArea;
         }
 
         public HouseBuilder addFloor(Floor floor) {
@@ -89,7 +111,7 @@ public class House {
         }
 
         public House build() {
-            return new House(this);
+            return new House(this, outSideArea);
         }
     }
 

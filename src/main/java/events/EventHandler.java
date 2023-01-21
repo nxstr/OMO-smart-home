@@ -24,7 +24,8 @@ public class EventHandler {
             }
         }
         if(sens!=null){
-            sens.usingDevice(event.getTime());
+            sens.usingDevice();
+            System.out.println("at time " + event.getTime());
         }else{
             Observer.getInstance().eventHandler();
         }

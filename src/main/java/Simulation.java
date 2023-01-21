@@ -1,32 +1,25 @@
 import events.Event;
 import events.EventHandler;
 import events.EventType;
-import house.Floor;
 import house.House;
-import house.Room;
-import house.RoomFactory;
 import items.Observer;
-import items.device.AirConditioner;
 import items.device.Device;
-import items.device.DeviceFactory;
 import items.device.DeviceType;
-import items.sensors.TemperatureSensor;
 import items.state.IdleState;
-import livingEntities.Adult;
-import livingEntities.EntityType;
-import livingEntities.Person;
+import items.state.StateType;
+import livingEntities.*;
 import strategy.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Simulation {
     private int hours = 0;
     private int days = 0;
     private final int interactionCount; //1 = 10 min
     private LocalTime time;
-    private final House.HouseBuilder house = House.newBuilder();
-    private final RoomFactory roomFactory = RoomFactory.getInstance();
-    private final DeviceFactory deviceFactory = DeviceFactory.getInstance();
+
     private Strategy strategy;
     private Observer observer = Observer.getInstance();
     public Simulation(int interactionCount, LocalTime time) {
@@ -35,61 +28,60 @@ public class Simulation {
     }
 
     public void start(){
-        Floor floor = new Floor(0);
-        house.addFloor(floor);
-        Room room = roomFactory.create("Bedroom", floor);
-        floor.addRoom(room);
-        TemperatureSensor sensor = new TemperatureSensor(room);
-        room.addElectricalItem(sensor);
-        Adult dad = new Adult("Bob", EntityType.ADULT, 30, room);
-        house.addLivingEntity(dad);
-        DeviceType[] arr = new DeviceType[]{
-                DeviceType.COFFEE_MACHINE, DeviceType.DISHWASHER, DeviceType.AIR_CONDITIONER,
-                DeviceType.PET_FEEDER, DeviceType.TV, DeviceType.VACUUM_CLEANER, DeviceType.WASHING_MACHINE
-        };
-        for(DeviceType type:arr){
-            deviceFactory.createDevice(room, type);
-        }
+        Config config = new Config();
+        config.configure();
+        House house = House.getInstance();
+
         for(int i=0; i<interactionCount; i++){
             time = time.plusMinutes(10);
-            dad.findActivity();
+            house.setTime(time);
+            List<LivingEntity> entities = house.getLivingEntities();
             if(time.getMinute()==0){
                 hours = time.getHour();
                 System.out.println(hours + " hours");
                 if(hours==8){
                     strategy = new Morning();
-                    observer.setStrategy(strategy);
+                    dayStrategySetup(entities);
                 }
                 if(hours==14){
                     strategy = new Afternoon();
-                    observer.setStrategy(strategy);
+                    dayStrategySetup(entities);
                 }
                 if(hours==19){
                     strategy = new Evening();
-                    observer.setStrategy(strategy);
+                    dayStrategySetup(entities);
                 }
                 if(hours==0){
                     days++;
                     System.out.println(days + " days");
                     strategy = new Night();
-                    observer.setStrategy(strategy);
+                    nightStrategySetup(entities);
 
-                    Event event = new Event(EventType.TEMPERATURE, room, time);
+                    Event event = new Event(EventType.TEMPERATURE, house.getFloors().get(0).getRooms().get(0), time);
                     EventHandler e = new EventHandler(event);
                     e.notifySystem();
                 }
             }
             if(strategy!=null) {
                 if (!strategy.getActiveDevices().isEmpty()) {
-                    for (Device d : strategy.getActiveDevices()) {
+                    List <Device> devices = new ArrayList<>();
+                    for(Device d:strategy.getActiveDevices()){
+                        devices.add(d);
+                    }
+                    for (Device d : devices) {
                         if (strategy.getCurrentBackActionProgress() == d.getUsingHours()) {
                             d.setCurrentState(new IdleState(d));
                             if(d.getType()== DeviceType.DISHWASHER || d.getType()== DeviceType.WASHING_MACHINE){
                                 Adult.addTask(d);
                             }
-                            System.out.println(d.getType() + " switched off at " + time);
+                            System.out.println(d.getType() + " " + System.identityHashCode(this) + " switched off by system at " + time);
+                            strategy.removeActiveDevice(d);
+                        }
+                        if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
+                            strategy.removeActiveDevice(d);
                         }
                     }
+                    devices.clear();
                     strategy.increaseCBAP();
                 }
                 if (strategy.getActiveDevices().isEmpty() && strategy.getCurrentBackActionProgress()!=0) {
@@ -97,7 +89,46 @@ public class Simulation {
                 }
             }
 
+            for(LivingEntity e: entities){
+                if(e.getCurrentDevice()==null && e.getCurrentEq()==null && hours>=8) {
+                    e.findActivity();
+                }
+                if(e.getCurrentDevice()!=null) {
+                    if (e.getCurrentBackActionProgress() == e.getCurrentDevice().getUsingHours()) {
+                        e.stopCurrentActivity();
+                    } else {
+                        e.increaseCBAP();
+                    }
+                }else if(e.getCurrentEq()!=null){
+                    if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
+                        e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
+                        System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
+                        e.stopCurrentActivity();
+                    } else {
+                        e.increaseCBAP();
+                    }
+                }
+            }
 
+
+        }
+    }
+
+    public void dayStrategySetup(List<LivingEntity> entities){
+        observer.setStrategy(strategy);
+        for(LivingEntity e: entities){
+            if(e.getType()==EntityType.DOG){
+                Pet g = (Pet) e;
+                g.setHungry(true);
+            }
+        }
+    }
+
+    public void nightStrategySetup(List<LivingEntity> entities){
+        observer.setStrategy(strategy);
+        for(LivingEntity e: entities){
+            e.stopCurrentActivity();
+            e.waiting();
         }
     }
 }

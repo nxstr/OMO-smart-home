@@ -1,29 +1,26 @@
 package house;
 
 import items.ElectricalItem;
-import items.device.Device;
 import items.equipment.SportEquipment;
+import livingEntities.LivingEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Room {
-    private final String name;
+public class OutSideArea {
+    private static OutSideArea instance = null;
     private List<ElectricalItem> electricalItems = new ArrayList<>();
     private List<SportEquipment> equipment = new ArrayList<>();
-    private final Floor floor;
+    private List<LivingEntity> entities = new ArrayList<>();
 
-    public Room(String name, Floor floor) {
-        this.name = name;
-        this.floor = floor;
+    public OutSideArea() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Floor getFloor() {
-        return floor;
+    public static OutSideArea getInstance() {
+        if (instance == null){
+            instance = new OutSideArea();
+        }
+        return instance;
     }
 
     public List<ElectricalItem> getElectricalItems() {
@@ -48,4 +45,14 @@ public class Room {
         this.equipment.remove(equipment1);
     }
 
+    public List<LivingEntity> getEntities() {
+        return entities;
+    }
+
+    public void addLivingEntity(LivingEntity entity){
+        this.entities.add(entity);
+    }
+    public void removeLivingEntity(LivingEntity entity){
+        this.entities.remove(entity);
+    }
 }
