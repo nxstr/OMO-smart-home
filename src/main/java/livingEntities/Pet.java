@@ -11,6 +11,7 @@ import items.equipment.SportEquipmentType;
 import items.state.IdleState;
 import items.state.StateType;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
@@ -21,6 +22,8 @@ public class Pet implements LivingEntity{
     private final EntityType type;
     private Room prevRoom;
     private int currentBackActionProgress = 0;
+    private int hungerTicks = 29;
+    private int currentHunger = hungerTicks;
     private final List<Device> devices = DeviceFactory.getInstance().getDevices();
     private final List<SportEquipment> equipments = SportEquipmentFactory.getInstance().getEquipments();
     private boolean isHungry = false;
@@ -28,11 +31,21 @@ public class Pet implements LivingEntity{
     private SportEquipment currentEq = null;
 
 
+
+
     public Pet(String name, EntityType type, Room room) {
         this.name = name;
         this.type = type;
         this.room = room;
         this.prevRoom = null;
+    }
+
+    public int getHungerTicks() {
+        return hungerTicks;
+    }
+
+    public void setHungerTicks(int hungerTicks) {
+        this.hungerTicks = hungerTicks;
     }
 
     public String getName() {
@@ -56,6 +69,9 @@ public class Pet implements LivingEntity{
     }
 
     public boolean isHungry() {
+        if(getCurrentHunger()>=getHungerTicks()){
+            setHungry(true);
+        }
         return isHungry;
     }
 
@@ -119,6 +135,18 @@ public class Pet implements LivingEntity{
     }
     public void increaseCBAP(){
         currentBackActionProgress++;
+        increaseHunger();
+    }
+
+    public int getCurrentHunger(){
+        return currentHunger;
+    }
+    public void increaseHunger(){
+        currentHunger++;
+    }
+
+    public void resetCurrentHunger(int currentHunger) {
+        this.currentHunger = 0;
     }
 
     public void stopCurrentActivity() {
@@ -168,6 +196,8 @@ public class Pet implements LivingEntity{
                         return;
                     }
                     setHungry(false);
+                    resetCurrentHunger(0);
+                    System.out.println(this.getName() + " has hunger " + getCurrentHunger());
                     return;
                 }else if(p.isPortionEated() && isHungry()){
                     System.out.println(this.getName() + " is hungry!!!!!!!!");
@@ -204,5 +234,12 @@ public class Pet implements LivingEntity{
             e.usingEquipment();
             return;
         }
+    }
+
+    public void sleeping(){
+        if(house.getTime().isAfter(LocalTime.of(0, 0)) && house.getTime().isBefore(LocalTime.of(0, 20))){
+            stopCurrentActivity();
+        }
+        increaseHunger();
     }
 }

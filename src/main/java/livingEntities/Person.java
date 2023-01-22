@@ -115,4 +115,7 @@ public abstract class Person implements LivingEntity{
         this.currentEq = currentEq;
     }
 
+    public void sleeping(){
+
+    }
 }

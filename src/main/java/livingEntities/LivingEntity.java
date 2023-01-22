@@ -37,4 +37,6 @@ public interface LivingEntity {
 
     SportEquipment getCurrentEq();
 
+    void sleeping();
+
 }

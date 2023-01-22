@@ -39,19 +39,19 @@ public class Simulation {
             if(time.getMinute()==0){
                 hours = time.getHour();
                 System.out.println(hours + " hours");
-                if(hours==8){
+                if(time.equals(LocalTime.of(8, 0))){
                     strategy = new Morning();
                     dayStrategySetup(entities);
                 }
-                if(hours==14){
+                if(time.equals(LocalTime.of(14, 0))){
                     strategy = new Afternoon();
                     dayStrategySetup(entities);
                 }
-                if(hours==19){
+                if(time.equals(LocalTime.of(19, 0))){
                     strategy = new Evening();
                     dayStrategySetup(entities);
                 }
-                if(hours==0){
+                if(time.equals(LocalTime.of(0, 0))){
                     days++;
                     System.out.println(days + " days");
                     strategy = new Night();
@@ -70,11 +70,14 @@ public class Simulation {
                     }
                     for (Device d : devices) {
                         if (strategy.getCurrentBackActionProgress() == d.getUsingHours()) {
+                            if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
+                                strategy.removeActiveDevice(d);
+                            }
                             d.setCurrentState(new IdleState(d));
                             if(d.getType()== DeviceType.DISHWASHER || d.getType()== DeviceType.WASHING_MACHINE){
                                 Adult.addTask(d);
                             }
-                            System.out.println(d.getType() + " " + System.identityHashCode(this) + " switched off by system at " + time);
+                            System.out.println(d.getType() + " switched off by system at " + time);
                             strategy.removeActiveDevice(d);
                         }
                         if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
@@ -89,46 +92,48 @@ public class Simulation {
                 }
             }
 
-            for(LivingEntity e: entities){
-                if(e.getCurrentDevice()==null && e.getCurrentEq()==null && hours>=8) {
-                    e.findActivity();
-                }
-                if(e.getCurrentDevice()!=null) {
-                    if (e.getCurrentBackActionProgress() == e.getCurrentDevice().getUsingHours()) {
-                        e.stopCurrentActivity();
-                    } else {
-                        e.increaseCBAP();
+            for(LivingEntity e: entities) {
+                if (time.isBefore(LocalTime.of(8, 0))) {
+                    e.sleeping();
+                } else {
+                    if (e.getCurrentDevice() == null && e.getCurrentEq() == null) {
+                        e.findActivity();
                     }
-                }else if(e.getCurrentEq()!=null){
-                    if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
-                        e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
-                        System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
-                        e.stopCurrentActivity();
-                    } else {
-                        e.increaseCBAP();
+                    if (e.getCurrentDevice() != null) {
+                        if (e.getCurrentBackActionProgress() == e.getCurrentDevice().getUsingHours()) {
+                            e.stopCurrentActivity();
+                        } else {
+                            e.increaseCBAP();
+                        }
+                    } else if (e.getCurrentEq() != null) {
+                        if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
+                            e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
+                            System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
+                            e.stopCurrentActivity();
+                        } else {
+                            e.increaseCBAP();
+                        }
                     }
                 }
             }
-
-
         }
     }
 
     public void dayStrategySetup(List<LivingEntity> entities){
         observer.setStrategy(strategy);
-        for(LivingEntity e: entities){
-            if(e.getType()==EntityType.DOG){
-                Pet g = (Pet) e;
-                g.setHungry(true);
-            }
-        }
+//        for(LivingEntity e: entities){
+//            if(e.getType()==EntityType.DOG){
+//                Pet g = (Pet) e;
+//                g.setHungry(true);
+//            }
+//        }
     }
 
     public void nightStrategySetup(List<LivingEntity> entities){
         observer.setStrategy(strategy);
-        for(LivingEntity e: entities){
-            e.stopCurrentActivity();
-            e.waiting();
-        }
+//        for(LivingEntity e: entities){
+//            e.stopCurrentActivity();
+//            e.waiting();
+//        }
     }
 }
