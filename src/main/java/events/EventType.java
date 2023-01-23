@@ -4,5 +4,6 @@ public enum EventType {
     TEMPERATURE,
     WATER_LEAK,
     FIRE,
-    ELECTRICITY;
+    ELECTRICITY,
+    ENTITY;
 }

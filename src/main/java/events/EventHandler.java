@@ -17,6 +17,7 @@ public class EventHandler {
         List<ElectricalItem> sensors = event.getRoom().getElectricalItems().stream()
                 .filter(s -> s.getMainType() == "sensor").toList();
 //        ElectricalItem item = sensors.stream().filter(s -> s.getName() == event.getType().toString());
+
         ElectricalItem sens = null;
         for(ElectricalItem s: sensors){
             if(s.getName() == event.getType().toString()){

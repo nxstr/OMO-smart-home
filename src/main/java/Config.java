@@ -3,6 +3,9 @@ import items.device.DeviceFactory;
 import items.device.DeviceType;
 import items.equipment.SportEquipmentFactory;
 import items.equipment.SportEquipmentType;
+import items.sensors.EntitySensor;
+import items.sensors.SensorFactory;
+import items.sensors.SensorType;
 import items.sensors.TemperatureSensor;
 import livingEntities.Adult;
 import livingEntities.EntityType;
@@ -13,6 +16,7 @@ public class Config {
     private final House.HouseBuilder house = House.newBuilder();
     private final RoomFactory roomFactory = RoomFactory.getInstance();
     private final DeviceFactory deviceFactory = DeviceFactory.getInstance();
+    private final SensorFactory sensorFactory = SensorFactory.getInstance();
     private final SportEquipmentFactory equipmentFactory = SportEquipmentFactory.getInstance();
 
     public void configure(){
@@ -21,8 +25,6 @@ public class Config {
         house.addFloor(floor);
         Room room = roomFactory.create("Bedroom", floor);
         floor.addRoom(room);
-        TemperatureSensor sensor = new TemperatureSensor(room);
-        room.addElectricalItem(sensor);
         Adult dad = new Adult("Bob", EntityType.ADULT, 30, room);
         house.addLivingEntity(dad);
         Pet dog1 = new Pet("Jessy", EntityType.DOG,room);
@@ -35,7 +37,10 @@ public class Config {
         DeviceType[] arr = new DeviceType[]{
                 DeviceType.COFFEE_MACHINE, DeviceType.DISHWASHER, DeviceType.AIR_CONDITIONER,
                 DeviceType.PET_FEEDER, DeviceType.TV, DeviceType.VACUUM_CLEANER, DeviceType.WASHING_MACHINE,
-                DeviceType.PET_FOUNTAIN
+                DeviceType.PET_FOUNTAIN, DeviceType.LOCK
+        };
+        SensorType[] arr1 = new SensorType[]{
+                SensorType.ENTITY, SensorType.TEMPERATURE
         };
         for(DeviceType type:arr){
             if(type == DeviceType.PET_FEEDER){
@@ -47,6 +52,9 @@ public class Config {
             }else{
                 deviceFactory.createDevice(room, type);
             }
+        }
+        for(SensorType type:arr1){
+            sensorFactory.createSensor(room, type);
         }
     }
 }

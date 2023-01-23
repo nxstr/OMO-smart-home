@@ -13,7 +13,8 @@ public enum DeviceType {
     TV("tv"),
     DISHWASHER("dishwasher"),
     WASHING_MACHINE("washing_machine"),
-    AIR_CONDITIONER("air_conditioner");
+    AIR_CONDITIONER("air_conditioner"),
+    LOCK("lock");
 
     private final String name;
 

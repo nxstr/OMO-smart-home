@@ -1,5 +1,8 @@
 package livingEntities;
 
+import events.Event;
+import events.EventHandler;
+import events.EventType;
 import house.Room;
 import items.device.Device;
 import items.device.DeviceFactory;
@@ -92,6 +95,9 @@ public class Pet implements LivingEntity{
         this.prevRoom = this.room;
         this.room = room;
         System.out.println(this.name + " moves to " + this.room.getName());
+        Event event = new Event(EventType.ENTITY, getCurrentRoom(), house.getTime());
+        EventHandler e = new EventHandler(event);
+        e.notifySystem();
     }
 
     @Override
@@ -99,6 +105,9 @@ public class Pet implements LivingEntity{
         this.prevRoom = this.room;
         this.room = null;
         house.goOut(this);
+        Event event = new Event(EventType.ENTITY, getPrevRoom(), house.getTime());
+        EventHandler e = new EventHandler(event);
+        e.notifySystem();
     }
 
     @Override
@@ -123,6 +132,9 @@ public class Pet implements LivingEntity{
         this.room = this.prevRoom;
         this.prevRoom = null;
         System.out.println(this.name + " comes back to house ");
+        Event event = new Event(EventType.ENTITY, getCurrentRoom(), house.getTime());
+        EventHandler e = new EventHandler(event);
+        e.notifySystem();
     }
 
     @Override

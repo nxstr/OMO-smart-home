@@ -1,5 +1,6 @@
 package items.sensors;
 
+import house.House;
 import house.Room;
 import items.ElectricalItem;
 import items.Observer;
@@ -21,12 +22,17 @@ public abstract class Sensor implements ElectricalItem {
     private final int electricityInBrokeState;
     private int brokenTimes =0;
     private Manual manual;
+    private final House house = House.getInstance();
 
     public Sensor(SensorType type, Room currentRoom, int electricityInOnState, int electricityInBrokeState) {
         this.type = type;
         this.currentRoom = currentRoom;
         this.electricityInOnState = electricityInOnState;
         this.electricityInBrokeState = electricityInBrokeState;
+    }
+
+    public House getHouse() {
+        return house;
     }
 
     public String getName(){

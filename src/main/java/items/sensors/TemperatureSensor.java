@@ -27,7 +27,7 @@ public class TemperatureSensor extends Sensor {
                 List<ElectricalItem> items = getCurrentRoom().getElectricalItems().stream()
                         .filter(d -> d.getMainType() == "device").toList();
 
-                ElectricalItem c = items.stream().filter(i -> i.getName() == DeviceType.AIR_CONDITIONER.toString()).filter(i->i.getCurrentState().getType() == StateType.IDLE).findAny().get();
+                ElectricalItem c = items.stream().filter(i -> i.getName() == DeviceType.AIR_CONDITIONER.toString()).filter(i->i.getCurrentState().getType() == StateType.IDLE).filter(i->i.getCurrentRoom()==this.getCurrentRoom()).findAny().get();
                 c.usingDevice();
                 Strategy strategy = Observer.getInstance().getStrategy();
                 if(strategy!=null && c.getCurrentState().getType()==StateType.ACTIVE){

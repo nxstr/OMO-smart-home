@@ -4,11 +4,15 @@ import house.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DeviceFactory {
 
     private static DeviceFactory instance = null;
     private final List<Device> devices = new ArrayList<>();
+    private final List<Device> petDevices = new ArrayList<>();
+    private final List<Device> humanDevices = new ArrayList<>();
+    private final List<Device> systemDevices = new ArrayList<>();
 
     public DeviceFactory() {
     }
@@ -33,11 +37,22 @@ public class DeviceFactory {
             case DISHWASHER -> new Dishwasher(room);
             case WASHING_MACHINE -> new WashingMachine(room);
             case AIR_CONDITIONER -> new AirConditioner(room);
+            case LOCK -> new Lock(room);
             default -> null;
         };
 
         room.addElectricalItem(device);
         devices.add(device);
+        switch (device.getType()) {
+            case TV, GAME_CONSOLE,
+                    COMPUTER, FRIDGE -> humanDevices.add(device);
+            case PET_FEEDER, PET_FOUNTAIN -> petDevices.add(device);
+            case LOCK -> systemDevices.add(device);
+            default -> {
+                humanDevices.add(device);
+                systemDevices.add(device);
+            }
+        }
         return device;
     }
 

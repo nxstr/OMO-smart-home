@@ -22,7 +22,7 @@ public class Morning implements Strategy{
         System.out.println("Its morning strategy");
 
             String[] arr = new String[]{
-                    "coffee_machine", "tv", "pet_feeder", "air_conditioner"
+                    "coffee_machine", "pet_feeder", "air_conditioner"
             };
             for(String s:arr){
                 for(Device d:deviceFactory.getDevices()) {
