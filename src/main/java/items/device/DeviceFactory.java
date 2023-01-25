@@ -38,6 +38,7 @@ public class DeviceFactory {
             case WASHING_MACHINE -> new WashingMachine(room);
             case AIR_CONDITIONER -> new AirConditioner(room);
             case LOCK -> new Lock(room);
+            case FIRE_SUPPRESSION -> new FireSuppression(room);
             default -> null;
         };
 
@@ -48,7 +49,7 @@ public class DeviceFactory {
                     COMPUTER, FRIDGE -> humanDevices.add(device);
             case PET_FEEDER, PET_FOUNTAIN -> petDevices.add(device);
             case LOCK, AIR_CONDITIONER, DISHWASHER,
-                    VACUUM_CLEANER, WASHING_MACHINE -> systemDevices.add(device);
+                    VACUUM_CLEANER, WASHING_MACHINE, FIRE_SUPPRESSION -> systemDevices.add(device);
             default -> {
                 humanDevices.add(device);
                 systemDevices.add(device);

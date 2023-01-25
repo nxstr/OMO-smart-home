@@ -1,11 +1,20 @@
 package items;
 
+import events.Event;
+import events.EventType;
+import house.House;
 import items.device.Device;
+import items.device.DeviceFactory;
+import items.device.DeviceType;
 import items.equipment.SportEquipment;
+import items.equipment.SportEquipmentFactory;
 import items.sensors.Sensor;
+import items.sensors.SensorFactory;
+import items.sensors.SensorType;
 import items.state.ObjectState;
 import items.state.StateType;
 import livingEntities.Adult;
+import livingEntities.Entity;
 import livingEntities.EntityType;
 import livingEntities.LivingEntity;
 import strategy.Strategy;
@@ -17,10 +26,11 @@ import java.util.stream.Collectors;
 
 public class Observer {
     private static Observer instance = null;
-    private List<Device> devices = new ArrayList<>();
-    private List<SportEquipment> sports = new ArrayList<>();
-    private List<Sensor> sensors = new ArrayList<>();
+    private DeviceFactory deviceFactory = DeviceFactory.getInstance();
+    private SportEquipmentFactory equipmentFactory = SportEquipmentFactory.getInstance();
+    private SensorFactory sensorFactory = SensorFactory.getInstance();
     private Strategy strategy;
+    private House house = House.getInstance();
 
     private Observer() {
     }
@@ -44,6 +54,14 @@ public class Observer {
 
     public void handleDeviceReport(Device device){
         //generate report: used times, electricity used, etc.
+        if(device.getType() == DeviceType.FIRE_SUPPRESSION && device.getCurrentState().getType() == StateType.IDLE){
+            for(LivingEntity e: device.getHouse().getLivingEntities()){
+                e.setAlarmMode(false);
+            }
+            for(Sensor e: sensorFactory.getSensors()){
+                e.setAlarmMode(false);
+            }
+        }
         Adult.addTask(device);
     }
 
@@ -51,44 +69,12 @@ public class Observer {
         //generate report: used times, electricity used, etc.
     }
 
-//    public Device getFreeDevice(LivingEntity entity){
-//        List<Device> freeDevices = null;
-//        if(entity.getType()== EntityType.DOG || entity.getType()== EntityType.CAT){
-//            freeDevices = devices.stream()
-//                    .filter(device -> device.getCurrentState().getType() == StateType.IDLE).filter(device -> !device.isForHuman())
-//                    .collect(Collectors.toList());
-//        }else{
-//            freeDevices = devices.stream()
-//                    .filter(device -> device.getCurrentState().getType() == StateType.IDLE).filter(Device::isForHuman)
-//                    .collect(Collectors.toList());
-//            List<Device> nearestDevices = freeDevices.stream().filter(d -> d.getCurrentRoom()==entity.getCurrentRoom()).toList();
-//            if(!nearestDevices.isEmpty()){
-//                freeDevices = nearestDevices;
-//            }
-//        }
-//        if (freeDevices.isEmpty()) {
-//            return null;
-//        }
-//
-//        int randomIndexOfList = new Random().nextInt(freeDevices.size());
-//        return freeDevices.get(randomIndexOfList);
-//    }
-
-//    public SportEquipment getFreeSport(){
-//        List<SportEquipment> freeSports = sports.stream()
-//                .filter(sport -> sport.getCurrentState().getType() == StateType.IDLE)
-//                .collect(Collectors.toList());
-//        if (freeSports.isEmpty()) {
-//            return null;
-//        }
-//
-//        int randomIndexOfList = new Random().nextInt(freeSports.size());
-//        return freeSports.get(randomIndexOfList);
-//    }
-
     public void handleSensorReport(Sensor sensor){
-        if(sensor.isAlarmMode()){
-            System.out.println("!!!EmErGeNcY bEhAvIoR!!!");
+        if(sensor.isAlarmMode() && sensor.getCurrentState().getType()!=StateType.BROKEN){
+            System.out.println("!!!EmErGeNcY bEhAvIoR!!! here");
+            for(LivingEntity e: sensor.getHouse().getLivingEntities()){
+                e.setAlarmMode(true);
+            }
         }
         else if(sensor.getCurrentState().getType() == StateType.BROKEN){
             //add task to adult
@@ -101,7 +87,28 @@ public class Observer {
 
     }
 
-    public void eventHandler(){
-        System.out.println("things dont go good, its time for EmErGeNcY bEhAvIoR");
+    public void eventHandler(Event event){
+        System.out.println("Event " + event.getType() + " is handled at " + event.getTime());
+        List<Sensor> sensors;
+        if(event.getType() == EventType.ENTITY){
+            sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.ENTITY).toList();
+        }else {
+            sensors = sensorFactory.getSensors().stream()
+                    .filter(s -> s.getCurrentRoom() == event.getRoom()).filter(s -> s.getName() == event.getType().toString()).toList();
+        }
+//        ElectricalItem item = sensors.stream().filter(s -> s.getName() == event.getType().toString());
+
+        ElectricalItem sens = null;
+        for(ElectricalItem s: sensors){
+            if(s.getName() == event.getType().toString()){
+                sens = s;
+            }
+        }
+        if(sens!=null){
+            sens.usingDevice();
+            System.out.println("at time " + event.getTime());
+        }else{
+            System.out.println("!!!EmErGeNcY bEhAvIoR!!!");
+        }
     }
 }

@@ -7,6 +7,7 @@ import items.equipment.SportEquipment;
 import items.sensors.Sensor;
 import items.state.StateType;
 
+import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -25,18 +26,25 @@ public class Adult extends Person{
 
     @Override
     public void findActivity() {
-        if(isHungry()){
-            useFeed();
-        }else if(!getToDoList().isEmpty()){
-            doTasks();
-        }else{
-            int rand = new Random().nextInt(100);
-            if(rand<40){
-                useDevice();
-            }else if(rand>=40 && rand<=80){
-                useEquipment();
-            }else{
-                waiting();
+        if(house.getTime().isBefore(LocalTime.of(8, 0))){
+            sleeping();
+        }else {
+            if(isAsleep()) {
+                setAsleep(false);
+            }
+            else if (isHungry()) {
+                useFeed();
+            } else if (!getToDoList().isEmpty()) {
+                doTasks();
+            } else {
+                int rand = new Random().nextInt(100);
+                if (rand < 40) {
+                    useDevice();
+                } else if (rand >= 40 && rand <= 80) {
+                    useEquipment();
+                } else {
+                    waiting();
+                }
             }
         }
     }

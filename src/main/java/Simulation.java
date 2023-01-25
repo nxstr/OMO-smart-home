@@ -1,5 +1,4 @@
 import events.Event;
-import events.EventHandler;
 import events.EventType;
 import house.House;
 import items.Observer;
@@ -52,11 +51,10 @@ public class Simulation {
                             if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
                                 strategy.removeActiveDevice(d);
                             }
-                            d.setCurrentState(new IdleState(d));
+                            d.stopDevice();
                             if(d.getType()== DeviceType.DISHWASHER || d.getType()== DeviceType.WASHING_MACHINE){
                                 Adult.addTask(d);
                             }
-                            System.out.println(d.getType() + " switched off by system at " + time);
                             strategy.removeActiveDevice(d);
                         }
                         if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
@@ -72,28 +70,27 @@ public class Simulation {
             }
 
             for(LivingEntity e: entities) {
-                if (time.isBefore(LocalTime.of(8, 0))) {
-                    e.sleeping();
-                } else {
-                    if (e.getCurrentDevice() == null && e.getCurrentEq() == null) {
-                        e.findActivity();
-                    }
-                    if (e.getCurrentDevice() != null) {
-                        if (e.getCurrentBackActionProgress() == e.getCurrentDevice().getUsingHours()) {
-                            e.stopCurrentActivity();
-                        } else {
-                            e.increaseCBAP();
+                if(!e.isAlarmMode()) {
+                        if (e.getCurrentDevice() == null && e.getCurrentEq() == null) {
+                            e.findActivity();
                         }
-                    } else if (e.getCurrentEq() != null) {
-                        if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
-                            e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
-                            System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
-                            e.stopCurrentActivity();
-                        } else {
-                            e.increaseCBAP();
+                        if (e.getCurrentDevice() != null) {
+                            if (e.getCurrentBackActionProgress() == e.getCurrentDevice().getUsingHours()) {
+                                e.stopCurrentActivity();
+                            } else {
+                                e.increaseCBAP();
+                            }
+                        } else if (e.getCurrentEq() != null) {
+                            if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
+                                e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
+                                System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
+                                e.stopCurrentActivity();
+                            } else {
+                                e.increaseCBAP();
+                            }
                         }
-                    }
-                    e.increaseHunger();
+                        e.increaseHunger();
+
                 }
             }
         }
@@ -128,9 +125,8 @@ public class Simulation {
             strategy = new Night();
             nightStrategySetup();
 
-            Event event = new Event(EventType.TEMPERATURE, house.getFloors().get(0).getRooms().get(0), time);
-            EventHandler e = new EventHandler(event);
-            e.notifySystem();
+            Event event = new Event(EventType.FIRE, house.getFloors().get(0).getRooms().get(0), time);
+            observer.eventHandler(event);
         }
     }
 }

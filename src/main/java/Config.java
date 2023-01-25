@@ -19,7 +19,9 @@ public class Config {
         house.setOutSideArea(OutSideArea.getInstance());
         house.addFloor(floor);
         Room room = roomFactory.create("Bedroom", floor);
+        Room room1 = roomFactory.create("Garage", floor);
         floor.addRoom(room);
+        floor.addRoom(room1);
         Adult dad = new Adult("Bob", EntityType.ADULT, room, 30);
         Child kid = new Child("Artur", EntityType.CHILD, room, 8);
         house.addLivingEntity(dad);
@@ -29,16 +31,16 @@ public class Config {
         house.addLivingEntity(dog1);
         house.addLivingEntity(dog2);
         House house1 = house.build();
-        equipmentFactory.createEquipment(room, SportEquipmentType.PET_TOY);
-        equipmentFactory.createEquipment(room, SportEquipmentType.PET_TOY);
-        equipmentFactory.createEquipment(room, SportEquipmentType.BICYCLE);
+        equipmentFactory.createEquipment(room1, SportEquipmentType.PET_TOY);
+        equipmentFactory.createEquipment(room1, SportEquipmentType.PET_TOY);
+        equipmentFactory.createEquipment(room1, SportEquipmentType.BICYCLE);
         DeviceType[] arr = new DeviceType[]{
                 DeviceType.COFFEE_MACHINE, DeviceType.DISHWASHER, DeviceType.AIR_CONDITIONER,
                 DeviceType.PET_FEEDER, DeviceType.TV, DeviceType.VACUUM_CLEANER, DeviceType.WASHING_MACHINE,
-                DeviceType.PET_FOUNTAIN, DeviceType.LOCK, DeviceType.FRIDGE
+                DeviceType.PET_FOUNTAIN, DeviceType.LOCK, DeviceType.FRIDGE, DeviceType.FIRE_SUPPRESSION
         };
         SensorType[] arr1 = new SensorType[]{
-                SensorType.ENTITY, SensorType.TEMPERATURE
+                SensorType.ENTITY, SensorType.TEMPERATURE, SensorType.FIRE
         };
         for(DeviceType type:arr){
             if(type == DeviceType.PET_FEEDER){
@@ -47,12 +49,23 @@ public class Config {
                         deviceFactory.createDevice(room, DeviceType.PET_FEEDER);
                     }
                 }
-            }else{
+            }else if(type == DeviceType.FIRE_SUPPRESSION){
+                for(Room r: floor.getRooms()){
+                    deviceFactory.createDevice(r, type);
+                }
+            }
+            else{
                 deviceFactory.createDevice(room, type);
             }
         }
         for(SensorType type:arr1){
-            sensorFactory.createSensor(room, type);
+            if(type == SensorType.FIRE) {
+                for (Room r : floor.getRooms()) {
+                    sensorFactory.createSensor(r, type);
+                }
+            }else {
+                sensorFactory.createSensor(room, type);
+            }
         }
     }
 }

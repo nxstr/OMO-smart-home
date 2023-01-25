@@ -14,7 +14,8 @@ public enum DeviceType {
     DISHWASHER("dishwasher"),
     WASHING_MACHINE("washing_machine"),
     AIR_CONDITIONER("air_conditioner"),
-    LOCK("lock");
+    LOCK("lock"),
+    FIRE_SUPPRESSION("fire_suppression");
 
     private final String name;
 

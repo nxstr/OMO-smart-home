@@ -24,6 +24,7 @@ public class SensorFactory {
             Sensor sensor = switch (type) {
                 case TEMPERATURE -> new TemperatureSensor(room);
                 case ENTITY -> new EntitySensor(room);
+                case FIRE -> new FireSensor(room);
                 default -> null;
             };
 

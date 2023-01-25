@@ -4,6 +4,7 @@ import house.House;
 import house.Room;
 import items.ElectricalItem;
 import items.Observer;
+import items.device.DeviceFactory;
 import items.device.Manual;
 import items.state.*;
 import livingEntities.LivingEntity;
@@ -15,6 +16,7 @@ public abstract class Sensor implements ElectricalItem {
     private final SensorType type;
     private ObjectState currentState = new ActiveState(this);
     private boolean alarmMode = false;
+
 
     private int usingHours = 24*6;
     private final Room currentRoom;

@@ -10,6 +10,7 @@ import items.equipment.SportEquipmentFactory;
 import items.equipment.SportEquipmentType;
 import items.state.StateType;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
@@ -42,16 +43,23 @@ public class Pet extends Entity{
 
     @Override
     public void findActivity() {
-        if(isHungry()){
-            useFeed();
-        }else{
-            int rand = new Random().nextInt(100);
-            if(rand<20){
-                useDevice();
-            }else if(rand>=20 && rand<=70){
-                useEquipment();
-            }else{
-                waiting();
+        if(house.getTime().isBefore(LocalTime.of(8, 0))){
+            sleeping();
+        }else {
+            if(isAsleep()) {
+                setAsleep(false);
+            }
+            else if (isHungry()) {
+                useFeed();
+            } else {
+                int rand = new Random().nextInt(100);
+                if (rand < 20) {
+                    useDevice();
+                } else if (rand >= 20 && rand <= 70) {
+                    useEquipment();
+                } else {
+                    waiting();
+                }
             }
         }
     }
@@ -61,6 +69,7 @@ public class Pet extends Entity{
         for(Device d:petDevices) {
                 PetFeeder p = (PetFeeder) d;
                 if (!p.isPortionEated() && isHungry()) {
+                    moveToRoom(p.getCurrentRoom());
                     setCurrentDevice(p);
                     System.out.println(this.getName() + " is eating!!!");
                     p.usingDeviceByPet();
@@ -83,6 +92,7 @@ public class Pet extends Entity{
         List<Device> petDevices = getDevices().stream().filter(d->d.getCurrentState().getType() == StateType.IDLE).filter(d->d.getType() != DeviceType.PET_FEEDER).toList();
 
         for(Device d:petDevices) {
+                moveToRoom(d.getCurrentRoom());
                 setCurrentDevice(d);
                 System.out.println(this.getName() + " is drinking!!!");
                 d.usingDevice();
@@ -98,6 +108,7 @@ public class Pet extends Entity{
     public void useEquipment() {
         List<SportEquipment> eq = getEquipments().stream().filter(d->d.getType() == SportEquipmentType.PET_TOY).filter(d->d.getCurrentState().getType() == StateType.IDLE).toList();
         for(SportEquipment e: eq){
+            moveToRoom(e.getCurrentRoom());
             setCurrentEq(e);
             System.out.println(this.getName() + " is playing!!!");
             int rand = new Random().nextInt(30);

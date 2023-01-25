@@ -26,18 +26,23 @@ public abstract class Person extends Entity{
 
     @Override
     public void findActivity() {
-        if(house.getTime().isAfter(LocalTime.of(22, 0)) && age<16){
+        if((house.getTime().isAfter(LocalTime.of(22, 0)) || house.getTime().isBefore(LocalTime.of(8, 0))) && age<16){
             sleeping();
-        }else if(isHungry()){
-            useFeed();
-        }else{
-            int rand = new Random().nextInt(100);
-            if(rand<35){
-                useDevice();
-            }else if(rand>=35 && rand<=75){
-                useEquipment();
-            }else{
-                waiting();
+        }else {
+            if(isAsleep()) {
+                setAsleep(false);
+            }
+            else if (isHungry()) {
+                useFeed();
+            } else {
+                int rand = new Random().nextInt(100);
+                if (rand < 35) {
+                    useDevice();
+                } else if (rand >= 35 && rand <= 75) {
+                    useEquipment();
+                } else {
+                    waiting();
+                }
             }
         }
     }
@@ -45,6 +50,7 @@ public abstract class Person extends Entity{
     public void useFeed(){
         List<Device> fridges = devices.stream().filter(d->d.getType()== DeviceType.FRIDGE).filter(d->d.getCurrentState().getType()== StateType.IDLE).toList();
         if(!fridges.isEmpty()){
+            moveToRoom(fridges.get(0).getCurrentRoom());
             System.out.println(this.getName() + " is eating!!!");
             fridges.get(0).usingDevice();
             setCurrentDevice(fridges.get(0));
@@ -74,11 +80,13 @@ public abstract class Person extends Entity{
         List<SportEquipment> freeEquipment = equipments.stream().filter(e->e.getType()!= SportEquipmentType.PET_TOY).filter(e->e.getCurrentState().getType()==StateType.IDLE).toList();
         if(!freeEquipment.isEmpty()) {
             int rand = new Random().nextInt(freeEquipment.size());
+            SportEquipment e = freeEquipment.get(rand);
+            moveToRoom(e.getCurrentRoom());
+            e.usingEquipment();
             goOut();
-            freeEquipment.get(rand).usingEquipment();
             System.out.println(this.getName() + " is goes sport outside!!!");
-            setCurrentEq(freeEquipment.get(rand));
-            if(freeEquipment.get(rand).getCurrentState().getType()==StateType.BROKEN){
+            setCurrentEq(e);
+            if(e.getCurrentState().getType()==StateType.BROKEN){
                 stopCurrentActivity();
                 return;
             }
@@ -87,6 +95,7 @@ public abstract class Person extends Entity{
 
     public void useRandomDevice(List<Device> freeDevices){
         int rand = new Random().nextInt(freeDevices.size());
+        moveToRoom(freeDevices.get(rand).getCurrentRoom());
         freeDevices.get(rand).usingDevice();
         setCurrentDevice(freeDevices.get(rand));
         System.out.println(this.getName() + " is using device " + freeDevices.get(rand).getType());

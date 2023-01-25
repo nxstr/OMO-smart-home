@@ -42,4 +42,8 @@ public interface LivingEntity {
 
     void increaseHunger();
 
+    boolean isAlarmMode();
+
+    void setAlarmMode(boolean alarmMode);
+
 }
