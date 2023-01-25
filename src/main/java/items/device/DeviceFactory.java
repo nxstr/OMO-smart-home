@@ -47,7 +47,8 @@ public class DeviceFactory {
             case TV, GAME_CONSOLE,
                     COMPUTER, FRIDGE -> humanDevices.add(device);
             case PET_FEEDER, PET_FOUNTAIN -> petDevices.add(device);
-            case LOCK -> systemDevices.add(device);
+            case LOCK, AIR_CONDITIONER, DISHWASHER,
+                    VACUUM_CLEANER, WASHING_MACHINE -> systemDevices.add(device);
             default -> {
                 humanDevices.add(device);
                 systemDevices.add(device);
@@ -72,5 +73,17 @@ public class DeviceFactory {
 
     public List<Device> getDevices() {
         return devices;
+    }
+
+    public List<Device> getPetDevices() {
+        return petDevices;
+    }
+
+    public List<Device> getHumanDevices() {
+        return humanDevices;
+    }
+
+    public List<Device> getSystemDevices() {
+        return systemDevices;
     }
 }

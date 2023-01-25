@@ -9,6 +9,6 @@ public class GameConsole extends Device{
     private static final int electricityInOffState = 1;
 
     public GameConsole(Room currentRoom) {
-        super(DeviceType.GAME_CONSOLE, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.GAME_CONSOLE, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 }

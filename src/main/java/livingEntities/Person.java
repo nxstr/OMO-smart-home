@@ -2,120 +2,97 @@ package livingEntities;
 
 import house.Room;
 import items.device.Device;
+import items.device.DeviceFactory;
+import items.device.DeviceType;
 import items.equipment.SportEquipment;
-import items.state.IdleState;
+import items.equipment.SportEquipmentFactory;
+import items.equipment.SportEquipmentType;
+import items.state.StateType;
 
-public abstract class Person implements LivingEntity{
-    private final String name;
-    private Room room;
-    private final EntityType type;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Random;
+
+public abstract class Person extends Entity{
     private final int age;
-    private Room prevRoom;
-    private int currentBackActionProgress = 0;
-    private Device currentDevice = null;
-    private SportEquipment currentEq = null;
+    private List<Device> devices = DeviceFactory.getInstance().getHumanDevices();
+    private final List<SportEquipment> equipments = SportEquipmentFactory.getInstance().getEquipments();
 
 
-    public Person(String name, EntityType type, int age, Room room) {
-        this.name = name;
-        this.type = type;
+    public Person(String name, EntityType type, Room room, int age, int hungerTicks) {
+        super(name, type, room, hungerTicks);
         this.age = age;
-        this.room = room;
-        this.prevRoom = null;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public void findActivity() {
+        if(house.getTime().isAfter(LocalTime.of(22, 0)) && age<16){
+            sleeping();
+        }else if(isHungry()){
+            useFeed();
+        }else{
+            int rand = new Random().nextInt(100);
+            if(rand<35){
+                useDevice();
+            }else if(rand>=35 && rand<=75){
+                useEquipment();
+            }else{
+                waiting();
+            }
+        }
     }
 
-    public EntityType getType() {
-        return type;
+    public void useFeed(){
+        List<Device> fridges = devices.stream().filter(d->d.getType()== DeviceType.FRIDGE).filter(d->d.getCurrentState().getType()== StateType.IDLE).toList();
+        if(!fridges.isEmpty()){
+            System.out.println(this.getName() + " is eating!!!");
+            fridges.get(0).usingDevice();
+            setCurrentDevice(fridges.get(0));
+            if(fridges.get(0).getCurrentState().getType()==StateType.BROKEN){
+                stopCurrentActivity();
+                return;
+            }
+            resetCurrentHunger();
+            System.out.println(this.getName() + " has hunger " + getCurrentHunger());
+        }
+    }
+
+    public List<Device> getDevices() {
+        return devices;
+    }
+
+    public List<SportEquipment> getEquipments() {
+        return equipments;
     }
 
     public int getAge() {
         return age;
     }
 
-    public Room getPrevRoom(){
-        return prevRoom;
+    @Override
+    public void useEquipment() {
+        List<SportEquipment> freeEquipment = equipments.stream().filter(e->e.getType()!= SportEquipmentType.PET_TOY).filter(e->e.getCurrentState().getType()==StateType.IDLE).toList();
+        if(!freeEquipment.isEmpty()) {
+            int rand = new Random().nextInt(freeEquipment.size());
+            goOut();
+            freeEquipment.get(rand).usingEquipment();
+            System.out.println(this.getName() + " is goes sport outside!!!");
+            setCurrentEq(freeEquipment.get(rand));
+            if(freeEquipment.get(rand).getCurrentState().getType()==StateType.BROKEN){
+                stopCurrentActivity();
+                return;
+            }
+        }
     }
 
-    @Override
-    public void waiting() {
-        System.out.println("Person: " + name + " is waiting for now");
-    }
-
-    @Override
-    public void moveToRoom(Room room){
-        if (this.room == room) {
+    public void useRandomDevice(List<Device> freeDevices){
+        int rand = new Random().nextInt(freeDevices.size());
+        freeDevices.get(rand).usingDevice();
+        setCurrentDevice(freeDevices.get(rand));
+        System.out.println(this.getName() + " is using device " + freeDevices.get(rand).getType());
+        if(freeDevices.get(rand).getCurrentState().getType()==StateType.BROKEN){
+            stopCurrentActivity();
             return;
         }
-        this.prevRoom = this.room;
-        this.room = room;
-        System.out.println(this.name + " moves to " + this.room.getName());
-    }
-
-    @Override
-    public void goOut(){
-        this.prevRoom = this.room;
-        this.room = null;
-        house.goOut(this);
-
-    }
-
-    @Override
-    public void comeBack(){
-        house.comeBack(this);
-        this.room = this.prevRoom;
-        this.prevRoom = null;
-        System.out.println(this.name + " comes back to house ");
-    }
-
-    @Override
-    public Room getCurrentRoom(){
-        return this.room;
-    }
-
-    public int getCurrentBackActionProgress(){
-        return currentBackActionProgress;
-    }
-    public void increaseCBAP(){
-        currentBackActionProgress++;
-    }
-
-    public void stopCurrentActivity() {
-
-        this.currentBackActionProgress = 0;
-        if(getCurrentRoom()==null){
-            comeBack();
-        }
-        if(getCurrentDevice()!=null){
-            getCurrentDevice().stopDevice(this);
-            setCurrentDevice(null);
-        }
-        if(getCurrentEq()!=null){
-            getCurrentEq().setCurrentState(new IdleState(getCurrentEq()));
-            setCurrentEq(null);
-        }
-    }
-
-    public Device getCurrentDevice() {
-        return currentDevice;
-    }
-
-    public void setCurrentDevice(Device currentDevice) {
-        this.currentDevice = currentDevice;
-    }
-
-    public SportEquipment getCurrentEq() {
-        return currentEq;
-    }
-
-    public void setCurrentEq(SportEquipment currentEq) {
-        this.currentEq = currentEq;
-    }
-
-    public void sleeping(){
-
     }
 }

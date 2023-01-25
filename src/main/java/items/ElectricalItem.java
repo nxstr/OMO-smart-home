@@ -3,6 +3,7 @@ package items;
 import house.Room;
 import items.device.Manual;
 import items.state.ObjectState;
+import livingEntities.LivingEntity;
 
 import java.time.LocalTime;
 
@@ -37,8 +38,6 @@ public interface ElectricalItem {
 
     void addUsedElectricity(int electricity);
 
-    void usingElectricity();
-
     void breakingItem();
 
     void fixingItem();
@@ -50,4 +49,6 @@ public interface ElectricalItem {
     void breakingEvent();
 
     void usingDevice();
+
+    void stopDevice();
 }

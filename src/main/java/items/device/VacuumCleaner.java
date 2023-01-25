@@ -8,6 +8,6 @@ public class VacuumCleaner extends Device{
     private static final int electricityInOnState = 0; //standing on charger
     private static final int electricityInOffState = 5; //while cleaning
     public VacuumCleaner(Room currentRoom) {
-        super(DeviceType.VACUUM_CLEANER, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.VACUUM_CLEANER, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 }

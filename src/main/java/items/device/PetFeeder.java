@@ -18,7 +18,7 @@ public class PetFeeder extends Device{
 
 
     public PetFeeder(Room currentRoom) {
-        super(DeviceType.PET_FEEDER, false, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.PET_FEEDER, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 
     public boolean isEmpty(){
@@ -26,7 +26,9 @@ public class PetFeeder extends Device{
     }
 
     public void refill(){
+        System.out.println("Pet feeder is filled");
         currentCapacity = maxCapacity;
+        setCurrentState(new IdleState(this));
     }
 
     public boolean isPortionEated() {
@@ -62,6 +64,14 @@ public class PetFeeder extends Device{
             setUsedTimes(getUsedTimes() + 1);
             setPortionEated(true);
             breakingEvent();
+        }
+    }
+
+    public void fixingItem() {
+        if(currentCapacity==0){
+            refill();
+        }else{
+            super.fixingItem();
         }
     }
 }

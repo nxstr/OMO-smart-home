@@ -15,33 +15,31 @@ public class Afternoon implements Strategy{
     private LocalTime time = LocalTime.of(14, 0);
 
     public Afternoon() {
-        System.out.println("Its afternoon strategy");
-
-            String[] arr = new String[]{
-                    "dishwasher", "pet_feeder", "vacuum_cleaner", "washing_machine"
-            };
-            for(String s:arr){
-                for(Device d:deviceFactory.getDevices()) {
-
-                    if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
-                        try {
-                            d.usingDevice();
-                            if(d.getCurrentState().getType() == StateType.ACTIVE) {
-                                activatedDevices.add(d);
-                            }
-                        } catch (Exception e) {
-                            System.out.println("This device doesnot exist in the house");
-                        }
-                    }
-
-                }
-            }
-
     }
 
     @Override
-    public void findActivity(LivingEntity entity) {
-        //
+    public void setup() {
+        System.out.println("Its afternoon strategy");
+
+        String[] arr = new String[]{
+                "dishwasher", "pet_feeder", "vacuum_cleaner", "washing_machine"
+        };
+        for(String s:arr){
+            for(Device d:deviceFactory.getDevices()) {
+
+                if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
+                    try {
+                        d.usingDevice();
+                        if(d.getCurrentState().getType() == StateType.ACTIVE) {
+                            activatedDevices.add(d);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("This device doesnot exist in the house");
+                    }
+                }
+
+            }
+        }
     }
 
     @Override

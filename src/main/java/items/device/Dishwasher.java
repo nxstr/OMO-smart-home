@@ -18,7 +18,7 @@ public class Dishwasher extends Device{
     private boolean isClean = false;
 
     public Dishwasher(Room currentRoom) {
-        super(DeviceType.DISHWASHER, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.DISHWASHER, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 
     public boolean isEmpty(){

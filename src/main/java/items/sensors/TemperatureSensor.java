@@ -33,6 +33,7 @@ public class TemperatureSensor extends Sensor {
                 if(strategy!=null && c.getCurrentState().getType()==StateType.ACTIVE){
                     strategy.addActiveDevice((Device) c);
                 }
+                breakingEvent();
             }else{
                 throw new Exception("this sensor is not working");
             }

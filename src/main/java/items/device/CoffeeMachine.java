@@ -3,6 +3,8 @@ package items.device;
 import house.Room;
 import items.state.BrokenState;
 import items.state.ActiveState;
+import items.state.FixingState;
+import items.state.IdleState;
 
 import java.time.LocalTime;
 
@@ -15,7 +17,7 @@ public class CoffeeMachine extends Device{
     private int currentCapacity = maxCapacity;
 
     public CoffeeMachine(Room currentRoom) {
-        super(DeviceType.COFFEE_MACHINE, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.COFFEE_MACHINE, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 
     public boolean isEmpty() {
@@ -25,6 +27,7 @@ public class CoffeeMachine extends Device{
     public void refill() {
         System.out.println("Coffee Machine is filled");
         currentCapacity = maxCapacity;
+        setCurrentState(new IdleState(this));
     }
 
     public void usingDevice() {
@@ -38,6 +41,14 @@ public class CoffeeMachine extends Device{
             setCurrentState(new ActiveState(this));
             System.out.println("Coffee Machine is starting at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left");
             breakingEvent();
+        }
+    }
+
+    public void fixingItem() {
+        if(currentCapacity==0){
+            refill();
+        }else{
+            super.fixingItem();
         }
     }
 }

@@ -14,6 +14,12 @@ public class Evening implements Strategy {
     private int currentBackActionProgress = 0;
     private LocalTime time = LocalTime.of(19, 0);
     public Evening() {
+
+
+    }
+
+    @Override
+    public void setup(){
         System.out.println("Its afternoon strategy");
 
         String[] arr = new String[]{
@@ -35,12 +41,6 @@ public class Evening implements Strategy {
 
             }
         }
-
-    }
-
-    @Override
-    public void findActivity(LivingEntity entity) {
-        //
     }
 
     @Override

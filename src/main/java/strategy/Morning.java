@@ -19,27 +19,7 @@ public class Morning implements Strategy{
     private LocalTime time = LocalTime.of(8, 0);
 
     public Morning() {
-        System.out.println("Its morning strategy");
 
-            String[] arr = new String[]{
-                    "coffee_machine", "pet_feeder", "air_conditioner"
-            };
-            for(String s:arr){
-                for(Device d:deviceFactory.getDevices()) {
-
-                        if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
-                            try {
-                            d.usingDevice();
-                                if(d.getCurrentState().getType() == StateType.ACTIVE) {
-                                    activatedDevices.add(d);
-                                }
-                            } catch (Exception e) {
-                                System.out.println("This device doesnot exist in the house");
-                            }
-                        }
-
-                }
-        }
     }
 
     public List<Device> getActiveDevices(){
@@ -48,8 +28,28 @@ public class Morning implements Strategy{
 
 
     @Override
-    public void findActivity(LivingEntity entity) {
+    public void setup(){
+        System.out.println("Its morning strategy");
 
+        String[] arr = new String[]{
+                "coffee_machine", "pet_feeder", "air_conditioner"
+        };
+        for(String s:arr){
+            for(Device d:deviceFactory.getDevices()) {
+
+                if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
+                    try {
+                        d.usingDevice();
+                        if(d.getCurrentState().getType() == StateType.ACTIVE) {
+                            activatedDevices.add(d);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("This device doesnot exist in the house");
+                    }
+                }
+
+            }
+        }
     }
     public int getCurrentBackActionProgress(){
         return currentBackActionProgress;

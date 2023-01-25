@@ -14,7 +14,7 @@ public class PetFountain extends Device{
     private static final int electricityInOffState = 1;
 
     public PetFountain(Room currentRoom) {
-        super(DeviceType.PET_FOUNTAIN, false, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.PET_FOUNTAIN, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 
     public boolean isDirty(){

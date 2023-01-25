@@ -51,22 +51,8 @@ public abstract class SportEquipment {
         this.usedTimes = usedTimes;
     }
 
-    public void resetUsedTimes(){
-        this.usedTimes = 0;
-    }
-
     public void usingEquipment(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-    }
-
-    void goOutFromHome(Person person){
-        usingEquipment();
-        house.goOut(person);
-    }
-
-    void comeBackHome(Person person){
-        setCurrentState(new IdleState(this));
-        house.comeBack(person);
     }
 }

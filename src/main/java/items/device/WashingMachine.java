@@ -17,7 +17,7 @@ public class WashingMachine extends Device{
 
 
     public WashingMachine(Room currentRoom) {
-        super(DeviceType.WASHING_MACHINE, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.WASHING_MACHINE, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 
     public boolean isEmpty(){

@@ -9,6 +9,6 @@ public class Television extends Device{
     private static final int electricityInOffState = 2;
 
     public Television(Room currentRoom) {
-        super(DeviceType.TV, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.TV, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 }

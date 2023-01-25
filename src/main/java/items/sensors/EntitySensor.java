@@ -28,13 +28,14 @@ public class EntitySensor extends Sensor{
             List<ElectricalItem> locks = items.stream().filter(i -> i.getName() == DeviceType.LOCK.toString()).toList();
             for(ElectricalItem c:locks) {
                 if (getHouse().getOutSideArea().getEntities().isEmpty()) {
-                    System.out.println("Activating lock at " + getHouse().getTime() + "------------------");
+                    System.out.println("Activating lock at " + getHouse().getTime());
                     c.usingDevice();
                 }else{
-                    System.out.println("Stopping lock at " + getHouse().getTime() + "-----------------------");
+                    System.out.println("Stopping lock at " + getHouse().getTime());
                     c.setCurrentState(new IdleState((Device) c));
                 }
             }
+            breakingEvent();
         }
     }
 }

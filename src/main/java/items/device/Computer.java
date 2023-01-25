@@ -9,6 +9,6 @@ public class Computer extends Device {
     private static final int electricityInOffState = 2;
 
     public Computer(Room currentRoom) {
-        super(DeviceType.COMPUTER, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.COMPUTER, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 }

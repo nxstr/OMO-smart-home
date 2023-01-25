@@ -9,6 +9,6 @@ public class Lock extends Device{
     private static final int electricityInOffState = 1;
 
     public Lock(Room currentRoom) {
-        super(DeviceType.LOCK, true, usingHours, currentRoom, electricityInOnState, electricityInOffState);
+        super(DeviceType.LOCK, usingHours, currentRoom, electricityInOnState, electricityInOffState);
     }
 }

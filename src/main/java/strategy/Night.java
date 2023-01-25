@@ -14,6 +14,10 @@ public class Night implements Strategy{
     private int currentBackActionProgress = 0;
 
     public Night() {
+    }
+
+    @Override
+    public void setup(){
         System.out.println("Its night strategy");
         for(Device d: deviceFactory.getDevices()){
             if(d.getCurrentState().getType()== StateType.ACTIVE) {
@@ -21,11 +25,6 @@ public class Night implements Strategy{
             }
             d.generateReportForDay();
         }
-    }
-
-    @Override
-    public void findActivity(LivingEntity entity) {
-        System.out.println(entity.getType() + "is sleeping");
     }
 
     @Override

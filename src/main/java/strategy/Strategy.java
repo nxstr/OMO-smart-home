@@ -11,7 +11,7 @@ public interface Strategy {
 
     DeviceFactory deviceFactory = DeviceFactory.getInstance();
 
-    void findActivity(LivingEntity entity);
+    void setup();
 
     List<Device> getActiveDevices();
 

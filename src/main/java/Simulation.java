@@ -39,28 +39,7 @@ public class Simulation {
             if(time.getMinute()==0){
                 hours = time.getHour();
                 System.out.println(hours + " hours");
-                if(time.equals(LocalTime.of(8, 0))){
-                    strategy = new Morning();
-                    dayStrategySetup(entities);
-                }
-                if(time.equals(LocalTime.of(14, 0))){
-                    strategy = new Afternoon();
-                    dayStrategySetup(entities);
-                }
-                if(time.equals(LocalTime.of(19, 0))){
-                    strategy = new Evening();
-                    dayStrategySetup(entities);
-                }
-                if(time.equals(LocalTime.of(0, 0))){
-                    days++;
-                    System.out.println(days + " days");
-                    strategy = new Night();
-                    nightStrategySetup(entities);
-
-                    Event event = new Event(EventType.TEMPERATURE, house.getFloors().get(0).getRooms().get(0), time);
-                    EventHandler e = new EventHandler(event);
-                    e.notifySystem();
-                }
+                checkStrategy(house);
             }
             if(strategy!=null) {
                 if (!strategy.getActiveDevices().isEmpty()) {
@@ -114,26 +93,44 @@ public class Simulation {
                             e.increaseCBAP();
                         }
                     }
+                    e.increaseHunger();
                 }
             }
         }
     }
 
-    public void dayStrategySetup(List<LivingEntity> entities){
+    public void dayStrategySetup(){
+        strategy.setup();
         observer.setStrategy(strategy);
-//        for(LivingEntity e: entities){
-//            if(e.getType()==EntityType.DOG){
-//                Pet g = (Pet) e;
-//                g.setHungry(true);
-//            }
-//        }
     }
 
-    public void nightStrategySetup(List<LivingEntity> entities){
+    public void nightStrategySetup(){
+        strategy.setup();
         observer.setStrategy(strategy);
-//        for(LivingEntity e: entities){
-//            e.stopCurrentActivity();
-//            e.waiting();
-//        }
+    }
+
+    public void checkStrategy(House house){
+        if(time.equals(LocalTime.of(8, 0))){
+            strategy = new Morning();
+            dayStrategySetup();
+        }
+        if(time.equals(LocalTime.of(14, 0))){
+            strategy = new Afternoon();
+            dayStrategySetup();
+        }
+        if(time.equals(LocalTime.of(19, 0))){
+            strategy = new Evening();
+            dayStrategySetup();
+        }
+        if(time.equals(LocalTime.of(0, 0))){
+            days++;
+            System.out.println(days + " days");
+            strategy = new Night();
+            nightStrategySetup();
+
+            Event event = new Event(EventType.TEMPERATURE, house.getFloors().get(0).getRooms().get(0), time);
+            EventHandler e = new EventHandler(event);
+            e.notifySystem();
+        }
     }
 }

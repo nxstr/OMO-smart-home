@@ -6,6 +6,7 @@ import items.ElectricalItem;
 import items.Observer;
 import items.device.Manual;
 import items.state.*;
+import livingEntities.LivingEntity;
 
 import java.time.LocalTime;
 import java.util.Random;
@@ -15,13 +16,13 @@ public abstract class Sensor implements ElectricalItem {
     private ObjectState currentState = new ActiveState(this);
     private boolean alarmMode = false;
 
-    private final int usingHours = 24*6;
+    private int usingHours = 24*6;
     private final Room currentRoom;
     private int electricityUsed =0;
     private final int electricityInOnState;
     private final int electricityInBrokeState;
     private int brokenTimes =0;
-    private Manual manual;
+    private final Manual manual = new Manual(this);
     private final House house = House.getInstance();
 
     public Sensor(SensorType type, Room currentRoom, int electricityInOnState, int electricityInBrokeState) {
@@ -64,10 +65,11 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public int getUsingHours() {
-        if (currentState.getType() != StateType.ACTIVE) {
-            return currentState.getUsingHours();
-        }
         return usingHours;
+    }
+
+    public void setUsingHours(int usingHours) {
+        this.usingHours = usingHours;
     }
 
     public Room getCurrentRoom() {
@@ -115,19 +117,24 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public void breakingItem() {
+        System.out.println( getType() + " Sensor is broken");
         brokenTimes++;
         setCurrentState(new BrokenState(this));
         addUsedElectricity(getElectricityInOnState()*getUsingHours());
-        System.out.println(getElectricityInOnState()*getUsingHours() + " was used this day before breaking");
+        System.out.println(getElectricityInOnState()*getUsingHours() + " electricity was used this day before breaking");
         generateReportForObserver();
     }
 
     public void fixingItem() {
+        setUsingHours(12);
         setCurrentState(new FixingState(this));
+        Manual manual = getManual();
+        manual.readDeviceManual();
+        resetBrokenTimes();
+        resetElectricity();
     }
 
     public Manual getManual() {
-        if (manual == null) manual = new Manual(this);
         return manual;
     }
 
@@ -150,5 +157,15 @@ public abstract class Sensor implements ElectricalItem {
     public void generateReportForDay(){
         System.out.println(getElectricityInOnState()*getUsingHours() + " electricity was used this day");
         addUsedElectricity(getElectricityInOnState()*getUsingHours());
+    }
+
+    public void stopDevice(){
+        if(this.getCurrentState().getType()== StateType.FIXING) {
+            System.out.println(this.getName() + " is finally fixed at " + house.getTime());
+            this.setCurrentState(new ActiveState(this));
+        }
+        else if(this.getCurrentState().getType()== StateType.BROKEN) {
+            System.out.println(this.getName() + " is broken at  " + house.getTime());
+        }
     }
 }
