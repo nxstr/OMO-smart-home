@@ -4,7 +4,7 @@ import house.Room;
 
 import java.time.LocalTime;
 
-public class Event {
+public abstract class Event {
     private final EventType type;
     private final Room room;
     private final LocalTime time;

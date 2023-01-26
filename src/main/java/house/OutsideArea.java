@@ -7,18 +7,18 @@ import livingEntities.LivingEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OutSideArea {
-    private static OutSideArea instance = null;
+public class OutsideArea {
+    private static OutsideArea instance = null;
     private List<ElectricalItem> electricalItems = new ArrayList<>();
     private List<SportEquipment> equipment = new ArrayList<>();
     private List<LivingEntity> entities = new ArrayList<>();
 
-    public OutSideArea() {
+    public OutsideArea() {
     }
 
-    public static OutSideArea getInstance() {
+    public static OutsideArea getInstance() {
         if (instance == null){
-            instance = new OutSideArea();
+            instance = new OutsideArea();
         }
         return instance;
     }

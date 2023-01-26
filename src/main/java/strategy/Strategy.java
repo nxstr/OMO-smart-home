@@ -24,4 +24,6 @@ public interface Strategy {
     void addActiveDevice(Device device);
 
     void removeActiveDevice(Device device);
+
+    void setActivatedDevices(List<Device> activatedDevices);
 }

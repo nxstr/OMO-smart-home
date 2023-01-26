@@ -10,11 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Afternoon implements Strategy{
-    List <Device> activatedDevices = new ArrayList<>();
+    private List <Device> activatedDevices = new ArrayList<>();
     private int currentBackActionProgress = 0;
     private LocalTime time = LocalTime.of(14, 0);
 
     public Afternoon() {
+    }
+
+    public void setActivatedDevices(List<Device> activatedDevices) {
+        this.activatedDevices = activatedDevices;
     }
 
     @Override

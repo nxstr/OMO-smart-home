@@ -1,6 +1,4 @@
-import events.Event;
-import events.EventGenerator;
-import events.EventType;
+import events.*;
 import house.House;
 import items.Observer;
 import items.device.Device;
@@ -19,7 +17,8 @@ public class Simulation {
     private int days = 0;
     private final int interactionCount; //1 = 10 min
     private LocalTime time;
-    private final EventGenerator eventGenerator = EventGenerator.getInstance();
+    private final EventGenerator offEventGenerator = WaterAndElectricityEventGenerator.getInstance();
+    private final EventGenerator onEventGenerator = FireAndTemperatureEventGenerator.getInstance();
 
     private Strategy strategy;
     private Observer observer = Observer.getInstance();
@@ -32,7 +31,7 @@ public class Simulation {
         Config config = new Config();
         config.configure();
         House house = House.getInstance();
-
+        checkStrategy(house);
         for(int i=0; i<interactionCount; i++){
             time = time.plusMinutes(10);
             house.setTime(time);
@@ -42,7 +41,8 @@ public class Simulation {
                 System.out.println(hours + " hours");
                 checkStrategy(house);
             }
-            eventGenerator.generateEvent(time, observer);
+            offEventGenerator.generateEvent(time, observer);
+            onEventGenerator.generateEvent(time, observer);
             if(strategy!=null) {
                 if (!strategy.getActiveDevices().isEmpty()) {
                     List <Device> devices = new ArrayList<>();

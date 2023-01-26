@@ -1,16 +1,12 @@
 package livingEntities;
 
+import events.EntityEvent;
 import events.Event;
-import events.EventType;
 import house.Room;
 import items.ElectricalItem;
 import items.Observer;
-import items.device.Device;
 import items.equipment.SportEquipment;
 import items.state.IdleState;
-
-import java.time.LocalTime;
-import java.util.Random;
 
 public abstract class Entity implements LivingEntity{
     private final String name;
@@ -22,7 +18,7 @@ public abstract class Entity implements LivingEntity{
     private SportEquipment currentEq = null;
     private final int hungerTicks;
     private int currentHunger = 0;
-    private Observer observer = Observer.getInstance();
+    private final Observer observer = Observer.getInstance();
     private boolean isAlarmMode = false;
     private boolean isAsleep = false;
 
@@ -108,7 +104,7 @@ public abstract class Entity implements LivingEntity{
         this.room = null;
         house.goOut(this);
         System.out.println(this.name + " goes out from house ");
-        Event event = new Event(EventType.ENTITY, getPrevRoom(), house.getTime());
+        Event event = new EntityEvent(getPrevRoom(), house.getTime());
         observer.eventHandler(event);
     }
 
@@ -121,7 +117,7 @@ public abstract class Entity implements LivingEntity{
         this.room = this.prevRoom;
         this.prevRoom = null;
         System.out.println(this.name + " comes back to house ");
-        Event event = new Event(EventType.ENTITY, getCurrentRoom(), house.getTime());
+        Event event = new EntityEvent(getPrevRoom(), house.getTime());
         observer.eventHandler(event);
     }
 

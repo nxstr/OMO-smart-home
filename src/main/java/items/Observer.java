@@ -94,6 +94,8 @@ public class Observer {
             sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.ENTITY).toList();
         }else if(event.getType() == EventType.WATER){
             sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.WATER).toList();
+        }else if(event.getType() == EventType.ELECTRICITY){
+            sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.ELECTRICITY).toList();
         }
         else {
             sensors = sensorFactory.getSensors().stream()

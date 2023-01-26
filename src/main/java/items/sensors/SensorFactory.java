@@ -26,6 +26,7 @@ public class SensorFactory {
                 case ENTITY -> new EntitySensor(room);
                 case FIRE -> new FireSensor(room);
                 case WATER -> new WaterSensor(room);
+                case ELECTRICITY -> new ElectricitySensor(room);
                 default -> null;
             };
 

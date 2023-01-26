@@ -11,11 +11,11 @@ public class House {
     private final List<Floor> floors;
     private final List<LivingEntity> livingEntities; //maybe pak udelat get access pres streamy idk
     private LocalTime time;
-    private final OutSideArea outSideArea;
+    private final OutsideArea outSideArea;
 
     private final int houseId;
 
-    public House(HouseBuilder builder, OutSideArea outSideArea) {
+    public House(HouseBuilder builder, OutsideArea outSideArea) {
         this.floors = builder.floors;
         this.livingEntities = builder.livingEntities;
         this.houseId = builder.houseId;
@@ -46,7 +46,7 @@ public class House {
         return instance.floors;
     }
 
-    public OutSideArea getOutSideArea() {
+    public OutsideArea getOutSideArea() {
         return outSideArea;
     }
 
@@ -70,7 +70,7 @@ public class House {
         private int houseId;
         private List<Floor> floors = new ArrayList<>();
         private List<LivingEntity> livingEntities = new ArrayList<>();
-        private OutSideArea outSideArea;
+        private OutsideArea outSideArea;
 
         public HouseBuilder() {
         }
@@ -82,11 +82,11 @@ public class House {
             return this;
         }
 
-        public OutSideArea getOutSideArea() {
+        public OutsideArea getOutSideArea() {
             return outSideArea;
         }
 
-        public void setOutSideArea(OutSideArea outSideArea) {
+        public void setOutSideArea(OutsideArea outSideArea) {
             this.outSideArea = outSideArea;
         }
 

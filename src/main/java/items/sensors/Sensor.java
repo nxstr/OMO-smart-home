@@ -18,6 +18,7 @@ public abstract class Sensor implements ElectricalItem {
     private boolean alarmMode = false;
 
 
+
     private int usingHours = 24*6;
     private final Room currentRoom;
     private int electricityUsed =0;
@@ -141,7 +142,7 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public void generateReportForObserver(){
-        Observer.getInstance().handleSensorReport(this);
+        observer.handleSensorReport(this);
     }
 
     public void breakingEvent(){

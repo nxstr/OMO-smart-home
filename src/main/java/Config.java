@@ -4,7 +4,6 @@ import items.device.DeviceType;
 import items.equipment.SportEquipmentFactory;
 import items.equipment.SportEquipmentType;
 import items.sensors.*;
-import items.state.BrokenState;
 import livingEntities.*;
 
 public class Config {
@@ -16,15 +15,17 @@ public class Config {
 
     public void configure(){
         Floor floor = new Floor(0);
-        house.setOutSideArea(OutSideArea.getInstance());
+        house.setOutSideArea(OutsideArea.getInstance());
         house.addFloor(floor);
         Room room = roomFactory.create("Bedroom", floor);
         Room room1 = roomFactory.create("Garage", floor);
         floor.addRoom(room);
         floor.addRoom(room1);
-        Adult dad = new Adult("Bob", EntityType.ADULT, room, 30);
+        Adult dad = new Adult("Bob", EntityType.FATHER, room, 30);
+        Adult mom = new Adult("Mary", EntityType.MOTHER, room, 30);
         Child kid = new Child("Artur", EntityType.CHILD, room, 8);
         house.addLivingEntity(dad);
+        house.addLivingEntity(mom);
         house.addLivingEntity(kid);
         Pet dog1 = new Pet("Jessy", EntityType.DOG,room);
         Pet dog2 = new Pet("Archi", EntityType.DOG,room);
@@ -40,7 +41,7 @@ public class Config {
                 DeviceType.PET_FOUNTAIN, DeviceType.LOCK, DeviceType.FRIDGE, DeviceType.FIRE_SUPPRESSION
         };
         SensorType[] arr1 = new SensorType[]{
-                SensorType.ENTITY, SensorType.TEMPERATURE, SensorType.FIRE, SensorType.WATER
+                SensorType.ENTITY, SensorType.TEMPERATURE, SensorType.FIRE, SensorType.WATER, SensorType.ELECTRICITY
         };
         for(DeviceType type:arr){
             if(type == DeviceType.PET_FEEDER){

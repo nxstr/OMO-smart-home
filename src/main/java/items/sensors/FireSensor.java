@@ -8,6 +8,7 @@ import items.device.DeviceType;
 import items.state.StateType;
 import strategy.Strategy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,9 +32,10 @@ public class FireSensor extends Sensor{
             System.out.println(items.size());
             for(ElectricalItem c: items) {
                 c.usingDevice();
-                Strategy strategy = Observer.getInstance().getStrategy();
+                Strategy strategy = observer.getStrategy();
                 if (strategy != null && c.getCurrentState().getType() == StateType.ACTIVE) {
                     strategy.stopBackAction();
+                    strategy.setActivatedDevices(new ArrayList<>());
                     strategy.addActiveDevice((Device) c);
                 }
             }

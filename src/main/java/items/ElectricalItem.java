@@ -8,6 +8,9 @@ import livingEntities.LivingEntity;
 import java.time.LocalTime;
 
 public interface ElectricalItem {
+
+    Observer observer = Observer.getInstance();
+
     String getName();
 
     String getMainType();

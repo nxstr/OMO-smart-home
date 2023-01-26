@@ -16,6 +16,10 @@ public class Night implements Strategy{
     public Night() {
     }
 
+    public void setActivatedDevices(List<Device> activatedDevices) {
+        this.activeDevicec = activatedDevices;
+    }
+
     @Override
     public void setup(){
         System.out.println("Its night strategy");

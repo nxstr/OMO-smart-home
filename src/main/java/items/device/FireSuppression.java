@@ -22,6 +22,7 @@ public class FireSuppression extends Device{
     @Override
     public void usingDevice() {
         setCurrentState(new ActiveState(this));
+        getCurrentRoom().getElectricalItems().stream().filter(d->d.getName()!=DeviceType.FIRE_SUPPRESSION.name()).forEach(ElectricalItem::stopDevice);
         getCurrentRoom().getElectricalItems().stream().filter(d->d.getName()!=DeviceType.FIRE_SUPPRESSION.name()).forEach(d->d.setCurrentState(new FixingState(d)));
         setUsedTimes(getUsedTimes()+1);
         System.out.println(this.getName() + " is starting at " + getHouse().getTime());

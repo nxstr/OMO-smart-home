@@ -154,7 +154,7 @@ public abstract class Device implements ElectricalItem{
     }
 
     public void generateReportForObserver(){
-        Observer.getInstance().handleDeviceReport(this);
+        observer.handleDeviceReport(this);
     }
 
     public void breakingEvent(){
