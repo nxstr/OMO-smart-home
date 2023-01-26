@@ -1,4 +1,5 @@
 import events.Event;
+import events.EventGenerator;
 import events.EventType;
 import house.House;
 import items.Observer;
@@ -18,6 +19,7 @@ public class Simulation {
     private int days = 0;
     private final int interactionCount; //1 = 10 min
     private LocalTime time;
+    private final EventGenerator eventGenerator = EventGenerator.getInstance();
 
     private Strategy strategy;
     private Observer observer = Observer.getInstance();
@@ -40,6 +42,7 @@ public class Simulation {
                 System.out.println(hours + " hours");
                 checkStrategy(house);
             }
+            eventGenerator.generateEvent(time, observer);
             if(strategy!=null) {
                 if (!strategy.getActiveDevices().isEmpty()) {
                     List <Device> devices = new ArrayList<>();
@@ -125,8 +128,14 @@ public class Simulation {
             strategy = new Night();
             nightStrategySetup();
 
-            Event event = new Event(EventType.FIRE, house.getFloors().get(0).getRooms().get(0), time);
-            observer.eventHandler(event);
+//            Event event = new Event(EventType.WATER, house.getFloors().get(0).getRooms().get(0), time);
+//            observer.eventHandler(event);
         }
     }
+
+//    public void generateEvent(){
+//        if(time.equals(LocalTime.of(17,0))){
+//            eventGenerator.generateEvent(time, observer);
+//        }
+//    }
 }

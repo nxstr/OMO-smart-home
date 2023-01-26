@@ -20,7 +20,7 @@ public class Evening implements Strategy {
 
     @Override
     public void setup(){
-        System.out.println("Its afternoon strategy");
+        System.out.println("Its evening strategy");
 
         String[] arr = new String[]{
                 "pet_feeder"

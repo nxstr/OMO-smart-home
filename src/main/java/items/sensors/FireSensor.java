@@ -33,6 +33,7 @@ public class FireSensor extends Sensor{
                 c.usingDevice();
                 Strategy strategy = Observer.getInstance().getStrategy();
                 if (strategy != null && c.getCurrentState().getType() == StateType.ACTIVE) {
+                    strategy.stopBackAction();
                     strategy.addActiveDevice((Device) c);
                 }
             }

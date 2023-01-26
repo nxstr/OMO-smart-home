@@ -40,7 +40,7 @@ public class Config {
                 DeviceType.PET_FOUNTAIN, DeviceType.LOCK, DeviceType.FRIDGE, DeviceType.FIRE_SUPPRESSION
         };
         SensorType[] arr1 = new SensorType[]{
-                SensorType.ENTITY, SensorType.TEMPERATURE, SensorType.FIRE
+                SensorType.ENTITY, SensorType.TEMPERATURE, SensorType.FIRE, SensorType.WATER
         };
         for(DeviceType type:arr){
             if(type == DeviceType.PET_FEEDER){
@@ -59,7 +59,7 @@ public class Config {
             }
         }
         for(SensorType type:arr1){
-            if(type == SensorType.FIRE) {
+            if(type == SensorType.FIRE || type == SensorType.TEMPERATURE) {
                 for (Room r : floor.getRooms()) {
                     sensorFactory.createSensor(r, type);
                 }

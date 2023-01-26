@@ -2,7 +2,7 @@ package events;
 
 public enum EventType {
     TEMPERATURE,
-    WATER_LEAK,
+    WATER,
     FIRE,
     ELECTRICITY,
     ENTITY;

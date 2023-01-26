@@ -92,7 +92,10 @@ public class Observer {
         List<Sensor> sensors;
         if(event.getType() == EventType.ENTITY){
             sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.ENTITY).toList();
-        }else {
+        }else if(event.getType() == EventType.WATER){
+            sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.WATER).toList();
+        }
+        else {
             sensors = sensorFactory.getSensors().stream()
                     .filter(s -> s.getCurrentRoom() == event.getRoom()).filter(s -> s.getName() == event.getType().toString()).toList();
         }
