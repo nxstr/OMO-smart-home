@@ -1,0 +1,968 @@
+1 day
+Its night strategy
+143 electricity was used this day by LOCK
+276 electricity was used this day by AIR_CONDITIONER
+645 electricity was used this day by VACUUM_CLEANER
+141 electricity was used this day by FIRE_SUPPRESSION
+143 electricity was used this day by COFFEE_MACHINE
+143 electricity was used this day by FRIDGE
+286 electricity was used this day by PET_FEEDER
+286 electricity was used this day by PET_FEEDER
+143 electricity was used this day by PET_FOUNTAIN
+278 electricity was used this day by DISHWASHER
+645 electricity was used this day by VACUUM_CLEANER
+272 electricity was used this day by WASHING_MACHINE
+276 electricity was used this day by AIR_CONDITIONER
+141 electricity was used this day by FIRE_SUPPRESSION
+276 electricity was used this day by AIR_CONDITIONER
+276 electricity was used this day by TV
+645 electricity was used this day by VACUUM_CLEANER
+141 electricity was used this day by FIRE_SUPPRESSION
+286 electricity was used this day by PET_FEEDER
+Bob is sleeping
+Mary is sleeping
+Artur is sleeping
+Sasha is sleeping
+Jessi is sleeping
+Archi is sleeping
+2 hours
+3 hours
+4 hours
+5 hours
+6 hours
+7 hours
+8 hours
+Its morning strategy
+COFFEE_MACHINE is starting at 08:00, 9 portions are/is left.
+PET_FEEDER pours one portion of food at 08:00, 9 portions are/is left
+PET_FEEDER pours one portion of food at 08:00, 9 portions are/is left
+PET_FEEDER pours one portion of food at 08:00, 9 portions are/is left
+AIR_CONDITIONER is starting at 08:00
+AIR_CONDITIONER is starting at 08:00
+AIR_CONDITIONER is starting at 08:00
+Bob is woke up
+Mary is woke up
+Artur is woke up
+Sasha is woke up
+Jessi is woke up
+Archi is woke up
+COFFEE_MACHINE switched off at 08:10
+PET_FEEDER switched off at 08:10
+PET_FEEDER switched off at 08:10
+PET_FEEDER switched off at 08:10
+Bob moves to Kitchen
+Bob is eating
+Fridge is using at 08:10, 19 portions of food are/is left
+FRIDGE is broke at 08:10
+FRIDGE is broken at  08:10
+Bob repairing FRIDGE at 08:10
+Reading the manual of FRIDGE
+Sasha moves to Kitchen
+Sasha is eating
+Jessi moves to Kitchen
+Jessi is eating
+PET_FEEDER is broke at 08:10
+PET_FEEDER is broken at  08:10
+Archi moves to Garage
+Archi is eating
+Mary moves to Kitchen
+Mary repairing PET_FEEDER at 08:20
+Reading the manual of PET_FEEDER
+PET_FEEDER switched off at 08:20
+Jessi is hungry
+PET_FEEDER switched off at 08:20
+Sasha is waiting for now
+Jessi is hungry
+Jessi is hungry
+Archi is waiting for now
+Sasha is waiting for now
+Jessi is hungry
+Jessi is hungry
+Archi is playing
+Sasha moves to Garage
+Sasha is playing
+Jessi is hungry
+Jessi is hungry
+9 hours
+AIR_CONDITIONER switched off at 09:00
+AIR_CONDITIONER switched off at 09:00
+AIR_CONDITIONER switched off at 09:00
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+10 hours
+Jessi is hungry
+Jessi is hungry
+FRIDGE is finally fixed at 10:10
+Artur moves to Kitchen
+Artur is eating
+Fridge is using at 10:10, 18 portions of food are/is left
+Jessi is hungry
+Jessi is hungry
+PET_FEEDER is finally fixed at 10:20
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+PET_TOY set to idle at 10:40
+PET_TOY set to idle at 10:50
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Archi is waiting for now
+11 hours
+Event FIRE is generated at 11:00
+!!!EmErGeNcY bEhAvIoR!!!
+alarm is setted for Bob
+Bob goes out from house
+Event ENTITY is generated at 11:00
+144 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+144 electricity was used this day before breaking
+ENTITY generated report.
+alarm is setted for Mary
+Mary goes out from house
+Event ENTITY is generated at 11:00
+alarm is setted for Artur
+FRIDGE switched off at 11:00
+Artur goes out from house
+Event ENTITY is generated at 11:00
+alarm is setted for Sasha
+Sasha goes out from house
+Event ENTITY is generated at 11:00
+alarm is setted for Jessi
+Jessi goes out from house
+Event ENTITY is generated at 11:00
+alarm is setted for Archi
+Archi goes out from house
+Event ENTITY is generated at 11:00
+FIRE generated report.
+FIRE_SUPPRESSION is starting at 11:00
+FIRE_SUPPRESSION switched off at 11:30
+Bob comes back to houseEvent ENTITY is generated at 11:30
+Mary comes back to houseEvent ENTITY is generated at 11:30
+Artur comes back to houseEvent ENTITY is generated at 11:30
+Sasha comes back to houseEvent ENTITY is generated at 11:30
+Jessi comes back to houseEvent ENTITY is generated at 11:30
+Archi comes back to houseEvent ENTITY is generated at 11:30
+Bob is eating
+Fridge is using at 11:30, 17 portions of food are/is left
+Mary moves to Garage
+Mary repairing ENTITY at 11:30
+Reading the manual of ENTITY
+Artur moves to Bedroom
+TV is starting at 11:30
+Artur is using device TV
+Sasha is playing
+Sasha goes out from house
+Event ENTITY is generated at 11:30
+Sasha is outside the house
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Archi is playing
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+12 hours
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+TV switched off at 12:30
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Artur is waiting for now
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Artur moves to Garage
+Artur goes out from house
+Event ENTITY is generated at 12:50
+Artur is goes sport outside
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+13 hours
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+FRIDGE switched off at 13:30
+ENTITY is finally fixed at 13:30
+PET_TOY set to idle at 13:30
+Sasha comes back to houseEvent ENTITY is generated at 13:30
+12 electricity was used this day
+ENTITY generated report.
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+PET_TOY set to idle at 13:30
+Bob is waiting for now
+Mary moves to Kitchen
+Mary is eating
+Fridge is using at 13:40, 16 portions of food are/is left
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Bob moves to Garage
+Bob goes out from house
+Event ENTITY is generated at 13:50
+12 electricity was used this day
+ENTITY generated report.
+Bob is goes sport outside
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+14 hours
+Its afternoon strategy
+DISHWASHER is started at 14:00
+PET_FEEDER pours one portion of food at 14:00, 8 portions are/is left
+PET_FEEDER pours one portion of food at 14:00, 8 portions are/is left
+PET_FEEDER pours one portion of food at 14:00, 8 portions are/is left
+VACUUM_CLEANER is starting at 14:00
+VACUUM_CLEANER is broke at 14:00
+VACUUM_CLEANER is starting at 14:00
+VACUUM_CLEANER is starting at 14:00
+WASHING_MACHINE is started at 14:00
+PET_FEEDER switched off at 14:10
+PET_FEEDER switched off at 14:10
+Sasha moves to Kitchen
+Sasha is eating
+Jessi moves to Garage
+Jessi is eating
+PET_FEEDER switched off at 14:20
+PET_FEEDER switched off at 14:20
+Archi is hungry
+Archi is hungry
+Sasha moves to Garage
+Sasha is playing
+Jessi is playing
+Jessi goes out from house
+Event ENTITY is generated at 14:30
+12 electricity was used this day
+ENTITY generated report.
+Jessi is outside the house
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+DISHWASHER switched off at 14:50
+Archi is hungry
+Archi is hungry
+15 hours
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+WASHING_MACHINE switched off at 15:20
+SKI set to idle at 15:20
+Artur comes back to houseEvent ENTITY is generated at 15:20
+12 electricity was used this day
+ENTITY generated report.
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+FRIDGE switched off at 15:40
+Artur moves to Kitchen
+Artur is eating
+Fridge is using at 15:40, 15 portions of food are/is left
+Archi is hungry
+Archi is hungry
+BICYCLE set to idle at 15:50
+Bob comes back to houseEvent ENTITY is generated at 15:50
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+Mary moves to Garage
+Mary repairing VACUUM_CLEANER at 15:50
+Reading the manual of VACUUM_CLEANER
+Archi is hungry
+Archi is hungry
+16 hours
+PET_FEEDER switched off at 16:00
+Bob moves to Kitchen
+Bob emptied dishwasher at 16:00
+Archi is hungry
+Archi moves to Kitchen
+Archi is eating
+Bob emptied washing machine at 16:10
+Bob moves to Garage
+Bob repairing ENTITY at 16:20
+Reading the manual of ENTITY
+VACUUM_CLEANER switched off at 16:30
+VACUUM_CLEANER switched off at 16:30
+PET_TOY set to idle at 16:30
+PET_TOY set to idle at 16:30
+Jessi comes back to houseEvent ENTITY is generated at 16:30
+Sasha is waiting for now
+Jessi moves to Kitchen
+Jessi is drinking
+PET_FOUNTAIN is starting at 16:40
+Sasha is waiting for now
+PET_FOUNTAIN switched off at 16:50
+17 hours
+Sasha is playing
+Sasha goes out from house
+Event ENTITY is generated at 17:00
+Sasha is outside the house
+Jessi is drinking
+PET_FOUNTAIN is starting at 17:00
+PET_FOUNTAIN switched off at 17:10
+Jessi moves to Garage
+Jessi is playing
+FRIDGE switched off at 17:40
+VACUUM_CLEANER is finally fixed at 17:50
+Artur moves to Garage
+Artur goes out from house
+Event ENTITY is generated at 17:50
+Artur is goes sport outside
+18 hours
+Event WATER is generated at 18:00
+There is no water in the house, all water-using devices are off
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+Mary moves to Kitchen
+PET_FEEDER switched off at 18:00
+Archi is waiting for now
+ENTITY is finally fixed at 18:20
+Mary moves to Garage
+Mary goes out from house
+Event ENTITY is generated at 18:20
+12 electricity was used this day
+ENTITY generated report.
+Mary is goes sport outside
+Archi is waiting for now
+Bob moves to Kitchen
+Bob is eating
+Fridge is using at 18:30, 14 portions of food are/is left
+Archi is drinking
+PET_FOUNTAIN is starting at 18:30
+PET_FOUNTAIN switched off at 18:40
+19 hours
+Its evening strategy
+PET_FEEDER pours one portion of food at 19:00, 7 portions are/is left
+PET_FEEDER pours one portion of food at 19:00, 7 portions are/is left
+PET_FEEDER pours one portion of food at 19:00, 7 portions are/is left
+PET_TOY set to idle at 19:00
+Sasha comes back to houseEvent ENTITY is generated at 19:00
+12 electricity was used this day
+ENTITY generated report.
+Archi is waiting for now
+PET_FEEDER switched off at 19:10
+PET_FEEDER switched off at 19:10
+Sasha moves to Kitchen
+Sasha is eating
+Archi moves to Garage
+Archi is playing
+PET_FEEDER switched off at 19:20
+PET_TOY set to idle at 19:20
+Sasha moves to Garage
+Sasha is playing
+Sasha goes out from house
+Event ENTITY is generated at 19:30
+12 electricity was used this day
+ENTITY generated report.
+Sasha is outside the house
+Jessi is hungry
+Jessi is eating
+PET_FEEDER switched off at 19:40
+BICYCLE set to idle at 19:50
+Artur comes back to houseEvent ENTITY is generated at 19:50
+12 electricity was used this day
+ENTITY generated report.
+20 hours
+Jessi moves to Kitchen
+Jessi is drinking
+PET_FOUNTAIN is starting at 20:00
+PET_FOUNTAIN switched off at 20:10
+BICYCLE set to idle at 20:20
+Mary comes back to houseEvent ENTITY is generated at 20:20
+12 electricity was used this day
+ENTITY generated report.
+FRIDGE switched off at 20:30
+Mary moves to Kitchen
+Mary is eating
+Fridge is using at 20:30, 13 portions of food are/is left
+Jessi is waiting for now
+Bob moves to Garage
+Bob goes out from house
+Event ENTITY is generated at 20:40
+12 electricity was used this day
+ENTITY generated report.
+Bob is goes sport outside
+Jessi is waiting for now
+Jessi is drinking
+PET_FOUNTAIN is starting at 20:50
+21 hours
+PET_FEEDER switched off at 21:00
+PET_FOUNTAIN switched off at 21:00
+PET_TOY set to idle at 21:10
+Jessi is waiting for now
+Archi is hungry
+Archi moves to Kitchen
+Archi is eating
+PET_TOY set to idle at 21:30
+Sasha comes back to houseEvent ENTITY is generated at 21:30
+12 electricity was used this day
+ENTITY generated report.
+Jessi is waiting for now
+Sasha is playing
+Sasha goes out from house
+Event ENTITY is generated at 21:40
+12 electricity was used this day
+ENTITY generated report.
+Sasha is outside the house
+Jessi is drinking
+PET_FOUNTAIN is starting at 21:40
+PET_FOUNTAIN switched off at 21:50
+22 hours
+Event WATER is generated at 22:00
+Water is on! All water-using devices are available!
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+Jessi moves to Garage
+Jessi is playing
+Artur is sleeping
+FRIDGE switched off at 22:30
+BICYCLE set to idle at 22:40
+Bob comes back to houseEvent ENTITY is generated at 22:40
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+Mary moves to Garage
+Mary repairing ENTITY at 22:40
+Reading the manual of ENTITY
+Bob goes out from house
+Event ENTITY is generated at 22:50
+Bob is goes sport outside
+23 hours
+PET_FEEDER switched off at 23:20
+PET_TOY set to idle at 23:40
+Sasha comes back to houseEvent ENTITY is generated at 23:40
+Archi is drinking
+PET_FOUNTAIN is starting at 23:40
+Sasha is playing
+PET_FOUNTAIN switched off at 23:50
+0 hours
+2 day
+Its night strategy
+143 electricity was used this day by LOCK
+281 electricity was used this day by AIR_CONDITIONER
+660 electricity was used this day by VACUUM_CLEANER
+141 electricity was used this day by FIRE_SUPPRESSION
+148 electricity was used this day by COFFEE_MACHINE
+174 electricity was used this day by FRIDGE
+316 electricity was used this day by PET_FEEDER
+284 electricity was used this day by PET_FEEDER
+157 electricity was used this day by PET_FOUNTAIN
+288 electricity was used this day by DISHWASHER
+645 electricity was used this day by VACUUM_CLEANER
+282 electricity was used this day by WASHING_MACHINE
+281 electricity was used this day by AIR_CONDITIONER
+142 electricity was used this day by FIRE_SUPPRESSION
+281 electricity was used this day by AIR_CONDITIONER
+286 electricity was used this day by TV
+645 electricity was used this day by VACUUM_CLEANER
+141 electricity was used this day by FIRE_SUPPRESSION
+316 electricity was used this day by PET_FEEDER
+PET_TOY set to idle at 00:00
+Archi is sleeping
+Jessi is sleeping
+ENTITY is finally fixed at 00:40
+Mary is sleeping
+1 hours
+Event FIRE is generated at 01:00
+!!!EmErGeNcY bEhAvIoR!!!
+alarm is setted for Bob
+SKI set to idle at 01:00
+alarm is setted for Mary
+Mary is woke up
+Mary goes out from house
+Event ENTITY is generated at 01:00
+12 electricity was used this day
+ENTITY generated report.
+alarm is setted for Artur
+Artur is woke up
+Artur goes out from house
+Event ENTITY is generated at 01:00
+12 electricity was used this day
+ENTITY generated report.
+alarm is setted for Sasha
+PET_TOY set to idle at 01:00
+Sasha goes out from house
+Event ENTITY is generated at 01:00
+12 electricity was used this day
+ENTITY generated report.
+alarm is setted for Jessi
+Jessi is woke up
+Jessi goes out from house
+Event ENTITY is generated at 01:00
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+alarm is setted for Archi
+Archi is woke up
+Archi goes out from house
+Event ENTITY is generated at 01:00
+FIRE generated report.
+FIRE_SUPPRESSION is starting at 01:00
+FIRE_SUPPRESSION switched off at 01:30
+Bob comes back to houseEvent ENTITY is generated at 01:30
+Mary comes back to houseEvent ENTITY is generated at 01:30
+Artur comes back to houseEvent ENTITY is generated at 01:30
+Sasha comes back to houseEvent ENTITY is generated at 01:30
+Jessi comes back to houseEvent ENTITY is generated at 01:30
+Archi comes back to houseEvent ENTITY is generated at 01:30
+Bob is sleeping
+Mary is sleeping
+Artur is sleeping
+Sasha is sleeping
+Jessi is sleeping
+Archi is sleeping
+2 hours
+3 hours
+4 hours
+5 hours
+6 hours
+Event TEMPERATURE is generated at 06:00
+AIR_CONDITIONER is starting at 06:00
+144 electricity was used this day
+TEMPERATURE generated report.
+7 hours
+8 hours
+Its morning strategy
+COFFEE_MACHINE is starting at 08:00, 8 portions are/is left.
+PET_FEEDER pours one portion of food at 08:00, 6 portions are/is left
+PET_FEEDER pours one portion of food at 08:00, 6 portions are/is left
+PET_FEEDER pours one portion of food at 08:00, 6 portions are/is left
+AIR_CONDITIONER is starting at 08:00
+AIR_CONDITIONER is starting at 08:00
+Bob is woke up
+Mary is woke up
+Artur is woke up
+Sasha is woke up
+Jessi is woke up
+Archi is woke up
+COFFEE_MACHINE switched off at 08:10
+PET_FEEDER switched off at 08:10
+PET_FEEDER switched off at 08:10
+Bob moves to Kitchen
+Bob is eating
+Fridge is using at 08:10, 12 portions of food are/is left
+Mary repairing ENTITY at 08:10
+Reading the manual of ENTITY
+Sasha moves to Kitchen
+Sasha is eating
+Jessi is eating
+PET_FEEDER switched off at 08:20
+PET_FEEDER switched off at 08:20
+Archi is hungry
+Archi is hungry
+Sasha moves to Garage
+Sasha is playing
+Sasha goes out from house
+Event ENTITY is generated at 08:30
+Sasha is outside the house
+Jessi moves to Kitchen
+Jessi is drinking
+PET_FOUNTAIN is starting at 08:30
+PET_FOUNTAIN is broke at 08:30
+PET_FOUNTAIN is broken at  08:30
+Archi is hungry
+Archi is hungry
+Jessi moves to Garage
+Jessi is playing
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+9 hours
+AIR_CONDITIONER switched off at 09:00
+AIR_CONDITIONER switched off at 09:00
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+Archi is hungry
+10 hours
+PET_FEEDER switched off at 10:00
+Archi is hungry
+Archi is eating
+FRIDGE switched off at 10:10
+ENTITY is finally fixed at 10:10
+Artur moves to Kitchen
+Artur is eating
+Fridge is using at 10:10, 11 portions of food are/is left
+Bob repairing PET_FOUNTAIN at 10:20
+Reading the manual of PET_FOUNTAIN
+PET_TOY set to idle at 10:30
+Sasha comes back to houseEvent ENTITY is generated at 10:30
+Activating lock at 10:30
+LOCK is starting at 10:30
+12 electricity was used this day
+ENTITY generated report.
+Sasha is playing
+PET_TOY set to idle at 10:40
+Jessi is playing
+Jessi goes out from house
+Event ENTITY is generated at 10:50
+Stopping lock at 10:50
+LOCK switched off at 10:50
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+Jessi is outside the house
+11 hours
+Mary repairing ENTITY at 11:00
+Reading the manual of ENTITY
+12 hours
+Event WATER is generated at 12:00
+There is no water in the house, all water-using devices are off
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+PET_FEEDER switched off at 12:00
+Event WATER is generated at 12:10
+Water is on! All water-using devices are available!
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+FRIDGE switched off at 12:10
+PET_FOUNTAIN is finally fixed at 12:20
+Artur moves to Garage
+Artur goes out from house
+Event ENTITY is generated at 12:20
+Artur is goes sport outside
+Archi is drinking
+PET_FOUNTAIN is starting at 12:20
+Bob moves to Garage
+Bob goes out from house
+Event ENTITY is generated at 12:30
+Bob is goes sport outside
+PET_TOY set to idle at 12:40
+PET_TOY set to idle at 12:50
+Jessi comes back to houseEvent ENTITY is generated at 12:50
+13 hours
+ENTITY is finally fixed at 13:00
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Mary moves to Kitchen
+Mary is eating
+Fridge is using at 13:10, 10 portions of food are/is left
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+Sasha is hungry
+Sasha is hungry
+Sasha is hungry
+Jessi is hungry
+Jessi is hungry
+Jessi is hungry
+14 hours
+Its afternoon strategy
+DISHWASHER is empty
+PET_FEEDER pours one portion of food at 14:00, 5 portions are/is left
+PET_FEEDER pours one portion of food at 14:00, 5 portions are/is left
+PET_FEEDER pours one portion of food at 14:00, 5 portions are/is left
+VACUUM_CLEANER is starting at 14:00
+VACUUM_CLEANER is starting at 14:00
+VACUUM_CLEANER is starting at 14:00
+WASHING_MACHINE is empty
+Event WATER is generated at 14:00
+There is no water in the house, all water-using devices are off
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+Event WATER is generated at 14:10
+Water is on! All water-using devices are available!
+WATER sensor got event
+144 electricity was used this day
+WATER generated report.
+PET_FEEDER switched off at 14:10
+PET_FEEDER switched off at 14:10
+Sasha moves to Kitchen
+Sasha is eating
+Jessi is eating
+BICYCLE set to idle at 14:20
+Artur comes back to houseEvent ENTITY is generated at 14:20
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+PET_FEEDER switched off at 14:20
+PET_FEEDER switched off at 14:20
+PET_FOUNTAIN switched off at 14:20
+BICYCLE set to idle at 14:30
+Bob comes back to houseEvent ENTITY is generated at 14:30
+Sasha is waiting for now
+Jessi is playing
+Jessi goes out from house
+Event ENTITY is generated at 14:30
+Jessi is outside the house
+Archi moves to Garage
+Archi is playing
+Bob repairing ENTITY at 14:40
+Reading the manual of ENTITY
+Sasha is drinking
+PET_FOUNTAIN is starting at 14:50
+15 hours
+FRIDGE switched off at 15:10
+Artur moves to Kitchen
+Artur is eating
+Fridge is using at 15:10, 9 portions of food are/is left
+Mary moves to Bedroom
+TV is starting at 15:20
+Mary is using device TV
+16 hours
+PET_FEEDER switched off at 16:00
+VACUUM_CLEANER switched off at 16:00
+TV switched off at 16:20
+VACUUM_CLEANER switched off at 16:30
+VACUUM_CLEANER switched off at 16:30
+Mary moves to Garage
+Mary goes out from house
+Event ENTITY is generated at 16:30
+Mary is goes sport outside
+PET_TOY set to idle at 16:30
+Jessi comes back to houseEvent ENTITY is generated at 16:30
+PET_TOY set to idle at 16:30
+ENTITY is finally fixed at 16:40
+Jessi is playing
+Archi is hungry
+Archi moves to Kitchen
+Archi is eating
+PET_FOUNTAIN switched off at 16:50
+17 hours
+Sasha is drinking
+PET_FOUNTAIN is starting at 17:00
+FRIDGE switched off at 17:10
+Bob moves to Kitchen
+Bob is eating
+Fridge is using at 17:20, 8 portions of food are/is left
+Artur is waiting for now
+Artur moves to Garage
+Artur goes out from house
+Event ENTITY is generated at 17:30
+12 electricity was used this day
+ENTITY generated report.
+Artur is goes sport outside
+18 hours
+BICYCLE set to idle at 18:30
+Mary comes back to houseEvent ENTITY is generated at 18:30
+12 electricity was used this day
+ENTITY generated report.
+Mary goes out from house
+Event ENTITY is generated at 18:40
+12 electricity was used this day
+ENTITY generated report.
+Mary is goes sport outside
+PET_TOY set to idle at 18:40
+PET_FEEDER switched off at 18:40
+Jessi is playing
+Archi moves to Garage
+Archi is playing
+19 hours
+Its evening strategy
+PET_FEEDER pours one portion of food at 19:00, 4 portions are/is left
+PET_FEEDER pours one portion of food at 19:00, 4 portions are/is left
+PET_FEEDER pours one portion of food at 19:00, 4 portions are/is left
+PET_FOUNTAIN switched off at 19:00
+PET_FEEDER switched off at 19:10
+PET_FEEDER switched off at 19:10
+Sasha is eating
+FRIDGE switched off at 19:20
+PET_FEEDER switched off at 19:20
+Bob moves to Garage
+Bob goes out from house
+Event ENTITY is generated at 19:30
+12 electricity was used this day
+ENTITY generated report.
+Bob is goes sport outside
+Sasha is waiting for now
+Sasha is waiting for now
+20 hours
+SKI set to idle at 20:00
+Artur comes back to houseEvent ENTITY is generated at 20:00
+12 electricity was used this day
+ENTITY generated report.
+Artur moves to Kitchen
+Artur is eating
+Fridge is using at 20:10, 7 portions of food are/is left
+Sasha is waiting for now
+Sasha is drinking
+PET_FOUNTAIN is starting at 20:20
+BICYCLE set to idle at 20:40
+Mary comes back to houseEvent ENTITY is generated at 20:40
+12 electricity was used this day
+ENTITY generated report.
+PET_TOY set to idle at 20:50
+PET_TOY set to idle at 20:50
+21 hours
+PET_FEEDER switched off at 21:00
+Jessi is hungry
+Jessi moves to Kitchen
+Jessi is eating
+Archi is playing
+BICYCLE set to idle at 21:30
+Bob comes back to houseEvent ENTITY is generated at 21:30
+Activating lock at 21:30
+LOCK is starting at 21:30
+12 electricity was used this day
+ENTITY generated report.
+ENTITY Sensor is broken
+12 electricity was used this day before breaking
+ENTITY generated report.
+Mary repairing ENTITY at 21:30
+Reading the manual of ENTITY
+Bob moves to Bedroom
+TV is starting at 21:40
+Bob is using device TV
+22 hours
+FRIDGE switched off at 22:10
+Artur is sleeping
+PET_FOUNTAIN switched off at 22:20
+Sasha is drinking
+PET_FOUNTAIN is starting at 22:30
+TV switched off at 22:40
+TV is starting at 22:50
+Bob is using device TV
+23 hours
+PET_FEEDER switched off at 23:00
+Jessi moves to Garage
+Jessi is playing
+PET_TOY set to idle at 23:20
+ENTITY is finally fixed at 23:30
+Archi is hungry
+Archi is hungry
+Archi is eating
+PET_FEEDER is broke at 23:30
+PET_FEEDER is broken at  23:30
+Mary moves to Kitchen
+Mary is eating
+Fridge is using at 23:40, 6 portions of food are/is left
+Archi is hungry
+Archi is hungry
+TV switched off at 23:50
+Archi is hungry
+Archi is hungry
+0 hours
+3 day
+Its night strategy
+145 electricity was used this day by LOCK
+286 electricity was used this day by AIR_CONDITIONER
+660 electricity was used this day by VACUUM_CLEANER
+141 electricity was used this day by FIRE_SUPPRESSION
+153 electricity was used this day by COFFEE_MACHINE
+223 electricity was used this day by FRIDGE
+346 electricity was used this day by PET_FEEDER
+314 electricity was used this day by PET_FEEDER
+142 electricity was used this day by PET_FOUNTAIN
+288 electricity was used this day by DISHWASHER
+645 electricity was used this day by VACUUM_CLEANER
+282 electricity was used this day by WASHING_MACHINE
+286 electricity was used this day by AIR_CONDITIONER
+142 electricity was used this day by FIRE_SUPPRESSION
+286 electricity was used this day by AIR_CONDITIONER
+316 electricity was used this day by TV
+645 electricity was used this day by VACUUM_CLEANER
+142 electricity was used this day by FIRE_SUPPRESSION
+286 electricity was used this day by PET_FEEDER
+Bob is sleeping
+Archi is sleeping
+Sasha is sleeping
+1 hours
+PET_TOY set to idle at 01:10
+Jessi is sleeping
+Mary is sleeping
+2 hours
+3 hours
+Event TEMPERATURE is generated at 03:00
+AIR_CONDITIONER is starting at 03:00
+144 electricity was used this day
+TEMPERATURE generated report.

@@ -1,5 +1,6 @@
 package strategy;
 
+import items.Observer;
 import items.device.Device;
 import items.state.IdleState;
 import items.state.StateType;
@@ -21,7 +22,7 @@ public class Night implements Strategy{
 
     @Override
     public void setup(){
-        System.out.println("Its night strategy");
+        Observer.getInstance().logAction("Its night strategy\n");
         for(Device d: deviceFactory.getDevices()){
             if(d.getCurrentState().getType()== StateType.ACTIVE) {
                 d.setCurrentState(new IdleState(d));
@@ -29,6 +30,8 @@ public class Night implements Strategy{
             d.generateReportForDay();
         }
     }
+
+
 
     @Override
     public List<Device> getActiveDevices() {

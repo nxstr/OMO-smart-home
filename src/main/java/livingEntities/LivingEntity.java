@@ -3,11 +3,13 @@ package livingEntities;
 import house.House;
 import house.Room;
 import items.ElectricalItem;
+import items.ReportGenerator;
 import items.equipment.SportEquipment;
 
 public interface LivingEntity {
 
     House house = House.getInstance();
+
 
     void moveToRoom(Room room);
 
@@ -46,5 +48,7 @@ public interface LivingEntity {
     boolean isAlarmMode();
 
     void setAlarmMode(boolean alarmMode);
+
+    boolean isAsleep();
 
 }

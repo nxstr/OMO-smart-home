@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.BrokenState;
 import items.state.IdleState;
 import items.state.ActiveState;
@@ -19,7 +20,7 @@ public class PetFountain extends Device{
         if(getUsedTimes()>=30){
             setCurrentState(new IdleState(this));
             setBrokenTimes(getBrokenTimes()+1);
-            System.out.println("Pet Fountain needs filter change!");
+            Observer.getInstance().logAction("PET_FOUNTAIN needs filter change!\n");
             return true;
         }
         return false;
@@ -30,18 +31,18 @@ public class PetFountain extends Device{
         if(!isDirty()){
             setCurrentState(new IdleState(this));
         }
-        System.out.println("Pet Fountain has new filter!");
+        Observer.getInstance().logAction("PET_FOUNTAIN has new filter!\n");
     }
 
     public void usingDevice(){
         if(!isDirty()) {
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            System.out.println(this.getName() + " is starting at " + getHouse().getTime());
+            Observer.getInstance().logAction(this.getName() + " is starting at " + getHouse().getTime()+"\n");
             breakingEvent();
         }else{
             setCurrentState(new BrokenState(this));
-            System.out.println("Pet Fountain is dirty!");
+            Observer.getInstance().logAction("PET_FOUNTAIN is dirty!\n");
             generateReportForObserver();
         }
     }

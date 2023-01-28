@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.BrokenState;
 import items.state.ActiveState;
 import items.state.IdleState;
@@ -22,7 +23,7 @@ public class CoffeeMachine extends Device{
     }
 
     public void refill() {
-        System.out.println("Coffee Machine is filled");
+        Observer.getInstance().logAction(this.getName() + " is filled.\n");
         currentCapacity = maxCapacity;
         setCurrentState(new IdleState(this));
     }
@@ -30,13 +31,13 @@ public class CoffeeMachine extends Device{
     public void usingDevice() {
         if (isEmpty()) {
             setCurrentState(new BrokenState(this));
-            System.out.println("Coffee beans in coffee machine are over");
+            Observer.getInstance().logAction("Coffee beans in " + this.getName() + " are over!\n");
             generateReportForObserver();
         } else {
             currentCapacity--;
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            System.out.println("Coffee Machine is starting at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left");
+            Observer.getInstance().logAction(this.getName() + " is starting at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left.\n");
             breakingEvent();
         }
     }

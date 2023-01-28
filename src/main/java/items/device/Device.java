@@ -24,7 +24,7 @@ public abstract class Device implements ElectricalItem{
     private final int electricityInBrokeState;
     private int usedTimes =0;
     private int brokenTimes =0;
-    private final Manual manual = new Manual(this);
+    private Manual manual;
     private final House house = House.getInstance();
 
     private static boolean isWaterOn = true;
@@ -131,7 +131,7 @@ public abstract class Device implements ElectricalItem{
     public void usingDevice(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-        System.out.println(this.getName() + " is starting at " + house.getTime());
+        Observer.getInstance().logAction(this.getName() + " is starting at " + house.getTime() + "\n");
         breakingEvent();
         generateReportForObserver();
     }
@@ -139,7 +139,7 @@ public abstract class Device implements ElectricalItem{
     public void breakingItem() {
         brokenTimes++;
         setCurrentState(new BrokenState(this));
-        System.out.println(this.getName() + " is -----BROKE----- at " + house.getTime());
+        Observer.getInstance().logAction(this.getName() + " is broke at " + house.getTime() + "\n");
         generateReportForObserver();
         resetUsedTimes();
     }
@@ -154,6 +154,7 @@ public abstract class Device implements ElectricalItem{
     }
 
     public Manual getManual() {
+        if(manual==null){ manual = new Manual(this);}
         return manual;
     }
 
@@ -170,31 +171,34 @@ public abstract class Device implements ElectricalItem{
 
     public void generateReportForDay(){
         int electricity = getElectricityInOnState()*getUsedTimes()+getElectricityInOffState()*(24*6-getUsingHours());
-        System.out.println(electricity + " electricity was used this day by " + this.getType());
+        Observer.getInstance().logAction(electricity + " electricity was used this day by " + this.getType() + "\n");
         addUsedElectricity(electricity);
+        observer.handleDayConsumptionReport(this, electricity);
     }
 
     public void stopDevice(){
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
-            System.out.println(this.getName() + " switched off at " + house.getTime());
+            Observer.getInstance().logAction(this.getName() + " switched off at " + house.getTime() + "\n");
             changeState();
         }
         else if(this.getCurrentState().getType()== StateType.FIXING) {
-            System.out.println(this.getName() + " is finally fixed at " + house.getTime());
+            Observer.getInstance().logAction(this.getName() + " is finally fixed at " + house.getTime()+ "\n");
             changeState();
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
-            System.out.println(this.getName() + " is broken at  " + house.getTime());
+            Observer.getInstance().logAction(this.getName() + " is broken at  " + house.getTime()+ "\n");
+        }else if(this.getCurrentState().getType()== StateType.OFF){
+            changeState();
         }
     }
 
     public void changeState(){
         this.setCurrentState(new IdleState(this));
         if(!isIsWaterOn() && (this.getType()==DeviceType.DISHWASHER || this.getType()==DeviceType.WASHING_MACHINE || this.getType()==DeviceType.FIRE_SUPPRESSION)){
-            this.setCurrentState(new FixingState(this));
+            this.setCurrentState(new OffState(this));
         }
         if(!isIsEnergyOn()){
-            this.setCurrentState(new FixingState(this));
+            this.setCurrentState(new OffState(this));
         }
     }
 
@@ -205,7 +209,7 @@ public abstract class Device implements ElectricalItem{
     public void setIsWaterOn(boolean isWaterOn) {
         Device.isWaterOn = isWaterOn;
         if(!isWaterOn){
-            setCurrentState(new FixingState(this));
+            setCurrentState(new OffState(this));
         }else{
             setCurrentState(new IdleState(this));
         }
@@ -218,7 +222,7 @@ public abstract class Device implements ElectricalItem{
     public void setIsEnergyOn(boolean isEnergyOn) {
         Device.isEnergyOn = isEnergyOn;
         if(!isEnergyOn){
-            setCurrentState(new FixingState(this));
+            setCurrentState(new OffState(this));
         }else{
             setCurrentState(new IdleState(this));
         }

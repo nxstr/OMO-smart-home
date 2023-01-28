@@ -43,7 +43,7 @@ public class Simulation {
             List<LivingEntity> entities = house.getLivingEntities();
             if(time.getMinute()==0){
                 int hours = time.getHour();
-                System.out.println(hours + " hours");
+                Observer.getInstance().logAction(hours + " hours\n");
                 checkStrategy();
             }
             offEventGenerator.generateEvent(time, observer);
@@ -57,12 +57,13 @@ public class Simulation {
                                 strategy.removeActiveDevice(d);
                             }
                             d.stopDevice();
+                            reportGenerator.strategyReport(d, time);
                             if(d.getType()== DeviceType.DISHWASHER || d.getType()== DeviceType.WASHING_MACHINE){
                                 Adult.addTask(d);
                             }
                             strategy.removeActiveDevice(d);
                         }
-                        if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
+                        if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING || d.getCurrentState().getType()==StateType.OFF){
                             strategy.removeActiveDevice(d);
                         }
                     }
@@ -87,8 +88,7 @@ public class Simulation {
                             }
                         } else if (e.getCurrentEq() != null) {
                             if (e.getCurrentBackActionProgress() == e.getCurrentEq().getUsingHours()) {
-                                e.getCurrentEq().setCurrentState(new IdleState(e.getCurrentEq()));
-                                System.out.println(e.getCurrentEq().getType() + " switched off at " + time);
+                                e.getCurrentEq().stopEquipment();
                                 e.stopCurrentActivity();
                             } else {
                                 e.increaseCBAP();
@@ -103,30 +103,41 @@ public class Simulation {
 
     public void dayStrategySetup(){
         strategy.setup();
+        reportGenerator.strategySetupReport(strategy);
+        for(Device d: strategy.getActiveDevices()) {
+            reportGenerator.strategyReport(d, time);
+        }
         observer.setStrategy(strategy);
     }
 
     public void nightStrategySetup(){
         strategy.setup();
+        reportGenerator.strategySetupReport(strategy);
+        for(Device d: strategy.getActiveDevices()) {
+            reportGenerator.strategyReport(d, time);
+        }
         observer.setStrategy(strategy);
     }
 
-    public void checkStrategy(){
-        if(time.equals(LocalTime.of(8, 0))){
+    public void checkStrategy() throws IOException {
+        if((time.isAfter(LocalTime.of(8, 0))&&time.isBefore(LocalTime.of(14,0))&&strategy==null)||time.equals(LocalTime.of(8,0))){
             strategy = new Morning();
             dayStrategySetup();
         }
-        if(time.equals(LocalTime.of(14, 0))){
+        if((time.isAfter(LocalTime.of(14, 0))&&time.isBefore(LocalTime.of(19,0))&&strategy==null)||time.equals(LocalTime.of(14,0))){
             strategy = new Afternoon();
             dayStrategySetup();
         }
-        if(time.equals(LocalTime.of(19, 0))){
+        if((time.isAfter(LocalTime.of(19, 0))&&time.isBefore(LocalTime.of(0,0))&&strategy==null)||time.equals(LocalTime.of(19,0))){
             strategy = new Evening();
             dayStrategySetup();
         }
-        if(time.equals(LocalTime.of(0, 0))){
+        if((time.isAfter(LocalTime.of(0, 0))&&time.isBefore(LocalTime.of(8,0))&&strategy==null)||time.equals(LocalTime.of(0,0))){
             days++;
-            System.out.println(days + " days");
+            Observer.getInstance().logAction(days + " day\n");
+            reportGenerator.writeEventDay(days);
+            reportGenerator.writeActivityDay(days);
+            reportGenerator.writeConsumptionDay(days);
             strategy = new Night();
             nightStrategySetup();
         }

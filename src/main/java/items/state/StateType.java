@@ -1,6 +1,6 @@
 package items.state;
 
 public enum StateType {
-    BROKEN, FIXING, IDLE, ACTIVE
+    BROKEN, FIXING, IDLE, ACTIVE, OFF
 }
 

@@ -3,6 +3,7 @@ package items.sensors;
 import house.House;
 import house.Room;
 import items.ElectricalItem;
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceFactory;
 import items.device.DeviceType;
@@ -21,7 +22,7 @@ public abstract class Sensor implements ElectricalItem {
     private final int electricityInOnState;
     private final int electricityInBrokeState;
     private int brokenTimes =0;
-    private final Manual manual = new Manual(this);
+    private Manual manual;
     private final House house = House.getInstance();
     private static boolean isEnergyOn = true;
 
@@ -121,11 +122,11 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public void breakingItem() {
-        System.out.println( getType() + " Sensor is broken");
+        Observer.getInstance().logAction( getType() + " Sensor is broken\n");
         brokenTimes++;
         setCurrentState(new BrokenState(this));
         addUsedElectricity(getElectricityInOnState()*getUsingHours());
-        System.out.println(getElectricityInOnState()*getUsingHours() + " electricity was used this day before breaking");
+        Observer.getInstance().logAction(getElectricityInOnState()*getUsingHours() + " electricity was used this day before breaking\n");
         generateReportForObserver();
     }
 
@@ -139,6 +140,7 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public Manual getManual() {
+        if(manual==null){ manual = new Manual(this);}
         return manual;
     }
 
@@ -154,36 +156,36 @@ public abstract class Sensor implements ElectricalItem {
     }
 
     public void usingDevice(){
-        System.out.println(this.getType() + "sensor got event");
+        Observer.getInstance().logAction(this.getType() + "sensor got event\n");
         generateReportForObserver();
     }
 
     public void generateReportForDay(){
-        System.out.println(getElectricityInOnState()*getUsingHours() + " electricity was used this day");
+        Observer.getInstance().logAction(getElectricityInOnState()*getUsingHours() + " electricity was used this day\n");
         addUsedElectricity(getElectricityInOnState()*getUsingHours());
     }
 
     public void stopDevice(){
         if(this.getCurrentState().getType()== StateType.FIXING) {
-            System.out.println(this.getName() + " is finally fixed at " + house.getTime());
+            Observer.getInstance().logAction(this.getName() + " is finally fixed at " + house.getTime()+"\n");
             this.setCurrentState(new ActiveState(this));
             if(!isIsEnergyOn()){
-                this.setCurrentState(new FixingState(this));
+                this.setCurrentState(new OffState(this));
             }
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
-            System.out.println(this.getName() + " is broken at  " + house.getTime());
+            Observer.getInstance().logAction(this.getName() + " is broken at  " + house.getTime()+"\n");
         }
     }
 
-    public static boolean isIsEnergyOn() {
+    public boolean isIsEnergyOn() {
         return isEnergyOn;
     }
 
     public void setIsEnergyOn(boolean isEnergyOn) {
         Sensor.isEnergyOn = isEnergyOn;
         if(!isEnergyOn){
-            setCurrentState(new FixingState(this));
+            setCurrentState(new OffState(this));
         }else{
             setCurrentState(new ActiveState(this));
         }

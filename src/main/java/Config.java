@@ -32,7 +32,7 @@ public class Config {
         Object o = new JSONParser().parse(new FileReader(file));
 
         JSONObject j = (JSONObject) o;
-        JSONArray array = (JSONArray) j.get("home");
+        JSONArray array = (JSONArray) j.get("house");
 
         house.setId(Integer.parseInt(((JSONObject) array.get(0)).get("houseId").toString()));
         house.setOutSideArea(OutsideArea.getInstance());

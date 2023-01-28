@@ -21,14 +21,11 @@ public class FireSensor extends Sensor{
     }
 
     public void usingDevice(){
-        System.out.println(this.getCurrentState().getType());
         setAlarmMode(true);
         generateReportForObserver();
-        System.out.println(this.getCurrentState().getType());
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
             List<ElectricalItem> items = getCurrentRoom().getElectricalItems().stream()
                     .filter(d -> Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).filter(i->i.getCurrentState().getType() == StateType.IDLE).toList();
-            System.out.println(items.size());
             for(ElectricalItem c: items) {
                 c.usingDevice();
                 Strategy strategy = observer.getStrategy();

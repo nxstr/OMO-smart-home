@@ -5,6 +5,7 @@ import events.Event;
 import house.Room;
 import items.ElectricalItem;
 import items.Observer;
+import items.ReportGenerator;
 import items.equipment.SportEquipment;
 
 public abstract class Entity implements LivingEntity{
@@ -20,6 +21,7 @@ public abstract class Entity implements LivingEntity{
     private final Observer observer = Observer.getInstance();
     private boolean isAlarmMode = false;
     private boolean isAsleep = false;
+    private ReportGenerator reportGenerator = new ReportGenerator();
 
     public Entity(String name, EntityType type, Room room, int hungerTicks) {
         this.room = room;
@@ -32,7 +34,9 @@ public abstract class Entity implements LivingEntity{
         return hungerTicks;
     }
 
-
+    public ReportGenerator getReportGenerator() {
+        return reportGenerator;
+    }
 
     public boolean isHungry() {
         return getCurrentHunger() >= getHungerTicks();
@@ -45,7 +49,7 @@ public abstract class Entity implements LivingEntity{
     public void setAlarmMode(boolean alarmMode) {
         isAlarmMode = alarmMode;
         if(alarmMode) {
-            System.out.println("alarm is setted for " + this.getName());
+            Observer.getInstance().logAction("alarm is setted for " + this.getName()+"\n");
             if(isAsleep){
                 setAsleep(false);
             }
@@ -83,7 +87,7 @@ public abstract class Entity implements LivingEntity{
 
     @Override
     public void waiting() {
-        System.out.println(this.name + " is waiting for now");
+        Observer.getInstance().logAction(this.name + " is waiting for now\n");
     }
 
     @Override
@@ -93,7 +97,7 @@ public abstract class Entity implements LivingEntity{
         }
         this.prevRoom = this.room;
         this.room = room;
-        System.out.println(this.name + " moves to -------------- " + room.getName());
+        Observer.getInstance().logAction(this.name + " moves to " + room.getName()+"\n");
     }
 
     @Override
@@ -101,7 +105,7 @@ public abstract class Entity implements LivingEntity{
         this.prevRoom = this.room;
         this.room = null;
         house.goOut(this);
-        System.out.println(this.name + " goes out from house ");
+        Observer.getInstance().logAction(this.name + " goes out from house\n");
         Event event = new EntityEvent(getPrevRoom(), house.getTime());
         observer.eventHandler(event);
     }
@@ -114,7 +118,7 @@ public abstract class Entity implements LivingEntity{
         house.comeBack(this);
         this.room = this.prevRoom;
         this.prevRoom = null;
-        System.out.println(this.name + " comes back to house ");
+        Observer.getInstance().logAction(this.name + " comes back to house");
         Event event = new EntityEvent(getPrevRoom(), house.getTime());
         observer.eventHandler(event);
     }
@@ -179,9 +183,9 @@ public abstract class Entity implements LivingEntity{
         isAsleep = asleep;
         if(asleep) {
             stopCurrentActivity();
-            System.out.println(this.getName() + " is sleeping");
+            Observer.getInstance().logAction(this.getName() + " is sleeping\n");
         }else{
-            System.out.println(this.getName() + " is woke up");
+            Observer.getInstance().logAction(this.getName() + " is woke up\n");
         }
     }
 }

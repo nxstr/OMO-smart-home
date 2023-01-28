@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.IdleState;
 import items.state.ActiveState;
 
@@ -21,7 +22,7 @@ public class Fridge extends Device{
     }
 
     public void refill() {
-        System.out.println("Fridge is refilled");
+        Observer.getInstance().logAction(this.getName()+" is refilled\n");
         currentCapacity = maxCapacity;
         setCurrentState(new IdleState(this));
     }
@@ -30,12 +31,12 @@ public class Fridge extends Device{
     public void usingDevice() {
         if (isEmpty()) {
             setCurrentState(new IdleState(this));
-            System.out.println("Food in Fridge is needs to refill");
+            Observer.getInstance().logAction("Food in FRIDGE is needs to refill\n");
         } else {
             setCurrentState(new ActiveState(this));
             setUsedTimes(getUsedTimes() + 1);
             currentCapacity--;
-            System.out.println("Fridge is using at " + getHouse().getTime() + ", " + currentCapacity + " portions of food are/is left");
+            Observer.getInstance().logAction("Fridge is using at " + getHouse().getTime() + ", " + currentCapacity + " portions of food are/is left\n");
             breakingEvent();
         }
     }

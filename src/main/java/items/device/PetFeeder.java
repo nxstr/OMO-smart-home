@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.BrokenState;
 import items.state.ActiveState;
 import items.state.IdleState;
@@ -24,7 +25,7 @@ public class PetFeeder extends Device{
     }
 
     public void refill(){
-        System.out.println("Pet feeder is filled");
+        Observer.getInstance().logAction("PET_FEEDER is filled\n");
         currentCapacity = maxCapacity;
         setCurrentState(new IdleState(this));
     }
@@ -41,18 +42,18 @@ public class PetFeeder extends Device{
         if(isPortionEated) {
             if (isEmpty()) {
                 setCurrentState(new BrokenState(this));
-                System.out.println("Pet Feeder is empty!");
+                Observer.getInstance().logAction("PER_FEEDER is empty!\n");
                 generateReportForObserver();
             } else {
                 currentCapacity--;
                 setPortionEated(false);
                 setUsedTimes(getUsedTimes() + 1);
                 setCurrentState(new ActiveState(this));
-                System.out.println("Pet Feeder pours one portion of food at " + getHouse().getTime() + ", " + + currentCapacity + " portions are/is left");
+                Observer.getInstance().logAction("PET_FEEDER pours one portion of food at " + getHouse().getTime() + ", " + + currentCapacity + " portions are/is left\n");
                 breakingEvent();
             }
         }else{
-            System.out.println("Pet feeder is full");
+            Observer.getInstance().logAction("PET_FEEDER is full\n");
         }
     }
 

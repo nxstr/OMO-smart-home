@@ -1,6 +1,7 @@
 package items.sensors;
 
 import house.Room;
+import items.Observer;
 import items.device.DeviceType;
 import items.state.StateType;
 
@@ -14,6 +15,10 @@ public class WaterSensor extends Sensor{
     Means sensor, that makes reaction when water cuts off in house
      */
 
+    public boolean isWaterOn() {
+        return isWaterOn;
+    }
+
     public WaterSensor(Room currentRoom) {
         super(SensorType.WATER, currentRoom, electricityInOnState, electricityInBrokeState);
     }
@@ -24,18 +29,18 @@ public class WaterSensor extends Sensor{
                 isWaterOn = false;
                 getDeviceFactory().getDevices().stream()
                         .filter(i -> i.getCurrentState().getType() == StateType.IDLE)
-                        .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE || d.getType() == DeviceType.FIRE_SUPPRESSION)
+                        .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE)
                         .forEach(d->d.setIsWaterOn(false));
-                System.out.println("There is no water in the house, all water-using devices are off");
+                Observer.getInstance().logAction("There is no water in the house, all water-using devices are off\n");
             } else {
                 isWaterOn = true;
                 getDeviceFactory().getDevices().stream()
-                        .filter(i -> i.getCurrentState().getType() == StateType.FIXING)
-                        .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE || d.getType() == DeviceType.FIRE_SUPPRESSION)
+                        .filter(i -> i.getCurrentState().getType() == StateType.OFF)
+                        .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE)
                         .forEach(d->d.setIsWaterOn(true));
-                System.out.println("Water is on! All water-using devices are available!");
+                Observer.getInstance().logAction("Water is on! All water-using devices are available!\n");
             }
-            System.out.println(this.getType() + " sensor got event");
+            Observer.getInstance().logAction(this.getType() + " sensor got event\n");
             generateReportForObserver();
         }
     }

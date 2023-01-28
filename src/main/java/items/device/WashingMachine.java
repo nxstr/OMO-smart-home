@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.ActiveState;
 
 public class WashingMachine extends Device{
@@ -40,15 +41,15 @@ public class WashingMachine extends Device{
                 breakingEvent();
                 setCurrentState(new ActiveState(this));
                 setUsedTimes(getUsedTimes() + 1);
-                System.out.println("Washing machine is started at " + getHouse().getTime());
+                Observer.getInstance().logAction(this.getName()+" is started at " + getHouse().getTime()+"\n");
                 isClean = true;
             }else{
-                System.out.println("Washing machine is needs to empty");
+                Observer.getInstance().logAction(this.getName()+" is needs to empty\n");
                 generateReportForObserver();
             }
         }else{
             //add task
-            System.out.println("Washing machine is empty");
+            Observer.getInstance().logAction(this.getName()+" is empty\n");
             generateReportForObserver();
         }
 

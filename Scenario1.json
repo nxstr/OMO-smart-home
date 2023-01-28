@@ -1,11 +1,11 @@
 {
   "simulation": [
     {
-      "starting_hour": 0,
+      "starting_hour": 1,
       "iterations": 300
     }
   ],
-  "home": [
+  "house": [
     {
       "houseId": 1,
       "floors": [

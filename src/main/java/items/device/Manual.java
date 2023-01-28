@@ -1,6 +1,7 @@
 package items.device;
 
 import items.ElectricalItem;
+import items.Observer;
 
 public class Manual {
 
@@ -12,6 +13,6 @@ public class Manual {
 
 
     public void readDeviceManual() {
-        System.out.println("Reading the manual of " + item.getName());
+        Observer.getInstance().logAction("Reading the manual of " + item.getName()+"\n");
     }
 }

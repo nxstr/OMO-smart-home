@@ -1,6 +1,7 @@
 package items.sensors;
 
 import house.Room;
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;
@@ -22,13 +23,14 @@ public class EntitySensor extends Sensor{
             List<Device> locks = getDeviceFactory().getDevices().stream().filter(i -> Objects.equals(i.getName(), DeviceType.LOCK.toString())).toList();
             for(Device c:locks) {
                 if (getHouse().getOutSideArea().getEntities().isEmpty() && c.getCurrentState().getType()==StateType.IDLE) {
-                    System.out.println("Activating lock at " + getHouse().getTime());
+                    Observer.getInstance().logAction("Activating lock at " + getHouse().getTime()+"\n");
                     c.usingDevice();
                 }else if (!getHouse().getOutSideArea().getEntities().isEmpty() && c.getCurrentState().getType()==StateType.ACTIVE){
-                    System.out.println("Stopping lock at " + getHouse().getTime());
+                    Observer.getInstance().logAction("Stopping lock at " + getHouse().getTime()+"\n");
                     c.stopDevice();
                 }
             }
+            generateReportForObserver();
             breakingEvent();
         }
     }

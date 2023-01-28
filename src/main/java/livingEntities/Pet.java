@@ -1,6 +1,7 @@
 package livingEntities;
 
 import house.Room;
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceFactory;
 import items.device.DeviceType;
@@ -62,17 +63,17 @@ public class Pet extends Entity{
                 if (!p.isPortionEated() && isHungry()) {
                     moveToRoom(p.getCurrentRoom());
                     setCurrentDevice(p);
-                    System.out.println(this.getName() + " is eating!!!");
+                    Observer.getInstance().logAction(this.getName() + " is eating\n");
                     p.usingDeviceByPet();
                     if(p.getCurrentState().getType()==StateType.BROKEN){
                         stopCurrentActivity();
                         return;
                     }
                     resetCurrentHunger();
-                    System.out.println(this.getName() + " has hunger " + getCurrentHunger());
+                    getReportGenerator().entityActivityReport(this, house.getTime());
                     return;
                 }else if(p.isPortionEated() && isHungry()){
-                    System.out.println(this.getName() + " is hungry!!!!!!!!");
+                    Observer.getInstance().logAction(this.getName() + " is hungry\n");
 
                 }
             }
@@ -85,12 +86,13 @@ public class Pet extends Entity{
         for(Device d:petDevices) {
                 moveToRoom(d.getCurrentRoom());
                 setCurrentDevice(d);
-                System.out.println(this.getName() + " is drinking!!!");
+                Observer.getInstance().logAction(this.getName() + " is drinking\n");
                 d.usingDevice();
                 if(d.getCurrentState().getType()==StateType.BROKEN){
                     stopCurrentActivity();
                     return;
                 }
+            getReportGenerator().entityActivityReport(this, house.getTime());
                 return;
             }
     }
@@ -101,13 +103,14 @@ public class Pet extends Entity{
         for(SportEquipment e: eq){
             moveToRoom(e.getCurrentRoom());
             setCurrentEq(e);
-            System.out.println(this.getName() + " is playing!!!");
+            Observer.getInstance().logAction(this.getName() + " is playing\n");
             int rand = new Random().nextInt(30);
             if(rand<10){
                 goOut();
-                System.out.println(getName() + " is outside the house");
+                Observer.getInstance().logAction(getName() + " is outside the house\n");
             }
             e.usingEquipment();
+            getReportGenerator().entityActivityReport(this, house.getTime());
             return;
         }
     }

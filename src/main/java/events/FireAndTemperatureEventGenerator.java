@@ -18,7 +18,7 @@ public class FireAndTemperatureEventGenerator extends EventGenerator{
         super.generateEvent(time, observer);
         if(time.equals(getRandomEventTime())) {
             EventType[] arr = new EventType[]{
-                    EventType.TEMPERATURE
+                    EventType.TEMPERATURE, EventType.FIRE
             };
             int rand = new Random().nextInt(arr.length);
             EventType type = arr[rand];

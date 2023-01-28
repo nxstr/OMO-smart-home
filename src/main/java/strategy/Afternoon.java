@@ -1,5 +1,6 @@
 package strategy;
 
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;
@@ -20,7 +21,7 @@ public class Afternoon implements Strategy{
 
     @Override
     public void setup() {
-        System.out.println("Its afternoon strategy");
+        Observer.getInstance().logAction("Its afternoon strategy\n");
 
         String[] arr = new String[]{
                 "dishwasher", "pet_feeder", "vacuum_cleaner", "washing_machine"
@@ -35,7 +36,7 @@ public class Afternoon implements Strategy{
                             activatedDevices.add(d);
                         }
                     } catch (Exception e) {
-                        System.out.println("This device does not exist in the house");
+                        Observer.getInstance().logAction("This device does not exist in the house\n");
                     }
                 }
 

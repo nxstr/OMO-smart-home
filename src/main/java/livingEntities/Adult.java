@@ -2,6 +2,7 @@ package livingEntities;
 
 import house.Room;
 import items.ElectricalItem;
+import items.Observer;
 import items.TaskList;
 import items.device.*;
 import items.state.StateType;
@@ -25,6 +26,7 @@ public class Adult extends Person{
         }else {
             if(isAsleep()) {
                 setAsleep(false);
+                getReportGenerator().entityActivityReport(this, house.getTime());
             }
             else if (isHungry()) {
                 boolean isFeeded = useFeed();
@@ -43,6 +45,7 @@ public class Adult extends Person{
                     waiting();
                 }
             }
+
         }
     }
 
@@ -61,13 +64,11 @@ public class Adult extends Person{
     }
 
     public static void addTask(ElectricalItem object) {
-        TaskList.getInstance();
-        TaskList.addTask(object);
+        TaskList.getInstance().addTask(object);
     }
 
     public void repairDevice(ElectricalItem item){
-        System.out.println(this.getName() + " repairing " + item.getName() + " at " +house.getTime());
-        setCurrentDevice(item);
+        Observer.getInstance().logAction(this.getName() + " repairing " + item.getName() + " at " +house.getTime()+"\n");
         item.fixingItem();
     }
 

@@ -8,7 +8,5 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         Simulation s = new Simulation();
         s.start("Scenario1.json");
-//        Config config = new Config();
-//        config.conf("Scenario1.json");
     }
 }

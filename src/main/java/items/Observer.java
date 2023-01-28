@@ -65,7 +65,7 @@ public class Observer {
 
     public void handleSensorReport(Sensor sensor){
         if(sensor.isAlarmMode() && sensor.getCurrentState().getType()!=StateType.BROKEN){
-            System.out.println("!!!EmErGeNcY bEhAvIoR!!! here");
+            logAction("!!!EmErGeNcY bEhAvIoR!!!\n");
             for(LivingEntity e: sensor.getHouse().getLivingEntities()){
                 e.setAlarmMode(true);
             }
@@ -75,7 +75,7 @@ public class Observer {
         }else{
             sensor.generateReportForDay();
         }
-        System.out.println(sensor.getType() + " generated report");
+        logAction(sensor.getType() + " generated report.\n");
         try{
             reportGenerator.eventSensorReport(sensor);
         }catch (IOException e){
@@ -84,7 +84,7 @@ public class Observer {
     }
 
     public void eventHandler(Event event){
-        System.out.println("Event " + event.getType() + " is handled at " + event.getTime());
+        logAction("Event " + event.getType() + " is generated at " + event.getTime() + "\n");
         try {
             reportGenerator.eventReport(event);
         }catch (IOException e){
@@ -111,9 +111,14 @@ public class Observer {
         }
         if(sens!=null){
             sens.usingDevice();
-            System.out.println("at time " + event.getTime());
-        }else{
-            System.out.println("!!!EmErGeNcY bEhAvIoR!!!");
         }
+    }
+
+    public void handleDayConsumptionReport(ElectricalItem item, int el){
+        reportGenerator.consumptionReport(item, el);
+    }
+
+    public void logAction(String s){
+        reportGenerator.simulationRunLog(s);
     }
 }

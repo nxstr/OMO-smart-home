@@ -54,12 +54,11 @@ public abstract class SportEquipment {
     public void usingEquipment(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-        Observer.getInstance().handleSportReport(this);
     }
 
     public void stopEquipment(){
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
-            System.out.println(this.getType() + " is idle at " + House.getInstance().getTime());
+            Observer.getInstance().logAction(this.getType() + " set to idle at " + House.getInstance().getTime()+"\n");
             this.setCurrentState(new IdleState(this));
         }
     }

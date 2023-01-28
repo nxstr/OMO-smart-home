@@ -36,7 +36,7 @@ public class TaskList {
     public void getTask(Adult adult) {
         ElectricalItem item = devicesToControl.poll();
 
-        if (adult.getType() == EntityType.MOTHER) {
+//        if (adult.getType() == EntityType.MOTHER) {
             if (item != null) {
                 adult.moveToRoom(item.getCurrentRoom());
                 if (Objects.equals(item.getMainType(), "device")) {
@@ -45,11 +45,11 @@ public class TaskList {
                         Dishwasher d = (Dishwasher) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            System.out.println(adult.getName() + " filled dishwasher at " + House.getInstance().getTime());
+                            Observer.getInstance().logAction(adult.getName() + " filled dishwasher at " + House.getInstance().getTime()+"\n");
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                System.out.println(adult.getName() + " emptied dishwasher at " + House.getInstance().getTime());
+                                Observer.getInstance().logAction(adult.getName() + " emptied dishwasher at " + House.getInstance().getTime()+"\n");
                                 addTask(d);
                             }
                         }
@@ -58,30 +58,24 @@ public class TaskList {
                         WashingMachine d = (WashingMachine) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            System.out.println(adult.getName() + " filled washing machine at " + House.getInstance().getTime());
+                            Observer.getInstance().logAction(adult.getName() + " filled washing machine at " + House.getInstance().getTime()+"\n");
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                System.out.println(adult.getName() + " emptied washing machine at " + House.getInstance().getTime());
+                                Observer.getInstance().logAction(adult.getName() + " emptied washing machine at " + House.getInstance().getTime()+"\n");
                                 addTask(d);
                             }
                         }
                     }
                 }
-            }
-            if(item!=null){
-                if (item.getCurrentState().getType() == StateType.BROKEN) {
-                    adult.repairDevice(item);
-                    System.out.println(adult.getName() + " ------------ is fixing " + item.getName());
-                }
+            if (item.getCurrentState().getType() == StateType.BROKEN) {
+                adult.setCurrentDevice(item);
+                adult.repairDevice(item);
             }
         }
     }
 
     public Queue<ElectricalItem> getToDoList() {
-        for(ElectricalItem item: devicesToControl){
-            System.out.println(item.getName() + " ---------------- in device list");
-        }
         return devicesToControl;
     }
 }

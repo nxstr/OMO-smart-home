@@ -2,9 +2,10 @@ package items.device;
 
 import house.Room;
 import items.ElectricalItem;
+import items.Observer;
 import items.state.ActiveState;
-import items.state.FixingState;
 import items.state.IdleState;
+import items.state.OffState;
 
 import java.util.Objects;
 
@@ -22,9 +23,9 @@ public class FireSuppression extends Device{
     public void usingDevice() {
         setCurrentState(new ActiveState(this));
         getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(ElectricalItem::stopDevice);
-        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(d->d.setCurrentState(new FixingState(d)));
+        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(d->d.setCurrentState(new OffState(d)));
         setUsedTimes(getUsedTimes()+1);
-        System.out.println(this.getName() + " is starting at " + getHouse().getTime());
+        Observer.getInstance().logAction(this.getName() + " is starting at " + getHouse().getTime() + "\n");
         generateReportForObserver();
     }
 

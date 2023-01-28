@@ -1,6 +1,7 @@
 package livingEntities;
 
 import house.Room;
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceFactory;
 import items.device.DeviceType;
@@ -51,7 +52,7 @@ public abstract class Person extends Entity{
         List<Device> fridges = devices.stream().filter(d->d.getType()== DeviceType.FRIDGE).filter(d->d.getCurrentState().getType()== StateType.IDLE).toList();
         if(!fridges.isEmpty()){
             moveToRoom(fridges.get(0).getCurrentRoom());
-            System.out.println(this.getName() + " is eating!!!");
+            Observer.getInstance().logAction(this.getName() + " is eating\n");
             fridges.get(0).usingDevice();
             setCurrentDevice(fridges.get(0));
             if(fridges.get(0).getCurrentState().getType()==StateType.BROKEN){
@@ -59,7 +60,7 @@ public abstract class Person extends Entity{
                 return false;
             }
             resetCurrentHunger();
-            System.out.println(this.getName() + " has hunger " + getCurrentHunger());
+            getReportGenerator().entityActivityReport(this, house.getTime());
             return true;
         }
         return false;
@@ -78,12 +79,13 @@ public abstract class Person extends Entity{
             moveToRoom(e.getCurrentRoom());
             e.usingEquipment();
             goOut();
-            System.out.println(this.getName() + " is goes sport outside!!!");
+            Observer.getInstance().logAction(this.getName() + " is goes sport outside\n");
             setCurrentEq(e);
             if(e.getCurrentState().getType()==StateType.BROKEN){
                 stopCurrentActivity();
                 return;
             }
+            getReportGenerator().entityActivityReport(this, house.getTime());
         }
     }
 
@@ -92,10 +94,11 @@ public abstract class Person extends Entity{
         moveToRoom(freeDevices.get(rand).getCurrentRoom());
         freeDevices.get(rand).usingDevice();
         setCurrentDevice(freeDevices.get(rand));
-        System.out.println(this.getName() + " is using device " + freeDevices.get(rand).getType());
+        Observer.getInstance().logAction(this.getName() + " is using device " + freeDevices.get(rand).getType()+"\n");
         if(freeDevices.get(rand).getCurrentState().getType()==StateType.BROKEN){
             stopCurrentActivity();
             return;
         }
+        getReportGenerator().entityActivityReport(this, house.getTime());
     }
 }

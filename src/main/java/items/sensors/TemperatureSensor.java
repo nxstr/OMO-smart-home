@@ -2,6 +2,7 @@ package items.sensors;
 
 import house.Room;
 import items.ElectricalItem;
+import items.Observer;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;
@@ -33,13 +34,11 @@ public class TemperatureSensor extends Sensor {
                 if(strategy!=null && c.getCurrentState().getType()==StateType.ACTIVE){
                     strategy.addActiveDevice((Device) c);
                 }
+                generateReportForObserver();
                 breakingEvent();
-            }else{
-                throw new Exception("this sensor is not working");
             }
         } catch (Exception e) {
-            setAlarmMode(true);
-            System.out.println("There is no available air conditioner in the room");
+            Observer.getInstance().logAction("There is no available air conditioner in the room\n");
         }
 
     }

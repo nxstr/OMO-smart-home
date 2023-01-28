@@ -1,0 +1,237 @@
+
+---------------1 DAY---------------
+
+
+143 electricity was used this day by LOCK
+143 electricity was used on the whole by LOCK
+
+
+276 electricity was used this day by AIR_CONDITIONER
+276 electricity was used on the whole by AIR_CONDITIONER
+
+
+645 electricity was used this day by VACUUM_CLEANER
+645 electricity was used on the whole by VACUUM_CLEANER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+141 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+143 electricity was used this day by COFFEE_MACHINE
+143 electricity was used on the whole by COFFEE_MACHINE
+
+
+143 electricity was used this day by FRIDGE
+143 electricity was used on the whole by FRIDGE
+
+
+286 electricity was used this day by PET_FEEDER
+286 electricity was used on the whole by PET_FEEDER
+
+
+286 electricity was used this day by PET_FEEDER
+286 electricity was used on the whole by PET_FEEDER
+
+
+143 electricity was used this day by PET_FOUNTAIN
+143 electricity was used on the whole by PET_FOUNTAIN
+
+
+278 electricity was used this day by DISHWASHER
+278 electricity was used on the whole by DISHWASHER
+
+
+645 electricity was used this day by VACUUM_CLEANER
+645 electricity was used on the whole by VACUUM_CLEANER
+
+
+272 electricity was used this day by WASHING_MACHINE
+272 electricity was used on the whole by WASHING_MACHINE
+
+
+276 electricity was used this day by AIR_CONDITIONER
+276 electricity was used on the whole by AIR_CONDITIONER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+141 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+276 electricity was used this day by AIR_CONDITIONER
+276 electricity was used on the whole by AIR_CONDITIONER
+
+
+276 electricity was used this day by TV
+276 electricity was used on the whole by TV
+
+
+645 electricity was used this day by VACUUM_CLEANER
+645 electricity was used on the whole by VACUUM_CLEANER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+141 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+286 electricity was used this day by PET_FEEDER
+286 electricity was used on the whole by PET_FEEDER
+
+
+---------------2 DAY---------------
+
+
+143 electricity was used this day by LOCK
+286 electricity was used on the whole by LOCK
+
+
+281 electricity was used this day by AIR_CONDITIONER
+557 electricity was used on the whole by AIR_CONDITIONER
+
+
+660 electricity was used this day by VACUUM_CLEANER
+660 electricity was used on the whole by VACUUM_CLEANER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+282 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+148 electricity was used this day by COFFEE_MACHINE
+291 electricity was used on the whole by COFFEE_MACHINE
+
+
+174 electricity was used this day by FRIDGE
+174 electricity was used on the whole by FRIDGE
+
+
+316 electricity was used this day by PET_FEEDER
+602 electricity was used on the whole by PET_FEEDER
+
+
+284 electricity was used this day by PET_FEEDER
+284 electricity was used on the whole by PET_FEEDER
+
+
+157 electricity was used this day by PET_FOUNTAIN
+300 electricity was used on the whole by PET_FOUNTAIN
+
+
+288 electricity was used this day by DISHWASHER
+566 electricity was used on the whole by DISHWASHER
+
+
+645 electricity was used this day by VACUUM_CLEANER
+1290 electricity was used on the whole by VACUUM_CLEANER
+
+
+282 electricity was used this day by WASHING_MACHINE
+554 electricity was used on the whole by WASHING_MACHINE
+
+
+281 electricity was used this day by AIR_CONDITIONER
+557 electricity was used on the whole by AIR_CONDITIONER
+
+
+142 electricity was used this day by FIRE_SUPPRESSION
+283 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+281 electricity was used this day by AIR_CONDITIONER
+557 electricity was used on the whole by AIR_CONDITIONER
+
+
+286 electricity was used this day by TV
+562 electricity was used on the whole by TV
+
+
+645 electricity was used this day by VACUUM_CLEANER
+1290 electricity was used on the whole by VACUUM_CLEANER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+282 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+316 electricity was used this day by PET_FEEDER
+602 electricity was used on the whole by PET_FEEDER
+
+
+---------------3 DAY---------------
+
+
+145 electricity was used this day by LOCK
+431 electricity was used on the whole by LOCK
+
+
+286 electricity was used this day by AIR_CONDITIONER
+843 electricity was used on the whole by AIR_CONDITIONER
+
+
+660 electricity was used this day by VACUUM_CLEANER
+1320 electricity was used on the whole by VACUUM_CLEANER
+
+
+141 electricity was used this day by FIRE_SUPPRESSION
+423 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+153 electricity was used this day by COFFEE_MACHINE
+444 electricity was used on the whole by COFFEE_MACHINE
+
+
+223 electricity was used this day by FRIDGE
+397 electricity was used on the whole by FRIDGE
+
+
+346 electricity was used this day by PET_FEEDER
+948 electricity was used on the whole by PET_FEEDER
+
+
+314 electricity was used this day by PET_FEEDER
+598 electricity was used on the whole by PET_FEEDER
+
+
+142 electricity was used this day by PET_FOUNTAIN
+142 electricity was used on the whole by PET_FOUNTAIN
+
+
+288 electricity was used this day by DISHWASHER
+854 electricity was used on the whole by DISHWASHER
+
+
+645 electricity was used this day by VACUUM_CLEANER
+1935 electricity was used on the whole by VACUUM_CLEANER
+
+
+282 electricity was used this day by WASHING_MACHINE
+836 electricity was used on the whole by WASHING_MACHINE
+
+
+286 electricity was used this day by AIR_CONDITIONER
+843 electricity was used on the whole by AIR_CONDITIONER
+
+
+142 electricity was used this day by FIRE_SUPPRESSION
+425 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+286 electricity was used this day by AIR_CONDITIONER
+843 electricity was used on the whole by AIR_CONDITIONER
+
+
+316 electricity was used this day by TV
+878 electricity was used on the whole by TV
+
+
+645 electricity was used this day by VACUUM_CLEANER
+1935 electricity was used on the whole by VACUUM_CLEANER
+
+
+142 electricity was used this day by FIRE_SUPPRESSION
+424 electricity was used on the whole by FIRE_SUPPRESSION
+
+
+286 electricity was used this day by PET_FEEDER
+888 electricity was used on the whole by PET_FEEDER
+

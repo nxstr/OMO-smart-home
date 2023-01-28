@@ -1,6 +1,7 @@
 package items.device;
 
 import house.Room;
+import items.Observer;
 import items.state.ActiveState;
 
 public class Dishwasher extends Device{
@@ -42,13 +43,13 @@ public class Dishwasher extends Device{
                 setCurrentState(new ActiveState(this));
                 setUsedTimes(getUsedTimes() + 1);
                 isClean = true;
-                System.out.println("Dishwasher is started at " + getHouse().getTime());
+                Observer.getInstance().logAction(this.getName() +" is started at " + getHouse().getTime()+ "\n");
             }else{
-                System.out.println("Dishwasher is needs to empty");
+                Observer.getInstance().logAction(this.getName() +" is needs to empty\n");
                 generateReportForObserver();
             }
         }else{
-            System.out.println("Dishwasher is empty");
+            Observer.getInstance().logAction(this.getName()+" is empty\n");
             generateReportForObserver();
         }
 

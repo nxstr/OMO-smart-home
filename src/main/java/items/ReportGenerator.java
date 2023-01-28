@@ -4,24 +4,34 @@ import events.Event;
 import house.Floor;
 import house.House;
 import house.Room;
-import items.ElectricalItem;
 import items.device.Device;
 import items.equipment.SportEquipment;
 import items.sensors.Sensor;
+import items.sensors.SensorType;
+import items.sensors.WaterSensor;
+import items.state.StateType;
 import livingEntities.LivingEntity;
+import strategy.Strategy;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.List;
 
 public class ReportGenerator {
     private FileWriter configuration = null;
     private static FileWriter eventReport = null;
+    private static FileWriter activity = null;
+    private static FileWriter consumption = null;
+    private static FileWriter simulationRun = null;
 
     public ReportGenerator() {
         try {
             this.configuration = new FileWriter("src/main/resources/HouseConfigurationReport.txt");
             eventReport = new FileWriter("src/main/resources/EventReport.txt");
+            activity = new FileWriter("src/main/resources/ActivityReport.txt");
+            consumption = new FileWriter("src/main/resources/ConsumptionReport.txt");
+            simulationRun = new FileWriter("src/main/resources/SimulationRun.txt");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -65,7 +75,7 @@ public class ReportGenerator {
     }
 
     public void eventReport(Event event) throws IOException {
-        eventReport.write("Event " + event.getType() + " is handled at " + event.getTime() + "\n");
+        eventReport.write("Event " + event.getType() + " is generated at " + event.getTime() + "\n");
         eventReport.flush();
     }
 
@@ -77,6 +87,108 @@ public class ReportGenerator {
         }else{
             eventReport.write("Alarm mode is off\n");
         }
+        if(sensor.getType() == SensorType.ELECTRICITY){
+            if(sensor.isIsEnergyOn()){
+                eventReport.write("Electricity is on!\n");
+            }else{
+                eventReport.write("There is no electricity in the house\n");
+            }
+        }
+        if(sensor.getType() == SensorType.WATER){
+            WaterSensor water = (WaterSensor) sensor;
+            if(water.isWaterOn()){
+                eventReport.write("Water is on!\n");
+            }else{
+                eventReport.write("There is no water in the house\n");
+            }
+        }
+        eventReport.write("\n");
         eventReport.flush();
+    }
+
+    public void writeEventDay(int day) throws IOException {
+        eventReport.write("\n---------------" + day + " DAY---------------\n\n");
+        eventReport.flush();
+    }
+
+    public void writeActivityDay(int day) throws IOException {
+        activity.write("\n---------------" + day + " DAY---------------\n\n");
+        activity.flush();
+    }
+
+    public void entityActivityReport(LivingEntity entity, LocalTime time) {
+        try{
+            if(entity.getCurrentRoom()==null){
+                activity.write(entity.getName() + " is outside the house at " + time + ". ");
+                if(entity.getCurrentEq()!=null){
+                    activity.write(entity.getName() + " is using " + entity.getCurrentEq().getType()+"\n");
+                }
+            }else{
+                if(!entity.isAsleep()) {
+                    activity.write(entity.getName() + " is in the " + entity.getCurrentRoom().getName() + " at " + time + ". ");
+                    if (entity.getCurrentEq() != null) {
+                        activity.write(entity.getName() + " is using " + entity.getCurrentEq().getType() + "\n");
+                    } else if (entity.getCurrentDevice() != null) {
+                        if(entity.getCurrentDevice().getCurrentState().getType()== StateType.ACTIVE) {
+                            activity.write(entity.getName() + " is using " + entity.getCurrentDevice().getName() + "\n");
+                        }else if(entity.getCurrentDevice().getCurrentState().getType()== StateType.FIXING) {
+                            activity.write(entity.getName() + " is fixing " + entity.getCurrentDevice().getName() + "\n");
+                        }
+                    }else{
+                        activity.write("\n");
+                    }
+                }else{
+                    activity.write(entity.getName() + " is sleeping\n");
+                }
+            }
+            activity.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void strategyReport(Device device, LocalTime time){
+        try {
+
+            if (device.getCurrentState().getType() == StateType.ACTIVE) {
+                activity.write(device.getName() + " is switched on by system at " + time + " at room " + device.getCurrentRoom().getName() + "\n");
+            }else if(device.getCurrentState().getType() == StateType.IDLE){
+                activity.write(device.getName() + " is switched off by system at " + time + " at room " + device.getCurrentRoom().getName() + "\n");
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void strategySetupReport(Strategy strategy){
+        try{
+            activity.write("It is " + strategy.getClass().getName() + "\n");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void consumptionReport(ElectricalItem item, int el){
+        try{
+            consumption.write("\n" + el + " electricity was used this day by " + item.getName() + "\n");
+            consumption.write(item.getElectricityUsed() + " electricity was used on the whole by " + item.getName() + "\n\n");
+            consumption.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void writeConsumptionDay(int day) throws IOException {
+        consumption.write("\n---------------" + day + " DAY---------------\n\n");
+        consumption.flush();
+    }
+
+    public void simulationRunLog(String s){
+        try{
+            simulationRun.write(s);
+            simulationRun.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
