@@ -118,7 +118,7 @@ public abstract class Entity implements LivingEntity{
         house.comeBack(this);
         this.room = this.prevRoom;
         this.prevRoom = null;
-        Observer.getInstance().logAction(this.name + " comes back to house");
+        Observer.getInstance().logAction(this.name + " comes back to house\n");
         Event event = new EntityEvent(getPrevRoom(), house.getTime());
         observer.eventHandler(event);
     }

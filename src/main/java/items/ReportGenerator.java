@@ -46,23 +46,29 @@ public class ReportGenerator {
                 configuration.write("  - Room named " + room.getName() + " has:\n");
                 if(!room.getEquipment().isEmpty()){
                     configuration.write("   - " + room.getEquipment().size() + " equipment(s):\n");
+                    configuration.write("    - ");
                     for(SportEquipment e: room.getEquipment()){
-                        configuration.write("    - " + e.getType() + ";\n");
+                        configuration.write(e.getType() + "; ");
                     }
+                    configuration.write("\n");
                 }
                 if(room.getElectricalItems().stream().anyMatch(e->e.getMainType()=="device")){
                     List<ElectricalItem> devices = room.getElectricalItems().stream().filter(e->e.getMainType()=="device").toList();
                     configuration.write("   - " + devices.size() + " devices(s):\n");
+                    configuration.write("    - ");
                     for(ElectricalItem e: devices){
-                        configuration.write("    - " + e.getName() + ";\n");
+                        configuration.write(e.getName() + "; ");
                     }
+                    configuration.write("\n");
                 }
                 if(room.getElectricalItems().stream().anyMatch(e->e.getMainType()=="sensor")){
                     List<ElectricalItem> sensors = room.getElectricalItems().stream().filter(e->e.getMainType()=="sensor").toList();
                     configuration.write("   - " + sensors.size() + " sensor(s):\n");
+                    configuration.write("    - ");
                     for(ElectricalItem e: sensors){
-                        configuration.write("    - " + e.getName() + ";\n");
+                        configuration.write(e.getName() + "; ");
                     }
+                    configuration.write("\n");
                 }
             }
         }
@@ -170,7 +176,7 @@ public class ReportGenerator {
 
     public void consumptionReport(ElectricalItem item, int el){
         try{
-            consumption.write("\n" + el + " electricity was used this day by " + item.getName() + "\n");
+//            consumption.write("\n" + el + " electricity was used this day by " + item.getName() + "\n");
             consumption.write(item.getElectricityUsed() + " electricity was used on the whole by " + item.getName() + "\n\n");
             consumption.flush();
         }catch (IOException e){

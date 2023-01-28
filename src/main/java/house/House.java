@@ -12,6 +12,7 @@ public class House {
     private final List<LivingEntity> livingEntities;
     private LocalTime time;
     private final OutsideArea outSideArea;
+    private int day = 0;
 
     private final int houseId;
 
@@ -28,6 +29,14 @@ public class House {
             throw new IllegalStateException("Home has already been built.");
         }
         return new HouseBuilder();
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public LocalTime getTime() {

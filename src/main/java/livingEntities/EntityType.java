@@ -8,6 +8,7 @@ public enum EntityType {
     CHILD("child"),
     DOG("dog"),
     CAT("cat"),
+    ADULT("adult"),
     FATHER("father"),
     MOTHER("mother");
 

@@ -35,8 +35,6 @@ public class TaskList {
 
     public void getTask(Adult adult) {
         ElectricalItem item = devicesToControl.poll();
-
-//        if (adult.getType() == EntityType.MOTHER) {
             if (item != null) {
                 adult.moveToRoom(item.getCurrentRoom());
                 if (Objects.equals(item.getMainType(), "device")) {

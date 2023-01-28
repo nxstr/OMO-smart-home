@@ -170,9 +170,9 @@ public abstract class Device implements ElectricalItem{
     }
 
     public void generateReportForDay(){
-        int electricity = getElectricityInOnState()*getUsedTimes()+getElectricityInOffState()*(24*6-getUsingHours());
+        int electricity = (getElectricityInOnState()*getUsingHours()+getElectricityInOffState()*(24*6-getUsingHours()))*(getHouse().getDay());
+        setElectricityUsed(electricity);
         Observer.getInstance().logAction(electricity + " electricity was used this day by " + this.getType() + "\n");
-        addUsedElectricity(electricity);
         observer.handleDayConsumptionReport(this, electricity);
     }
 

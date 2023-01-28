@@ -1,7 +1,7 @@
 {
   "simulation": [
     {
-      "starting_hour": 1,
+      "starting_hour": 0,
       "iterations": 300
     }
   ],
@@ -102,6 +102,98 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "Hallway",
+              "items": [
+                {
+                  "equipments": [],
+                  "devices": [
+                    {
+                      "type": "air_conditioner"
+                    },
+                    {
+                      "type": "lock"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "rooms": [
+            {
+              "name": "Nursery",
+              "items": [
+                {
+                  "equipments": [
+                    {
+                      "type": "bicycle"
+                    }
+                  ],
+                  "devices": [
+                    {
+                      "type": "game_console"
+                    },
+                    {
+                      "type": "air_conditioner"
+                    },
+                    {
+                      "type": "tv"
+                    },
+                    {
+                      "type": "vacuum_cleaner"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Living_room",
+              "items": [
+                {
+                  "equipments": [
+                    {
+                      "type": "pet_toy"
+                    }
+                  ],
+                  "devices": [
+                    {
+                      "type": "coffee_machine"
+                    },
+                    {
+                      "type": "tv"
+                    },
+                    {
+                      "type": "pet_fountain"
+                    },
+                    {
+                      "type": "vacuum_cleaner"
+                    },
+                    {
+                      "type": "air_conditioner"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Laundry",
+              "items": [
+                {
+                  "equipments": [],
+                  "devices": [
+                    {
+                      "type": "washing_machine"
+                    },
+                    {
+                      "type": "fire_suppression"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -123,6 +215,12 @@
               "type": "mother",
               "age": 35,
               "room": "Bedroom"
+            },
+            {
+              "name": "Stefany",
+              "type": "adult",
+              "age": 35,
+              "room": "Living_room"
             }
           ]
         },
@@ -131,7 +229,17 @@
             {
               "name": "Artur",
               "age": 8,
-              "room": "Bedroom"
+              "room": "Nursery"
+            },
+            {
+              "name": "Jane",
+              "age": 12,
+              "room": "Nursery"
+            },
+            {
+              "name": "Alex",
+              "age": 5,
+              "room": "Nursery"
             }
           ]
         }

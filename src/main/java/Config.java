@@ -52,12 +52,18 @@ public class Config {
                         }
                     }
                     JSONArray devices = (JSONArray) (((JSONObject) items.get(0)).get("devices"));
+                    boolean hasFireSup = false;
                     if (!devices.isEmpty()) {
                         for (Object device : devices) {
                             deviceFactory.createDevice(r, Objects.requireNonNull(DeviceType.getTypeByName((String) ((JSONObject) device).get("type"))));
+                            if(Objects.requireNonNull(DeviceType.getTypeByName((String) ((JSONObject) device).get("type")))==DeviceType.FIRE_SUPPRESSION){
+                                hasFireSup = true;
+                            }
                         }
                     }
-                    deviceFactory.createDevice(r, DeviceType.FIRE_SUPPRESSION);
+                    if(!hasFireSup) {
+                        deviceFactory.createDevice(r, DeviceType.FIRE_SUPPRESSION);
+                    }
                     for (SensorType type : allRoomsSensorTypes) {
                         sensorFactory.createSensor(r, type);
                     }

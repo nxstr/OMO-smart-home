@@ -45,6 +45,7 @@ public class Simulation {
                 int hours = time.getHour();
                 Observer.getInstance().logAction(hours + " hours\n");
                 checkStrategy();
+                house.setDay(days);
             }
             offEventGenerator.generateEvent(time, observer);
             onEventGenerator.generateEvent(time, observer);
@@ -101,7 +102,14 @@ public class Simulation {
         }
     }
 
-    public void dayStrategySetup(){
+    public void dayStrategySetup() throws IOException {
+        if(days==0){
+            days++;
+            Observer.getInstance().logAction(days + " day\n");
+            reportGenerator.writeEventDay(days);
+            reportGenerator.writeActivityDay(days);
+            reportGenerator.writeConsumptionDay(days);
+        }
         strategy.setup();
         reportGenerator.strategySetupReport(strategy);
         for(Device d: strategy.getActiveDevices()) {
@@ -133,13 +141,14 @@ public class Simulation {
             dayStrategySetup();
         }
         if((time.isAfter(LocalTime.of(0, 0))&&time.isBefore(LocalTime.of(8,0))&&strategy==null)||time.equals(LocalTime.of(0,0))){
+            strategy = new Night();
+            nightStrategySetup();
             days++;
             Observer.getInstance().logAction(days + " day\n");
             reportGenerator.writeEventDay(days);
             reportGenerator.writeActivityDay(days);
             reportGenerator.writeConsumptionDay(days);
-            strategy = new Night();
-            nightStrategySetup();
+
         }
     }
 }
