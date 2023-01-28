@@ -2,35 +2,24 @@ package items;
 
 import events.Event;
 import events.EventType;
-import house.House;
 import items.device.Device;
-import items.device.DeviceFactory;
 import items.device.DeviceType;
 import items.equipment.SportEquipment;
-import items.equipment.SportEquipmentFactory;
 import items.sensors.Sensor;
 import items.sensors.SensorFactory;
 import items.sensors.SensorType;
-import items.state.ObjectState;
 import items.state.StateType;
 import livingEntities.Adult;
-import livingEntities.Entity;
-import livingEntities.EntityType;
 import livingEntities.LivingEntity;
 import strategy.Strategy;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class Observer {
     private static Observer instance = null;
-    private DeviceFactory deviceFactory = DeviceFactory.getInstance();
-    private SportEquipmentFactory equipmentFactory = SportEquipmentFactory.getInstance();
-    private SensorFactory sensorFactory = SensorFactory.getInstance();
+    private final SensorFactory sensorFactory = SensorFactory.getInstance();
     private Strategy strategy;
-    private House house = House.getInstance();
 
     private Observer() {
     }
@@ -62,7 +51,9 @@ public class Observer {
                 e.setAlarmMode(false);
             }
         }
-        Adult.addTask(device);
+        else if(device.getCurrentState().getType()==StateType.BROKEN) {
+            Adult.addTask(device);
+        }
     }
 
     public void handleSportReport(SportEquipment equipment){
@@ -77,10 +68,8 @@ public class Observer {
             }
         }
         else if(sensor.getCurrentState().getType() == StateType.BROKEN){
-            //add task to adult
             Adult.addTask(sensor);
         }else{
-//            sensor.getElectricityUsed();
             sensor.generateReportForDay();
         }
         System.out.println(sensor.getType() + " generated report");
@@ -99,13 +88,12 @@ public class Observer {
         }
         else {
             sensors = sensorFactory.getSensors().stream()
-                    .filter(s -> s.getCurrentRoom() == event.getRoom()).filter(s -> s.getName() == event.getType().toString()).toList();
+                    .filter(s -> s.getCurrentRoom() == event.getRoom()).filter(s -> Objects.equals(s.getName(), event.getType().toString())).toList();
         }
-//        ElectricalItem item = sensors.stream().filter(s -> s.getName() == event.getType().toString());
 
         ElectricalItem sens = null;
         for(ElectricalItem s: sensors){
-            if(s.getName() == event.getType().toString()){
+            if(Objects.equals(s.getName(), event.getType().toString())){
                 sens = s;
             }
         }

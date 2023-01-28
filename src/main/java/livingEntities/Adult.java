@@ -4,26 +4,18 @@ import house.Room;
 import items.ElectricalItem;
 import items.TaskList;
 import items.device.*;
-import items.equipment.SportEquipment;
-import items.sensors.Sensor;
 import items.state.StateType;
 
 import java.time.LocalTime;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Random;
 
 public class Adult extends Person{
 
     private static final int hungerTicks = 36;
-//    private static final Queue<ElectricalItem> devicesToControl = new LinkedList<>();
-    private static TaskList taskList;
-
 
     public Adult(String name, EntityType type, Room room, int age) {
         super(name, type, room, age, hungerTicks);
-        this.taskList = new TaskList(this);
     }
 
     @Override
@@ -35,14 +27,17 @@ public class Adult extends Person{
                 setAsleep(false);
             }
             else if (isHungry()) {
-                useFeed();
-            } else if (!taskList.getToDoList().isEmpty()) {
+                boolean isFeeded = useFeed();
+                if(!isFeeded && !TaskList.getInstance().getToDoList().isEmpty()){
+                    doTasks();
+                }
+            } else if (!TaskList.getInstance().getToDoList().isEmpty()) {
                 doTasks();
             } else {
                 int rand = new Random().nextInt(100);
                 if (rand < 40) {
                     useDevice();
-                } else if (rand >= 40 && rand <= 80) {
+                } else if (rand <= 80) {
                     useEquipment();
                 } else {
                     waiting();
@@ -62,56 +57,12 @@ public class Adult extends Person{
 
 
     private void doTasks(){
-        taskList.getTask();
-//        ElectricalItem item = devicesToControl.poll();
-        //move to
-
-//        if(item!=null) {
-//            moveToRoom(item.getCurrentRoom());
-//            if(item.getMainType()=="device") {
-//                Device device = (Device) item;
-//                if (device.getType() == DeviceType.DISHWASHER && device.getCurrentState().getType() == StateType.IDLE) {
-//                    Dishwasher d = (Dishwasher) device;
-//                    if (d.isEmpty()) {
-//                        d.fill();
-//                        System.out.println("Person filled dishwasher at " + house.getTime());
-//                    } else {
-//                        if (d.isClean()) {
-//                            d.emptyDevice();
-//                            System.out.println("Person emptied dishwasher at " + house.getTime());
-//                            addTask(d);
-//                        }
-//                    }
-//                }
-//                if (device.getType() == DeviceType.WASHING_MACHINE && device.getCurrentState().getType() == StateType.IDLE) {
-//                    WashingMachine d = (WashingMachine) device;
-//                    if (d.isEmpty()) {
-//                        d.fill();
-//                        System.out.println("Person filled washing machine at " + house.getTime());
-//                    } else {
-//                        if (d.isClean()) {
-//                            d.emptyDevice();
-//                            System.out.println("Person emptied washing machine at " + house.getTime());
-//                            addTask(d);
-//                        }
-//                    }
-//                }
-//            }
-//                if (item.getCurrentState().getType() == StateType.BROKEN) {
-//                    repairDevice(item);
-//                }
-
-
-//        }
-
+        TaskList.getInstance().getTask(this);
     }
 
-//    public static Queue<ElectricalItem> getToDoList() {
-//        return devicesToControl;
-//    }
-
     public static void addTask(ElectricalItem object) {
-        taskList.addTask(object);
+        TaskList.getInstance();
+        TaskList.addTask(object);
     }
 
     public void repairDevice(ElectricalItem item){

@@ -2,10 +2,11 @@ package items.equipment;
 
 import house.House;
 import house.Room;
-import livingEntities.Person;
+import items.Observer;
 import items.state.ObjectState;
 import items.state.IdleState;
 import items.state.ActiveState;
+import items.state.StateType;
 
 public abstract class SportEquipment {
     private final SportEquipmentType type;
@@ -15,7 +16,6 @@ public abstract class SportEquipment {
     private final int usingHours;
     private final Room currentRoom;
     private int usedTimes =0;
-    House house = House.getInstance();
 
     protected SportEquipment(SportEquipmentType type, int usingHours, Room currentRoom) {
         this.type = type;
@@ -54,5 +54,13 @@ public abstract class SportEquipment {
     public void usingEquipment(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
+        Observer.getInstance().handleSportReport(this);
+    }
+
+    public void stopEquipment(){
+        if(this.getCurrentState().getType()== StateType.ACTIVE) {
+            System.out.println(this.getType() + " is idle at " + House.getInstance().getTime());
+            this.setCurrentState(new IdleState(this));
+        }
     }
 }

@@ -3,7 +3,6 @@ package livingEntities;
 import house.House;
 import house.Room;
 import items.ElectricalItem;
-import items.device.Device;
 import items.equipment.SportEquipment;
 
 public interface LivingEntity {

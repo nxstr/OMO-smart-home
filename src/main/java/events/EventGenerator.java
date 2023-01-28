@@ -11,7 +11,6 @@ import java.util.Random;
 
 public abstract class EventGenerator {
 
-    private EventType activeEventType;
     private RoomFactory roomFactory = RoomFactory.getInstance();
 
     private LocalTime randomEventTime;
@@ -26,7 +25,6 @@ public abstract class EventGenerator {
             Random rand = new Random();
             int hours = rand.nextInt(23);
             setRandomEventTime(LocalTime.of(hours, 0));
-//            System.out.println("CHOSEN EVENT TIME ======================== " + hours);
         }
     }
 
@@ -43,6 +41,6 @@ public abstract class EventGenerator {
     }
 
     public void generateEvent(LocalTime time, Observer observer){
-
+        chooseRandomTime(time);
     }
 }

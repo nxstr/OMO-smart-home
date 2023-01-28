@@ -4,6 +4,7 @@ import house.House;
 import house.Room;
 import items.state.*;
 import items.*;
+import livingEntities.Adult;
 import livingEntities.LivingEntity;
 
 import java.time.LocalTime;
@@ -25,6 +26,9 @@ public abstract class Device implements ElectricalItem{
     private int brokenTimes =0;
     private final Manual manual = new Manual(this);
     private final House house = House.getInstance();
+
+    private static boolean isWaterOn = true;
+    private static boolean isEnergyOn = true;
 
 
     public Device(DeviceType type, int usingHours, Room currentRoom, int electricityInOnState, int electricityInOffState) {
@@ -135,7 +139,7 @@ public abstract class Device implements ElectricalItem{
     public void breakingItem() {
         brokenTimes++;
         setCurrentState(new BrokenState(this));
-        System.out.println(this.getName() + " " + System.identityHashCode(this) + " is -----BROKE----- at " + house.getTime());
+        System.out.println(this.getName() + " is -----BROKE----- at " + house.getTime());
         generateReportForObserver();
         resetUsedTimes();
     }
@@ -168,20 +172,55 @@ public abstract class Device implements ElectricalItem{
         int electricity = getElectricityInOnState()*getUsedTimes()+getElectricityInOffState()*(24*6-getUsingHours());
         System.out.println(electricity + " electricity was used this day by " + this.getType());
         addUsedElectricity(electricity);
-
     }
 
     public void stopDevice(){
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
             System.out.println(this.getName() + " switched off at " + house.getTime());
-            this.setCurrentState(new IdleState(this));
+            changeState();
         }
         else if(this.getCurrentState().getType()== StateType.FIXING) {
             System.out.println(this.getName() + " is finally fixed at " + house.getTime());
-            this.setCurrentState(new IdleState(this));
+            changeState();
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
             System.out.println(this.getName() + " is broken at  " + house.getTime());
+        }
+    }
+
+    public void changeState(){
+        this.setCurrentState(new IdleState(this));
+        if(!isIsWaterOn() && (this.getType()==DeviceType.DISHWASHER || this.getType()==DeviceType.WASHING_MACHINE || this.getType()==DeviceType.FIRE_SUPPRESSION)){
+            this.setCurrentState(new FixingState(this));
+        }
+        if(!isIsEnergyOn()){
+            this.setCurrentState(new FixingState(this));
+        }
+    }
+
+    public static boolean isIsWaterOn() {
+        return isWaterOn;
+    }
+
+    public void setIsWaterOn(boolean isWaterOn) {
+        Device.isWaterOn = isWaterOn;
+        if(!isWaterOn){
+            setCurrentState(new FixingState(this));
+        }else{
+            setCurrentState(new IdleState(this));
+        }
+    }
+
+    public static boolean isIsEnergyOn() {
+        return isEnergyOn;
+    }
+
+    public void setIsEnergyOn(boolean isEnergyOn) {
+        Device.isEnergyOn = isEnergyOn;
+        if(!isEnergyOn){
+            setCurrentState(new FixingState(this));
+        }else{
+            setCurrentState(new IdleState(this));
         }
     }
 }

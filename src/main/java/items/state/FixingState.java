@@ -1,7 +1,6 @@
 package items.state;
 
 import items.ElectricalItem;
-import items.device.Device;
 
 public class FixingState implements ObjectState{
 

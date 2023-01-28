@@ -2,15 +2,13 @@ package items.sensors;
 
 import house.Room;
 import items.ElectricalItem;
-import items.Observer;
-import items.device.AirConditioner;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;
 import strategy.Strategy;
 
-import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
 public class TemperatureSensor extends Sensor {
 
@@ -25,9 +23,11 @@ public class TemperatureSensor extends Sensor {
         try {
             if(this.getCurrentState().getType()== StateType.ACTIVE) {
                 List<ElectricalItem> items = getCurrentRoom().getElectricalItems().stream()
-                        .filter(d -> d.getMainType() == "device").toList();
+                        .filter(d -> Objects.equals(d.getMainType(), "device")).toList();
 
-                ElectricalItem c = items.stream().filter(i -> i.getName() == DeviceType.AIR_CONDITIONER.toString()).filter(i->i.getCurrentState().getType() == StateType.IDLE).filter(i->i.getCurrentRoom()==this.getCurrentRoom()).findAny().get();
+                ElectricalItem c = items.stream().filter(i -> Objects.equals(i.getName(), DeviceType.AIR_CONDITIONER.toString()))
+                        .filter(i->i.getCurrentState().getType() == StateType.IDLE).filter(i->i.getCurrentRoom()==this.getCurrentRoom())
+                        .findAny().get();
                 c.usingDevice();
                 Strategy strategy = observer.getStrategy();
                 if(strategy!=null && c.getCurrentState().getType()==StateType.ACTIVE){
@@ -40,7 +40,6 @@ public class TemperatureSensor extends Sensor {
         } catch (Exception e) {
             setAlarmMode(true);
             System.out.println("There is no available air conditioner in the room");
-            generateReportForObserver();
         }
 
     }

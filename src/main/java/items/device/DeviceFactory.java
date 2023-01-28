@@ -4,7 +4,6 @@ import house.Room;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class DeviceFactory {
 
@@ -24,7 +23,7 @@ public class DeviceFactory {
         return instance;
     }
 
-    public Device createDevice(Room room, DeviceType type){
+    public void createDevice(Room room, DeviceType type){
         Device device = switch (type) {
             case COMPUTER -> new Computer(room);
             case PET_FOUNTAIN -> new PetFountain(room);
@@ -41,21 +40,25 @@ public class DeviceFactory {
             case FIRE_SUPPRESSION -> new FireSuppression(room);
             default -> null;
         };
-
-        room.addElectricalItem(device);
-        devices.add(device);
-        switch (device.getType()) {
-            case TV, GAME_CONSOLE,
-                    COMPUTER, FRIDGE -> humanDevices.add(device);
-            case PET_FEEDER, PET_FOUNTAIN -> petDevices.add(device);
-            case LOCK, AIR_CONDITIONER, DISHWASHER,
-                    VACUUM_CLEANER, WASHING_MACHINE, FIRE_SUPPRESSION -> systemDevices.add(device);
-            default -> {
-                humanDevices.add(device);
-                systemDevices.add(device);
+        if(device!=null) {
+            room.addElectricalItem(device);
+            devices.add(device);
+            switch (device.getType()) {
+                case TV, GAME_CONSOLE,
+                        COMPUTER, FRIDGE -> humanDevices.add(device);
+                case PET_FEEDER -> {
+                    petDevices.add(device);
+                    systemDevices.add(device);
+                }
+                case PET_FOUNTAIN -> petDevices.add(device);
+                case LOCK, AIR_CONDITIONER, DISHWASHER,
+                        VACUUM_CLEANER, WASHING_MACHINE, FIRE_SUPPRESSION -> systemDevices.add(device);
+                default -> {
+                    humanDevices.add(device);
+                    systemDevices.add(device);
+                }
             }
         }
-        return device;
     }
 
     public Device findDeviceByName(String name) {

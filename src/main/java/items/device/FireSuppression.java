@@ -5,9 +5,8 @@ import items.ElectricalItem;
 import items.state.ActiveState;
 import items.state.FixingState;
 import items.state.IdleState;
-import items.state.StateType;
 
-import java.util.List;
+import java.util.Objects;
 
 public class FireSuppression extends Device{
 
@@ -22,8 +21,8 @@ public class FireSuppression extends Device{
     @Override
     public void usingDevice() {
         setCurrentState(new ActiveState(this));
-        getCurrentRoom().getElectricalItems().stream().filter(d->d.getName()!=DeviceType.FIRE_SUPPRESSION.name()).forEach(ElectricalItem::stopDevice);
-        getCurrentRoom().getElectricalItems().stream().filter(d->d.getName()!=DeviceType.FIRE_SUPPRESSION.name()).forEach(d->d.setCurrentState(new FixingState(d)));
+        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(ElectricalItem::stopDevice);
+        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(d->d.setCurrentState(new FixingState(d)));
         setUsedTimes(getUsedTimes()+1);
         System.out.println(this.getName() + " is starting at " + getHouse().getTime());
         generateReportForObserver();
@@ -31,8 +30,8 @@ public class FireSuppression extends Device{
 
     public void stopDevice(){
         super.stopDevice();
-        getCurrentRoom().getElectricalItems().stream().filter(d->d.getMainType()=="device").forEach(d->d.setCurrentState(new IdleState((Device) d)));
-        getCurrentRoom().getElectricalItems().stream().filter(d->d.getMainType()=="sensor").forEach(d->d.setCurrentState(new ActiveState(d)));
+        getCurrentRoom().getElectricalItems().stream().filter(d-> Objects.equals(d.getMainType(), "device")).forEach(d->d.setCurrentState(new IdleState((Device) d)));
+        getCurrentRoom().getElectricalItems().stream().filter(d-> Objects.equals(d.getMainType(), "sensor")).forEach(d->d.setCurrentState(new ActiveState(d)));
         generateReportForObserver();
     }
 }

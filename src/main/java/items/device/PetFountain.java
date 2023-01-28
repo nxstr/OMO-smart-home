@@ -5,11 +5,9 @@ import items.state.BrokenState;
 import items.state.IdleState;
 import items.state.ActiveState;
 
-import java.time.LocalTime;
-
 public class PetFountain extends Device{
 
-    private static int usingHours = 1; //using ticks = 10 min
+    private static final int usingHours = 1; //using ticks = 10 min
     private static final int electricityInOnState = 2;
     private static final int electricityInOffState = 1;
 
@@ -45,6 +43,14 @@ public class PetFountain extends Device{
             setCurrentState(new BrokenState(this));
             System.out.println("Pet Fountain is dirty!");
             generateReportForObserver();
+        }
+    }
+
+    public void fixingItem() {
+        if(isDirty()){
+            changeFilter();
+        }else{
+            super.fixingItem();
         }
     }
 }

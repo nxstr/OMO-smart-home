@@ -2,7 +2,6 @@ package items.sensors;
 
 import house.Room;
 import items.ElectricalItem;
-import items.Observer;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;

@@ -1,16 +1,11 @@
 package items.device;
 
 import house.Room;
-import items.state.IdleState;
 import items.state.ActiveState;
-import items.state.ObjectState;
-import items.state.StateType;
-
-import java.time.LocalTime;
 
 public class Dishwasher extends Device{
 
-    private static int usingHours = 5;
+    private static final int usingHours = 5;
     private static final int electricityInOnState = 10;
     private static final int electricityInOffState = 2;
     private final int maxCapacity = 6;

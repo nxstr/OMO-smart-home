@@ -22,29 +22,6 @@ public class OutsideArea {
         }
         return instance;
     }
-
-    public List<ElectricalItem> getElectricalItems() {
-        return electricalItems;
-    }
-
-    public void addElectricalItem(ElectricalItem electricalItem){
-        this.electricalItems.add(electricalItem);
-    }
-    public void removeElectricalItem(ElectricalItem electricalItem){
-        this.electricalItems.remove(electricalItem);
-    }
-
-    public List<SportEquipment> getEquipment() {
-        return equipment;
-    }
-
-    public void addEquipment(SportEquipment equipment1){
-        this.equipment.add(equipment1);
-    }
-    public void removeEquipment(SportEquipment equipment1){
-        this.equipment.remove(equipment1);
-    }
-
     public List<LivingEntity> getEntities() {
         return entities;
     }

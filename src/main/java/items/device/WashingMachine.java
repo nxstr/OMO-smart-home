@@ -1,14 +1,11 @@
 package items.device;
 
 import house.Room;
-import items.state.IdleState;
 import items.state.ActiveState;
-
-import java.time.LocalTime;
 
 public class WashingMachine extends Device{
 
-    private static int usingHours = 8;
+    private static final int usingHours = 8;
     private static final int electricityInOnState = 10;
     private static final int electricityInOffState = 2;
     private final int maxCapacity = 6;

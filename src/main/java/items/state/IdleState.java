@@ -1,6 +1,5 @@
 package items.state;
 
-import items.ElectricalItem;
 import items.device.Device;
 import items.equipment.SportEquipment;
 

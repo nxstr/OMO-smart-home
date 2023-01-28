@@ -6,49 +6,48 @@ import items.device.DeviceType;
 import items.state.IdleState;
 import items.state.StateType;
 import livingEntities.*;
+import org.json.simple.parser.ParseException;
 import strategy.*;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Simulation {
-    private int hours = 0;
     private int days = 0;
-    private final int interactionCount; //1 = 10 min
     private LocalTime time;
     private final EventGenerator offEventGenerator = WaterAndElectricityEventGenerator.getInstance();
     private final EventGenerator onEventGenerator = FireAndTemperatureEventGenerator.getInstance();
 
     private Strategy strategy;
-    private Observer observer = Observer.getInstance();
-    public Simulation(int interactionCount, LocalTime time) {
-        this.interactionCount = interactionCount;
-        this.time = time;
+    private final Observer observer = Observer.getInstance();
+    public Simulation() {
     }
 
-    public void start(){
+    public void start(String file) throws IOException, ParseException {
         Config config = new Config();
-        config.configure();
+        config.configure(file);
+        List<Integer> setupList = config.configureSimulation(file);
+        //1 = 10 min
+        int interactionCount = setupList.get(0);
+        time = LocalTime.of(setupList.get(1), 0);
         House house = House.getInstance();
-        checkStrategy(house);
-        for(int i=0; i<interactionCount; i++){
+        checkStrategy();
+        for(int i = 0; i< interactionCount; i++){
             time = time.plusMinutes(10);
             house.setTime(time);
             List<LivingEntity> entities = house.getLivingEntities();
             if(time.getMinute()==0){
-                hours = time.getHour();
+                int hours = time.getHour();
                 System.out.println(hours + " hours");
-                checkStrategy(house);
+                checkStrategy();
             }
             offEventGenerator.generateEvent(time, observer);
             onEventGenerator.generateEvent(time, observer);
             if(strategy!=null) {
                 if (!strategy.getActiveDevices().isEmpty()) {
-                    List <Device> devices = new ArrayList<>();
-                    for(Device d:strategy.getActiveDevices()){
-                        devices.add(d);
-                    }
+                    List<Device> devices = new ArrayList<>(strategy.getActiveDevices());
                     for (Device d : devices) {
                         if (strategy.getCurrentBackActionProgress() == d.getUsingHours()) {
                             if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING){
@@ -109,7 +108,7 @@ public class Simulation {
         observer.setStrategy(strategy);
     }
 
-    public void checkStrategy(House house){
+    public void checkStrategy(){
         if(time.equals(LocalTime.of(8, 0))){
             strategy = new Morning();
             dayStrategySetup();
@@ -127,15 +126,6 @@ public class Simulation {
             System.out.println(days + " days");
             strategy = new Night();
             nightStrategySetup();
-
-//            Event event = new Event(EventType.WATER, house.getFloors().get(0).getRooms().get(0), time);
-//            observer.eventHandler(event);
         }
     }
-
-//    public void generateEvent(){
-//        if(time.equals(LocalTime.of(17,0))){
-//            eventGenerator.generateEvent(time, observer);
-//        }
-//    }
 }

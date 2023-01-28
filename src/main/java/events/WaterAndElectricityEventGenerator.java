@@ -6,12 +6,13 @@ import java.time.LocalTime;
 import java.util.Random;
 
 public class WaterAndElectricityEventGenerator extends EventGenerator{
-    private static WaterAndElectricityEventGenerator instance = null;
+    private static WaterAndElectricityEventGenerator instance;
     private int eventTicks;
     private int currentTicks = 0;
 
 
-    private Event event = null;
+    private Event event;
+
     public static EventGenerator getInstance() {
         if (instance == null){
             instance = new WaterAndElectricityEventGenerator();
@@ -29,7 +30,7 @@ public class WaterAndElectricityEventGenerator extends EventGenerator{
     }
 
     public void generateEvent(LocalTime time, Observer observer){
-        chooseRandomTime(time);
+        super.generateEvent(time, observer);
         if(time.equals(getRandomEventTime())) {
             if (event == null) {
                 EventType[] arr = new EventType[]{
@@ -40,7 +41,6 @@ public class WaterAndElectricityEventGenerator extends EventGenerator{
                 event = new EnvironmentEvent(type, getRoomFactory().getRooms().get(new Random().nextInt(getRoomFactory().getRooms().size())), getRandomEventTime());
                 observer.eventHandler(event);
                 eventTicks = new Random().nextInt(25);
-//                System.out.println("CHOSEN TICKS ==================== " + eventTicks);
                 setRandomEventTime(null);
             }
         }else if(event!=null){

@@ -15,7 +15,7 @@ import java.util.Random;
 
 public abstract class Person extends Entity{
     private final int age;
-    private List<Device> devices = DeviceFactory.getInstance().getHumanDevices();
+    private final List<Device> devices = DeviceFactory.getInstance().getHumanDevices();
     private final List<SportEquipment> equipments = SportEquipmentFactory.getInstance().getEquipments();
 
 
@@ -38,7 +38,7 @@ public abstract class Person extends Entity{
                 int rand = new Random().nextInt(100);
                 if (rand < 35) {
                     useDevice();
-                } else if (rand >= 35 && rand <= 75) {
+                } else if (rand <= 75) {
                     useEquipment();
                 } else {
                     waiting();
@@ -47,7 +47,7 @@ public abstract class Person extends Entity{
         }
     }
 
-    public void useFeed(){
+    public boolean useFeed(){
         List<Device> fridges = devices.stream().filter(d->d.getType()== DeviceType.FRIDGE).filter(d->d.getCurrentState().getType()== StateType.IDLE).toList();
         if(!fridges.isEmpty()){
             moveToRoom(fridges.get(0).getCurrentRoom());
@@ -56,23 +56,17 @@ public abstract class Person extends Entity{
             setCurrentDevice(fridges.get(0));
             if(fridges.get(0).getCurrentState().getType()==StateType.BROKEN){
                 stopCurrentActivity();
-                return;
+                return false;
             }
             resetCurrentHunger();
             System.out.println(this.getName() + " has hunger " + getCurrentHunger());
+            return true;
         }
+        return false;
     }
 
     public List<Device> getDevices() {
         return devices;
-    }
-
-    public List<SportEquipment> getEquipments() {
-        return equipments;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     @Override

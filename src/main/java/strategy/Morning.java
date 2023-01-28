@@ -3,20 +3,14 @@ package strategy;
 import house.Floor;
 import items.device.Device;
 import items.device.DeviceType;
-import items.state.ActiveState;
-import items.state.IdleState;
-import items.state.ObjectState;
 import items.state.StateType;
-import livingEntities.LivingEntity;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Morning implements Strategy{
     private List <Device> activatedDevices = new ArrayList<>();
     private int currentBackActionProgress = 0;
-    private LocalTime time = LocalTime.of(8, 0);
 
     public Morning() {
 
@@ -38,7 +32,7 @@ public class Morning implements Strategy{
                 "coffee_machine", "pet_feeder", "air_conditioner"
         };
         for(String s:arr){
-            for(Device d:deviceFactory.getDevices()) {
+            for(Device d:deviceFactory.getSystemDevices()) {
 
                 if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
                     try {
@@ -47,7 +41,7 @@ public class Morning implements Strategy{
                             activatedDevices.add(d);
                         }
                     } catch (Exception e) {
-                        System.out.println("This device doesnot exist in the house");
+                        System.out.println("This device does not exist in the house");
                     }
                 }
 

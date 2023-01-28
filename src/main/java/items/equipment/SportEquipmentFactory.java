@@ -1,7 +1,6 @@
 package items.equipment;
 
 import house.Room;
-import items.device.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +19,17 @@ public class SportEquipmentFactory {
         return instance;
     }
 
-    public SportEquipment createEquipment(Room room, SportEquipmentType type){
+    public void createEquipment(Room room, SportEquipmentType type){
         SportEquipment equipment = switch (type) {
             case BICYCLE -> new Bicycle(room);
             case SKI -> new Ski(room);
             case PET_TOY -> new PetToy(room);
             default -> null;
         };
-
-        room.addEquipment(equipment);
-        equipments.add(equipment);
-        return equipment;
+        if(equipment!=null) {
+            room.addEquipment(equipment);
+            equipments.add(equipment);
+        }
     }
 
     public SportEquipment findEquipmentByType(SportEquipmentType name) {

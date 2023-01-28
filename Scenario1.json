@@ -1,0 +1,162 @@
+{
+  "simulation": [
+    {
+      "starting_hour": 0,
+      "iterations": 300
+    }
+  ],
+  "home": [
+    {
+      "houseId": 1,
+      "floors": [
+        {
+          "level": 0,
+          "rooms": [
+            {
+              "name": "Garage",
+              "items": [
+                {
+                  "equipments": [
+                    {
+                      "type": "pet_toy"
+                    },
+                    {
+                      "type": "pet_toy"
+                    },
+                    {
+                      "type": "bicycle"
+                    },
+                    {
+                      "type": "bicycle"
+                    },
+                    {
+                      "type": "ski"
+                    }
+                  ],
+                  "devices": [
+                    {
+                      "type": "lock"
+                    },
+                    {
+                      "type": "air_conditioner"
+                    },
+                    {
+                      "type": "vacuum_cleaner"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Kitchen",
+              "items": [
+                {
+                  "equipments": [],
+                  "devices": [
+                    {
+                      "type": "coffee_machine"
+                    },
+                    {
+                      "type": "fridge"
+                    },
+                    {
+                      "type": "pet_feeder"
+                    },
+                    {
+                      "type": "pet_feeder"
+                    },
+                    {
+                      "type": "pet_fountain"
+                    },
+                    {
+                      "type": "dishwasher"
+                    },
+                    {
+                      "type": "vacuum_cleaner"
+                    },
+                    {
+                      "type": "washing_machine"
+                    },
+                    {
+                      "type": "air_conditioner"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Bedroom",
+              "items": [
+                {
+                  "equipments": [],
+                  "devices": [
+                    {
+                      "type": "air_conditioner"
+                    },
+                    {
+                      "type": "tv"
+                    },
+                    {
+                      "type": "vacuum_cleaner"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+  "entities": [
+    {
+      "people": [
+        {
+          "adults": [
+            {
+              "name": "Bob",
+              "type": "father",
+              "age": 40,
+              "room": "Bedroom"
+            },
+            {
+              "name": "Mary",
+              "type": "mother",
+              "age": 35,
+              "room": "Bedroom"
+            }
+          ]
+        },
+        {
+          "children": [
+            {
+              "name": "Artur",
+              "age": 8,
+              "room": "Bedroom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pets": [
+            {
+              "name": "Sasha",
+              "type": "cat",
+              "room": "Bedroom"
+            },
+            {
+              "name": "Jessi",
+              "type": "dog",
+              "room": "Bedroom"
+            },
+            {
+              "name": "Archi",
+              "type": "dog",
+              "room": "Kitchen"
+            }
+      ]
+    }
+  ]
+    }
+  ]
+}

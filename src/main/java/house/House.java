@@ -9,7 +9,7 @@ import java.util.List;
 public class House {
     private static House instance = null;
     private final List<Floor> floors;
-    private final List<LivingEntity> livingEntities; //maybe pak udelat get access pres streamy idk
+    private final List<LivingEntity> livingEntities;
     private LocalTime time;
     private final OutsideArea outSideArea;
 
@@ -75,7 +75,9 @@ public class House {
         public HouseBuilder() {
         }
 
-
+        public List<Floor> getFloors() {
+            return floors;
+        }
 
         public HouseBuilder setId(int houseId){
             this.houseId = houseId;

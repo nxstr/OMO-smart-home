@@ -3,14 +3,11 @@ package items.device;
 import house.Room;
 import items.state.BrokenState;
 import items.state.ActiveState;
-import items.state.FixingState;
 import items.state.IdleState;
-
-import java.time.LocalTime;
 
 public class CoffeeMachine extends Device{
 
-    private static int usingHours = 1;
+    private static final int usingHours = 1;
     private static final int electricityInOnState = 5;
     private static final int electricityInOffState = 1;
     private static final int maxCapacity = 10;

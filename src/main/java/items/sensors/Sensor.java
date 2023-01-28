@@ -3,22 +3,18 @@ package items.sensors;
 import house.House;
 import house.Room;
 import items.ElectricalItem;
-import items.Observer;
+import items.device.Device;
 import items.device.DeviceFactory;
+import items.device.DeviceType;
 import items.device.Manual;
 import items.state.*;
-import livingEntities.LivingEntity;
-
-import java.time.LocalTime;
 import java.util.Random;
 
 public abstract class Sensor implements ElectricalItem {
     private final SensorType type;
     private ObjectState currentState = new ActiveState(this);
     private boolean alarmMode = false;
-
-
-
+    private final DeviceFactory deviceFactory = DeviceFactory.getInstance();
     private int usingHours = 24*6;
     private final Room currentRoom;
     private int electricityUsed =0;
@@ -27,6 +23,7 @@ public abstract class Sensor implements ElectricalItem {
     private int brokenTimes =0;
     private final Manual manual = new Manual(this);
     private final House house = House.getInstance();
+    private static boolean isEnergyOn = true;
 
     public Sensor(SensorType type, Room currentRoom, int electricityInOnState, int electricityInBrokeState) {
         this.type = type;
@@ -37,6 +34,10 @@ public abstract class Sensor implements ElectricalItem {
 
     public House getHouse() {
         return house;
+    }
+
+    public DeviceFactory getDeviceFactory() {
+        return deviceFactory;
     }
 
     public String getName(){
@@ -166,9 +167,25 @@ public abstract class Sensor implements ElectricalItem {
         if(this.getCurrentState().getType()== StateType.FIXING) {
             System.out.println(this.getName() + " is finally fixed at " + house.getTime());
             this.setCurrentState(new ActiveState(this));
+            if(!isIsEnergyOn()){
+                this.setCurrentState(new FixingState(this));
+            }
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
             System.out.println(this.getName() + " is broken at  " + house.getTime());
+        }
+    }
+
+    public static boolean isIsEnergyOn() {
+        return isEnergyOn;
+    }
+
+    public void setIsEnergyOn(boolean isEnergyOn) {
+        Sensor.isEnergyOn = isEnergyOn;
+        if(!isEnergyOn){
+            setCurrentState(new FixingState(this));
+        }else{
+            setCurrentState(new ActiveState(this));
         }
     }
 }

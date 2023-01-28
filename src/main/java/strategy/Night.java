@@ -3,7 +3,6 @@ package strategy;
 import items.device.Device;
 import items.state.IdleState;
 import items.state.StateType;
-import livingEntities.LivingEntity;
 
 import java.util.ArrayList;
 import java.util.List;

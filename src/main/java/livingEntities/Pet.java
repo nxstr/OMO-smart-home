@@ -28,18 +28,9 @@ public class Pet extends Entity{
     public List<Device> getDevices() {
         return devices;
     }
-
     public List<SportEquipment> getEquipments() {
         return equipments;
     }
-
-    public boolean isHungry() {
-        if(getCurrentHunger()>=getHungerTicks()){
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     public void findActivity() {
@@ -55,7 +46,7 @@ public class Pet extends Entity{
                 int rand = new Random().nextInt(100);
                 if (rand < 20) {
                     useDevice();
-                } else if (rand >= 20 && rand <= 70) {
+                } else if (rand <= 70) {
                     useEquipment();
                 } else {
                     waiting();

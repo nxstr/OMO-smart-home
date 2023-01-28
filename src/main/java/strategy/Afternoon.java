@@ -3,16 +3,13 @@ package strategy;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.StateType;
-import livingEntities.LivingEntity;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Afternoon implements Strategy{
     private List <Device> activatedDevices = new ArrayList<>();
     private int currentBackActionProgress = 0;
-    private LocalTime time = LocalTime.of(14, 0);
 
     public Afternoon() {
     }
@@ -29,7 +26,7 @@ public class Afternoon implements Strategy{
                 "dishwasher", "pet_feeder", "vacuum_cleaner", "washing_machine"
         };
         for(String s:arr){
-            for(Device d:deviceFactory.getDevices()) {
+            for(Device d:deviceFactory.getSystemDevices()) {
 
                 if(d.getType()==DeviceType.getTypeByName(s) && d.getCurrentState().getType() == StateType.IDLE) {
                     try {
@@ -38,7 +35,7 @@ public class Afternoon implements Strategy{
                             activatedDevices.add(d);
                         }
                     } catch (Exception e) {
-                        System.out.println("This device doesnot exist in the house");
+                        System.out.println("This device does not exist in the house");
                     }
                 }
 

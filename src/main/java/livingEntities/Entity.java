@@ -6,7 +6,6 @@ import house.Room;
 import items.ElectricalItem;
 import items.Observer;
 import items.equipment.SportEquipment;
-import items.state.IdleState;
 
 public abstract class Entity implements LivingEntity{
     private final String name;
@@ -33,11 +32,10 @@ public abstract class Entity implements LivingEntity{
         return hungerTicks;
     }
 
+
+
     public boolean isHungry() {
-        if(getCurrentHunger()>=getHungerTicks()){
-            return true;
-        }
-        return false;
+        return getCurrentHunger() >= getHungerTicks();
     }
 
     public boolean isAlarmMode() {
@@ -144,7 +142,7 @@ public abstract class Entity implements LivingEntity{
             setCurrentDevice(null);
         }
         if(getCurrentEq()!=null){
-            getCurrentEq().setCurrentState(new IdleState(getCurrentEq()));
+            getCurrentEq().stopEquipment();
             setCurrentEq(null);
         }
     }

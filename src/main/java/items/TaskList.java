@@ -10,16 +10,21 @@ import livingEntities.Adult;
 import livingEntities.EntityType;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class TaskList {
-    private final Adult adult;
-    private static House house = House.getInstance();
+    private static TaskList instance;
 
     private static final Queue<ElectricalItem> devicesToControl = new LinkedList<>();
 
-    public TaskList(Adult adult) {
-        this.adult = adult;
+    public TaskList() {
+
+    }
+
+    public static TaskList getInstance() {
+        if (instance == null) instance = new TaskList();
+        return instance;
     }
 
     public static void addTask(ElectricalItem object) {
@@ -28,23 +33,23 @@ public class TaskList {
         }
     }
 
-    public void getTask() {
+    public void getTask(Adult adult) {
         ElectricalItem item = devicesToControl.poll();
 
         if (adult.getType() == EntityType.MOTHER) {
             if (item != null) {
                 adult.moveToRoom(item.getCurrentRoom());
-                if (item.getMainType() == "device") {
+                if (Objects.equals(item.getMainType(), "device")) {
                     Device device = (Device) item;
                     if (device.getType() == DeviceType.DISHWASHER && device.getCurrentState().getType() == StateType.IDLE) {
                         Dishwasher d = (Dishwasher) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            System.out.println("Person filled dishwasher at " + house.getTime());
+                            System.out.println(adult.getName() + " filled dishwasher at " + House.getInstance().getTime());
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                System.out.println("Person emptied dishwasher at " + house.getTime());
+                                System.out.println(adult.getName() + " emptied dishwasher at " + House.getInstance().getTime());
                                 addTask(d);
                             }
                         }
@@ -53,25 +58,30 @@ public class TaskList {
                         WashingMachine d = (WashingMachine) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            System.out.println("Person filled washing machine at " + house.getTime());
+                            System.out.println(adult.getName() + " filled washing machine at " + House.getInstance().getTime());
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                System.out.println("Person emptied washing machine at " + house.getTime());
+                                System.out.println(adult.getName() + " emptied washing machine at " + House.getInstance().getTime());
                                 addTask(d);
                             }
                         }
                     }
                 }
             }
-        }else if(adult.getType() == EntityType.FATHER){
-            if (item.getCurrentState().getType() == StateType.BROKEN) {
-                adult.repairDevice(item);
+            if(item!=null){
+                if (item.getCurrentState().getType() == StateType.BROKEN) {
+                    adult.repairDevice(item);
+                    System.out.println(adult.getName() + " ------------ is fixing " + item.getName());
+                }
             }
         }
     }
 
     public Queue<ElectricalItem> getToDoList() {
+        for(ElectricalItem item: devicesToControl){
+            System.out.println(item.getName() + " ---------------- in device list");
+        }
         return devicesToControl;
     }
 }

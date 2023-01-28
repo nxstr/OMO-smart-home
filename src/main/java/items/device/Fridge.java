@@ -4,11 +4,9 @@ import house.Room;
 import items.state.IdleState;
 import items.state.ActiveState;
 
-import java.time.LocalTime;
-
 public class Fridge extends Device{
 
-    private static int usingHours = 1;
+    private static final int usingHours = 1;
     private static final int electricityInOnState = 7;
     private static final int electricityInOffState = 1;
     private static final int maxCapacity = 20;

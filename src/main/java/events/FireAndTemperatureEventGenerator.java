@@ -6,9 +6,7 @@ import java.time.LocalTime;
 import java.util.Random;
 
 public class FireAndTemperatureEventGenerator extends EventGenerator{
-    private static FireAndTemperatureEventGenerator instance = null;
-
-    private Event event = null;
+    private static FireAndTemperatureEventGenerator instance;
     public static EventGenerator getInstance() {
         if (instance == null){
             instance = new FireAndTemperatureEventGenerator();
@@ -17,10 +15,10 @@ public class FireAndTemperatureEventGenerator extends EventGenerator{
     }
 
     public void generateEvent(LocalTime time, Observer observer){
-        chooseRandomTime(time);
+        super.generateEvent(time, observer);
         if(time.equals(getRandomEventTime())) {
             EventType[] arr = new EventType[]{
-                    EventType.FIRE, EventType.TEMPERATURE
+                    EventType.TEMPERATURE
             };
             int rand = new Random().nextInt(arr.length);
             EventType type = arr[rand];

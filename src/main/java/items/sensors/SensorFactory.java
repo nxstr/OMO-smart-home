@@ -1,7 +1,6 @@
 package items.sensors;
 
 import house.Room;
-import items.device.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,7 @@ public class SensorFactory {
             return instance;
         }
 
-        public Sensor createSensor(Room room, SensorType type){
+        public void createSensor(Room room, SensorType type){
             Sensor sensor = switch (type) {
                 case TEMPERATURE -> new TemperatureSensor(room);
                 case ENTITY -> new EntitySensor(room);
@@ -29,10 +28,10 @@ public class SensorFactory {
                 case ELECTRICITY -> new ElectricitySensor(room);
                 default -> null;
             };
-
-            room.addElectricalItem(sensor);
-            sensors.add(sensor);
-            return sensor;
+            if(sensor!=null) {
+                room.addElectricalItem(sensor);
+                sensors.add(sensor);
+            }
         }
 
         public Sensor findSensorByName(String name) {

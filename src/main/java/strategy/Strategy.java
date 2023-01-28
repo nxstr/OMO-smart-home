@@ -1,9 +1,7 @@
 package strategy;
 
-import house.House;
 import items.device.Device;
 import items.device.DeviceFactory;
-import livingEntities.LivingEntity;
 
 import java.util.List;
 
