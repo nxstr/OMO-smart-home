@@ -1,0 +1,112 @@
+Event ENTITY is handled at 08:30
+Event ENTITY is handled at 09:00
+Event ELECTRICITY is handled at 10:00
+ELECTRICITY handled event and generated report 10:00
+Alarm mode is off
+Event ELECTRICITY is handled at 10:20
+ELECTRICITY handled event and generated report 10:20
+Alarm mode is off
+Event ENTITY is handled at 10:50
+ENTITY handled event and generated report 10:50
+Alarm mode is off
+Event ENTITY is handled at 10:50
+Event ENTITY is handled at 11:00
+Event ENTITY is handled at 11:00
+Event ENTITY is handled at 11:10
+Event ENTITY is handled at 11:20
+Event ENTITY is handled at 12:00
+Event ENTITY is handled at 12:50
+Event ENTITY is handled at 12:50
+Event ENTITY is handled at 13:10
+Event ENTITY is handled at 13:40
+Event ENTITY is handled at 13:50
+Event ENTITY is handled at 14:00
+Event ENTITY is handled at 14:10
+Event ENTITY is handled at 14:30
+Event ENTITY is handled at 15:40
+Event ENTITY is handled at 15:50
+Event ENTITY is handled at 16:10
+Event ENTITY is handled at 16:30
+Event ENTITY is handled at 17:10
+Event ENTITY is handled at 17:50
+Event ENTITY is handled at 18:20
+Event ENTITY is handled at 18:50
+Event ENTITY is handled at 19:10
+Event ENTITY is handled at 19:10
+Event ENTITY is handled at 19:20
+Event ENTITY is handled at 19:50
+Event ENTITY is handled at 20:00
+Event ENTITY is handled at 20:50
+Event WATER is handled at 21:00
+WATER handled event and generated report 21:00
+Alarm mode is off
+Event ENTITY is handled at 21:20
+Event ENTITY is handled at 21:40
+Event ENTITY is handled at 21:50
+Event TEMPERATURE is handled at 22:00
+Event ENTITY is handled at 22:00
+Event ENTITY is handled at 22:10
+Event WATER is handled at 23:10
+WATER handled event and generated report 23:10
+Alarm mode is off
+Event ENTITY is handled at 23:50
+Event ENTITY is handled at 00:10
+Event ELECTRICITY is handled at 01:00
+ELECTRICITY handled event and generated report 01:00
+Alarm mode is off
+Event ELECTRICITY is handled at 01:10
+ELECTRICITY handled event and generated report 01:10
+Alarm mode is off
+Event ENTITY is handled at 08:30
+Event ENTITY is handled at 08:30
+Event ENTITY is handled at 08:40
+Event ENTITY is handled at 10:30
+Event ENTITY is handled at 10:30
+Event ENTITY is handled at 10:40
+Event ENTITY is handled at 10:50
+Event ENTITY is handled at 11:10
+Event ENTITY is handled at 12:50
+ENTITY handled event and generated report 12:50
+Alarm mode is off
+Event ENTITY is handled at 13:10
+Event ENTITY is handled at 13:20
+Event ENTITY is handled at 14:30
+Event ENTITY is handled at 15:00
+Event ENTITY is handled at 15:20
+Event ENTITY is handled at 16:30
+Event ENTITY is handled at 16:40
+Event ENTITY is handled at 16:50
+Event ENTITY is handled at 17:00
+Event ENTITY is handled at 17:10
+Event ENTITY is handled at 17:10
+Event WATER is handled at 18:00
+WATER handled event and generated report 18:00
+Alarm mode is off
+Event ENTITY is handled at 18:40
+Event ENTITY is handled at 18:50
+Event ENTITY is handled at 19:10
+ENTITY handled event and generated report 19:10
+Alarm mode is off
+Event ENTITY is handled at 19:30
+Event ENTITY is handled at 19:30
+Event ENTITY is handled at 19:40
+Event WATER is handled at 19:50
+WATER handled event and generated report 19:50
+Alarm mode is off
+Event TEMPERATURE is handled at 20:00
+Event ENTITY is handled at 20:20
+Event ENTITY is handled at 21:30
+Event ENTITY is handled at 21:30
+Event ENTITY is handled at 22:00
+Event ENTITY is handled at 22:20
+Event ENTITY is handled at 22:40
+Event ENTITY is handled at 23:50
+Event ENTITY is handled at 00:30
+Event ENTITY is handled at 00:40
+Event ELECTRICITY is handled at 01:00
+ELECTRICITY handled event and generated report 01:00
+Alarm mode is off
+Event ELECTRICITY is handled at 01:10
+ELECTRICITY handled event and generated report 01:10
+Alarm mode is off
+Event ENTITY is handled at 01:50

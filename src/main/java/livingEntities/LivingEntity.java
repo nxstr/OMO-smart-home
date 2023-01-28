@@ -15,6 +15,8 @@ public interface LivingEntity {
 
     void findActivity();
 
+    String getName();
+
     void waiting();
 
     void stopCurrentActivity();

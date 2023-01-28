@@ -9,10 +9,12 @@ import items.sensors.Sensor;
 import items.sensors.SensorFactory;
 import items.sensors.SensorType;
 import items.state.StateType;
+import jdk.javadoc.doclet.Reporter;
 import livingEntities.Adult;
 import livingEntities.LivingEntity;
 import strategy.Strategy;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,6 +22,7 @@ public class Observer {
     private static Observer instance = null;
     private final SensorFactory sensorFactory = SensorFactory.getInstance();
     private Strategy strategy;
+    private ReportGenerator reportGenerator = new ReportGenerator();
 
     private Observer() {
     }
@@ -73,11 +76,20 @@ public class Observer {
             sensor.generateReportForDay();
         }
         System.out.println(sensor.getType() + " generated report");
-
+        try{
+            reportGenerator.eventSensorReport(sensor);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void eventHandler(Event event){
         System.out.println("Event " + event.getType() + " is handled at " + event.getTime());
+        try {
+            reportGenerator.eventReport(event);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         List<Sensor> sensors;
         if(event.getType() == EventType.ENTITY){
             sensors = sensorFactory.getSensors().stream().filter(s->s.getType() == SensorType.ENTITY).toList();

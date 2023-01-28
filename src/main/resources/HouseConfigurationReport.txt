@@ -1,0 +1,52 @@
+House with id 1 has one outsideArea and 1 floor(s):
+ - Floor 0 has 3 room(s):
+  - Room named Garage has:
+   - 5 equipment(s):
+    - PET_TOY;
+    - PET_TOY;
+    - BICYCLE;
+    - BICYCLE;
+    - SKI;
+   - 5 devices(s):
+    - LOCK;
+    - AIR_CONDITIONER;
+    - VACUUM_CLEANER;
+    - FIRE_SUPPRESSION;
+    - PET_FEEDER;
+   - 5 sensor(s):
+    - TEMPERATURE;
+    - FIRE;
+    - ENTITY;
+    - WATER;
+    - ELECTRICITY;
+  - Room named Kitchen has:
+   - 10 devices(s):
+    - COFFEE_MACHINE;
+    - FRIDGE;
+    - PET_FEEDER;
+    - PET_FEEDER;
+    - PET_FOUNTAIN;
+    - DISHWASHER;
+    - VACUUM_CLEANER;
+    - WASHING_MACHINE;
+    - AIR_CONDITIONER;
+    - FIRE_SUPPRESSION;
+   - 2 sensor(s):
+    - TEMPERATURE;
+    - FIRE;
+  - Room named Bedroom has:
+   - 4 devices(s):
+    - AIR_CONDITIONER;
+    - TV;
+    - VACUUM_CLEANER;
+    - FIRE_SUPPRESSION;
+   - 2 sensor(s):
+    - TEMPERATURE;
+    - FIRE;
+There are 6 living entities in the house:
+ - Entity FATHER named Bob in the room Bedroom;
+ - Entity MOTHER named Mary in the room Bedroom;
+ - Entity CHILD named Artur in the room Bedroom;
+ - Entity CAT named Sasha in the room Bedroom;
+ - Entity DOG named Jessi in the room Bedroom;
+ - Entity DOG named Archi in the room Kitchen;

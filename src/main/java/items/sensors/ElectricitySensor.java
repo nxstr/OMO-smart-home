@@ -22,7 +22,7 @@ public class ElectricitySensor extends Sensor{
                 sensorFactory.getSensors().stream()
                                 .filter(i->i.getCurrentState().getType()!=StateType.FIXING)
                                         .forEach(d->d.setIsEnergyOn(false));
-                System.out.println("There is no electricity in the house, all devices ans sensors are off");
+                System.out.println("There is no electricity in the house, all devices and sensors are off");
             } else {
                 getDeviceFactory().getDevices().stream()
                         .filter(i -> i.getCurrentState().getType() == StateType.FIXING)

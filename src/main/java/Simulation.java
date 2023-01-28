@@ -1,6 +1,7 @@
 import events.*;
 import house.House;
 import items.Observer;
+import items.ReportGenerator;
 import items.device.Device;
 import items.device.DeviceType;
 import items.state.IdleState;
@@ -19,6 +20,7 @@ public class Simulation {
     private LocalTime time;
     private final EventGenerator offEventGenerator = WaterAndElectricityEventGenerator.getInstance();
     private final EventGenerator onEventGenerator = FireAndTemperatureEventGenerator.getInstance();
+    private ReportGenerator reportGenerator = new ReportGenerator();
 
     private Strategy strategy;
     private final Observer observer = Observer.getInstance();
@@ -33,6 +35,7 @@ public class Simulation {
         int interactionCount = setupList.get(0);
         time = LocalTime.of(setupList.get(1), 0);
         House house = House.getInstance();
+        reportGenerator.houseConfigurationReport();
         checkStrategy();
         for(int i = 0; i< interactionCount; i++){
             time = time.plusMinutes(10);
