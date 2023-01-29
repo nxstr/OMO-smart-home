@@ -135,7 +135,6 @@ public abstract class Sensor implements ElectricalItem {
         setCurrentState(new FixingState(this));
         Manual manual = getManual();
         manual.readDeviceManual();
-        resetBrokenTimes();
         resetElectricity();
     }
 

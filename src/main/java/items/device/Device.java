@@ -149,7 +149,6 @@ public abstract class Device implements ElectricalItem{
         setCurrentState(new FixingState(this));
         Manual manual = getManual();
         manual.readDeviceManual();
-        resetBrokenTimes();
         resetElectricity();
     }
 
@@ -173,7 +172,7 @@ public abstract class Device implements ElectricalItem{
         int electricity = (getElectricityInOnState()*getUsingHours()+getElectricityInOffState()*(24*6-getUsingHours()))*(getHouse().getDay());
         setElectricityUsed(electricity);
         Observer.getInstance().logAction(electricity + " electricity was used this day by " + this.getType() + "\n");
-        observer.handleDayConsumptionReport(this, electricity);
+        observer.handleDayConsumptionReport(this);
     }
 
     public void stopDevice(){

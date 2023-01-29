@@ -17,6 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
 public class ReportGenerator {
     private FileWriter configuration = null;
@@ -174,10 +175,14 @@ public class ReportGenerator {
         }
     }
 
-    public void consumptionReport(ElectricalItem item, int el){
+    public void consumptionReport(ElectricalItem item){
         try{
-//            consumption.write("\n" + el + " electricity was used this day by " + item.getName() + "\n");
-            consumption.write(item.getElectricityUsed() + " electricity was used on the whole by " + item.getName() + "\n\n");
+            consumption.write("\n" + item.getName() + " was broken " + item.getBrokenTimes() + "\n");
+            if(Objects.equals(item.getMainType(), "device")){
+                Device d = (Device) item;
+                consumption.write("\n" + item.getName() + " was used " + d.getUsedTimes() + "\n");
+            }
+            consumption.write(item.getElectricityUsed() + " electricity was used by " + item.getName() + "\n\n");
             consumption.flush();
         }catch (IOException e){
             e.printStackTrace();

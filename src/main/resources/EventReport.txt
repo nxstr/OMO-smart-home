@@ -1,49 +1,298 @@
 
 ---------------1 DAY---------------
 
-Event FIRE is generated at 08:00
-Event ENTITY is generated at 08:00
-Sensor ENTITY handled event and generated report 08:00
+Event ENTITY is generated at 08:40
+Sensor ENTITY handled event and generated report 08:40
 Alarm mode is off
 
-Event ENTITY is generated at 08:00
-Sensor ENTITY handled event and generated report 08:00
+Event FIRE is generated at 09:00
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
 Alarm mode is off
 
-Sensor ENTITY handled event and generated report 08:00
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
 Alarm mode is off
 
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Event ENTITY is generated at 08:00
-Sensor FIRE handled event and generated report 08:00
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Event ENTITY is generated at 09:00
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 09:00
+Alarm mode is off
+
+Event ENTITY is generated at 09:00
+Sensor FIRE handled event and generated report 09:00
 Alarm mode is on
 
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ENTITY is generated at 08:30
-Event ELECTRICITY is generated at 14:00
-Sensor ELECTRICITY handled event and generated report 14:00
+Sensor FIRE handled event and generated report 09:00
+Alarm mode is on
+
+Event ENTITY is generated at 09:30
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Event ENTITY is generated at 09:30
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Event ENTITY is generated at 09:30
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Event ENTITY is generated at 09:30
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Event ENTITY is generated at 09:30
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 09:30
+Alarm mode is off
+
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 09:30
+Event ENTITY is generated at 11:10
+Event ENTITY is generated at 11:30
+Sensor ENTITY handled event and generated report 11:30
+Alarm mode is off
+
+Event ENTITY is generated at 11:40
+Sensor ENTITY handled event and generated report 11:40
+Alarm mode is off
+
+Event ENTITY is generated at 12:00
+Sensor ENTITY handled event and generated report 12:00
+Alarm mode is off
+
+Event ENTITY is generated at 12:10
+Sensor ENTITY handled event and generated report 12:10
+Alarm mode is off
+
+Event ENTITY is generated at 12:20
+Sensor ENTITY handled event and generated report 12:20
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 12:20
+Alarm mode is off
+
+Event ENTITY is generated at 12:50
+Event ENTITY is generated at 13:10
+Event ENTITY is generated at 13:20
+Event ENTITY is generated at 13:40
+Event ENTITY is generated at 14:10
+Event ENTITY is generated at 14:20
+Event ENTITY is generated at 15:20
+Sensor ENTITY handled event and generated report 15:20
+Alarm mode is off
+
+Event ENTITY is generated at 15:20
+Sensor ENTITY handled event and generated report 15:20
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 15:20
+Alarm mode is off
+
+Event ENTITY is generated at 15:20
+Event ENTITY is generated at 15:30
+Event ENTITY is generated at 16:10
+Event ENTITY is generated at 17:30
+Event ENTITY is generated at 17:50
+Event ENTITY is generated at 18:00
+Event ENTITY is generated at 18:10
+Sensor ENTITY handled event and generated report 18:10
+Alarm mode is off
+
+Event ENTITY is generated at 18:20
+Sensor ENTITY handled event and generated report 18:20
+Alarm mode is off
+
+Event ENTITY is generated at 18:30
+Sensor ENTITY handled event and generated report 18:30
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 18:30
+Alarm mode is off
+
+Event ENTITY is generated at 18:30
+Event ENTITY is generated at 18:30
+Event ELECTRICITY is generated at 19:00
+Sensor ELECTRICITY handled event and generated report 19:00
 Alarm mode is off
 There is no electricity in the house
 
-Event ELECTRICITY is generated at 14:10
-Sensor ELECTRICITY handled event and generated report 14:10
+Event ELECTRICITY is generated at 19:30
+Sensor ELECTRICITY handled event and generated report 19:30
 Alarm mode is off
 Electricity is on!
 
+Event ENTITY is generated at 20:00
+Sensor ENTITY handled event and generated report 20:00
+Alarm mode is off
+
+Event ENTITY is generated at 20:20
+Sensor ENTITY handled event and generated report 20:20
+Alarm mode is off
+
+Event ENTITY is generated at 20:30
+Sensor ENTITY handled event and generated report 20:30
+Alarm mode is off
+
+Event ENTITY is generated at 20:30
+Sensor ENTITY handled event and generated report 20:30
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 20:30
+Alarm mode is off
+
+Event ENTITY is generated at 20:30
+Event ENTITY is generated at 20:30
+Event TEMPERATURE is generated at 21:00
+Sensor TEMPERATURE handled event and generated report 21:00
+Alarm mode is off
+
+Event ENTITY is generated at 21:00
+Event ENTITY is generated at 21:10
+Event ENTITY is generated at 22:30
+Event ENTITY is generated at 22:30
+Event ENTITY is generated at 23:10
+Sensor ENTITY handled event and generated report 23:10
+Alarm mode is off
+
+Event ENTITY is generated at 23:30
+Sensor ENTITY handled event and generated report 23:30
+Alarm mode is off
+
+
+---------------2 DAY---------------
+
+Event TEMPERATURE is generated at 00:00
+Sensor TEMPERATURE handled event and generated report 00:00
+Alarm mode is off
+
+Event ENTITY is generated at 01:30
+Sensor ENTITY handled event and generated report 01:30
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 01:30
+Alarm mode is off
+
+Event TEMPERATURE is generated at 02:00
+Sensor TEMPERATURE handled event and generated report 02:00
+Alarm mode is off
+
+Event ENTITY is generated at 08:30
+Event ENTITY is generated at 08:50
+Event ENTITY is generated at 09:00
+Event ENTITY is generated at 09:00
+Event ENTITY is generated at 10:50
+Sensor ENTITY handled event and generated report 10:50
+Alarm mode is off
+
+Event ENTITY is generated at 10:50
+Sensor ENTITY handled event and generated report 10:50
+Alarm mode is off
+
+Event TEMPERATURE is generated at 11:00
+Sensor TEMPERATURE handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:00
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:00
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:00
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:00
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:00
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 11:00
+Alarm mode is off
+
+Event ENTITY is generated at 11:10
+Event ENTITY is generated at 12:10
+Event ENTITY is generated at 12:20
+Event ENTITY is generated at 12:50
+Event ENTITY is generated at 13:00
+Event ENTITY is generated at 13:00
+Event ENTITY is generated at 13:10
+Sensor ENTITY handled event and generated report 13:10
+Alarm mode is off
+
+Event ENTITY is generated at 13:10
+Sensor ENTITY handled event and generated report 13:10
+Alarm mode is off
+
 Event ENTITY is generated at 14:10
 Sensor ENTITY handled event and generated report 14:10
+Alarm mode is off
+
+Event ENTITY is generated at 14:10
+Sensor ENTITY handled event and generated report 14:10
+Alarm mode is off
+
+Event ENTITY is generated at 14:30
+Sensor ENTITY handled event and generated report 14:30
+Alarm mode is off
+
+Event ENTITY is generated at 14:40
+Sensor ENTITY handled event and generated report 14:40
+Alarm mode is off
+
+Event ENTITY is generated at 14:50
+Sensor ENTITY handled event and generated report 14:50
+Alarm mode is off
+
+Event TEMPERATURE is generated at 15:00
+Sensor TEMPERATURE handled event and generated report 15:00
+Alarm mode is off
+
+Event ENTITY is generated at 15:00
+Sensor ENTITY handled event and generated report 15:00
+Alarm mode is off
+
+Event ENTITY is generated at 15:10
+Sensor ENTITY handled event and generated report 15:10
+Alarm mode is off
+
+Event ENTITY is generated at 15:20
+Sensor ENTITY handled event and generated report 15:20
+Alarm mode is off
+
+Event ENTITY is generated at 15:50
+Sensor ENTITY handled event and generated report 15:50
 Alarm mode is off
 
 Event ENTITY is generated at 16:10
@@ -53,175 +302,73 @@ Alarm mode is off
 Sensor ENTITY handled event and generated report 16:10
 Alarm mode is off
 
-Event ENTITY is generated at 16:20
-Event ENTITY is generated at 16:50
-Event ENTITY is generated at 17:10
-Event ENTITY is generated at 18:30
-Sensor ENTITY handled event and generated report 18:30
+Event ENTITY is generated at 16:30
+Event ENTITY is generated at 16:40
+Event ENTITY is generated at 16:40
+Event ELECTRICITY is generated at 17:00
+Sensor ELECTRICITY handled event and generated report 17:00
+Alarm mode is off
+There is no electricity in the house
+
+Event ENTITY is generated at 17:20
+Event ENTITY is generated at 17:30
+Event ENTITY is generated at 17:40
+Event ENTITY is generated at 17:50
+Event ENTITY is generated at 18:40
+Event ENTITY is generated at 19:00
+Event ENTITY is generated at 20:10
+Event ELECTRICITY is generated at 20:20
+Sensor ELECTRICITY handled event and generated report 20:20
+Alarm mode is off
+Electricity is on!
+
+Event ENTITY is generated at 20:40
+Sensor ENTITY handled event and generated report 20:40
 Alarm mode is off
 
-Event ENTITY is generated at 18:50
-Sensor ENTITY handled event and generated report 18:50
+Event ENTITY is generated at 20:50
+Sensor ENTITY handled event and generated report 20:50
 Alarm mode is off
 
-Event ENTITY is generated at 18:50
-Sensor ENTITY handled event and generated report 18:50
+Event ENTITY is generated at 20:50
+Sensor ENTITY handled event and generated report 20:50
 Alarm mode is off
 
-Event FIRE is generated at 19:00
-Event ENTITY is generated at 19:00
-Sensor ENTITY handled event and generated report 19:00
+Event ENTITY is generated at 21:00
+Sensor ENTITY handled event and generated report 21:00
 Alarm mode is off
 
-Event ENTITY is generated at 19:00
-Sensor ENTITY handled event and generated report 19:00
+Event ENTITY is generated at 22:10
+Sensor ENTITY handled event and generated report 22:10
 Alarm mode is off
 
-Event ENTITY is generated at 19:00
-Sensor ENTITY handled event and generated report 19:00
-Alarm mode is off
-
-Sensor ENTITY handled event and generated report 19:00
-Alarm mode is off
-
-Event ENTITY is generated at 19:00
-Event ENTITY is generated at 19:00
-Event ENTITY is generated at 19:00
-Event ENTITY is generated at 19:00
-Sensor FIRE handled event and generated report 19:00
-Alarm mode is on
-
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 19:30
-Event ENTITY is generated at 21:30
-Sensor ENTITY handled event and generated report 21:30
+Event ENTITY is generated at 22:40
+Sensor ENTITY handled event and generated report 22:40
 Alarm mode is off
 
 Event ENTITY is generated at 22:50
 Sensor ENTITY handled event and generated report 22:50
 Alarm mode is off
 
-Event ENTITY is generated at 23:20
-Sensor ENTITY handled event and generated report 23:20
+Event ENTITY is generated at 23:10
+Sensor ENTITY handled event and generated report 23:10
 Alarm mode is off
 
 Event ENTITY is generated at 23:20
 Sensor ENTITY handled event and generated report 23:20
 Alarm mode is off
 
-
----------------2 DAY---------------
-
-Event ENTITY is generated at 01:20
-Sensor ENTITY handled event and generated report 01:20
-Alarm mode is off
-
-Event ENTITY is generated at 01:20
-Sensor ENTITY handled event and generated report 01:20
-Alarm mode is off
-
-Event ENTITY is generated at 01:20
-Sensor ENTITY handled event and generated report 01:20
-Alarm mode is off
-
-Event ENTITY is generated at 08:30
-Sensor ENTITY handled event and generated report 08:30
-Alarm mode is off
-
-Event ENTITY is generated at 10:20
-Sensor ENTITY handled event and generated report 10:20
-Alarm mode is off
-
-Event ENTITY is generated at 10:30
-Sensor ENTITY handled event and generated report 10:30
-Alarm mode is off
-
-Event WATER is generated at 11:00
-Sensor WATER handled event and generated report 11:00
-Alarm mode is off
-There is no water in the house
-
-Event ENTITY is generated at 12:20
-Sensor ENTITY handled event and generated report 12:20
-Alarm mode is off
-
-Event ENTITY is generated at 12:30
-Sensor ENTITY handled event and generated report 12:30
-Alarm mode is off
-
-Event TEMPERATURE is generated at 13:00
-Sensor TEMPERATURE handled event and generated report 13:00
-Alarm mode is off
-
-Event ENTITY is generated at 13:00
-Sensor ENTITY handled event and generated report 13:00
-Alarm mode is off
-
-Event WATER is generated at 13:40
-Sensor WATER handled event and generated report 13:40
-Alarm mode is off
-Water is on!
-
-Event ENTITY is generated at 13:40
-Sensor ENTITY handled event and generated report 13:40
-Alarm mode is off
-
-Sensor ENTITY handled event and generated report 13:40
-Alarm mode is off
-
-Event ENTITY is generated at 14:20
-Event ENTITY is generated at 14:30
-Event ENTITY is generated at 15:00
-Event ENTITY is generated at 15:40
-Event ENTITY is generated at 16:20
-Event ENTITY is generated at 16:50
-Event ENTITY is generated at 18:20
-Sensor ENTITY handled event and generated report 18:20
-Alarm mode is off
-
-Sensor ENTITY handled event and generated report 18:20
-Alarm mode is off
-
-Event ENTITY is generated at 18:40
-Event ENTITY is generated at 20:00
-Event ENTITY is generated at 20:40
-Sensor ENTITY handled event and generated report 20:40
-Alarm mode is off
-
-Event WATER is generated at 22:00
-Sensor WATER handled event and generated report 22:00
-Alarm mode is off
-There is no water in the house
-
-Event TEMPERATURE is generated at 22:00
-Sensor TEMPERATURE handled event and generated report 22:00
-Alarm mode is off
-
-Event ENTITY is generated at 22:00
-Sensor ENTITY handled event and generated report 22:00
-Alarm mode is off
-
-Sensor ENTITY handled event and generated report 22:00
-Alarm mode is off
-
-Event WATER is generated at 22:10
-Sensor WATER handled event and generated report 22:10
-Alarm mode is off
-Water is on!
-
-Event ENTITY is generated at 22:40
 
 ---------------3 DAY---------------
 
-Event ENTITY is generated at 00:40
-Sensor ENTITY handled event and generated report 00:40
+Event ENTITY is generated at 00:10
+Sensor ENTITY handled event and generated report 00:10
+Alarm mode is off
+
+Event ENTITY is generated at 01:10
+Sensor ENTITY handled event and generated report 01:10
+Alarm mode is off
+
+Sensor ENTITY handled event and generated report 01:10
 Alarm mode is off
 

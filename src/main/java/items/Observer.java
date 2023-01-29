@@ -114,8 +114,8 @@ public class Observer {
         }
     }
 
-    public void handleDayConsumptionReport(ElectricalItem item, int el){
-        reportGenerator.consumptionReport(item, el);
+    public void handleDayConsumptionReport(ElectricalItem item){
+        reportGenerator.consumptionReport(item);
     }
 
     public void logAction(String s){
