@@ -16,11 +16,11 @@ public class House {
 
     private final int houseId;
 
-    public House(HouseBuilder builder, OutsideArea outSideArea) {
+    public House(HouseBuilder builder) {
         this.floors = builder.floors;
         this.livingEntities = builder.livingEntities;
         this.houseId = builder.houseId;
-        this.outSideArea = outSideArea;
+        this.outSideArea = builder.outSideArea;
         instance = this;
     }
 
@@ -97,8 +97,9 @@ public class House {
             return outSideArea;
         }
 
-        public void setOutSideArea(OutsideArea outSideArea) {
+        public HouseBuilder setOutSideArea(OutsideArea outSideArea) {
             this.outSideArea = outSideArea;
+            return this;
         }
 
         public HouseBuilder addFloor(Floor floor) {
@@ -122,7 +123,7 @@ public class House {
         }
 
         public House build() {
-            return new House(this, outSideArea);
+            return new House(this);
         }
     }
 

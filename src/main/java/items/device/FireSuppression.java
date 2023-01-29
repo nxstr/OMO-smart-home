@@ -5,7 +5,7 @@ import items.ElectricalItem;
 import items.Observer;
 import items.state.ActiveState;
 import items.state.IdleState;
-import items.state.OffState;
+import items.state.NonEnergyState;
 
 import java.util.Objects;
 
@@ -23,7 +23,7 @@ public class FireSuppression extends Device{
     public void usingDevice() {
         setCurrentState(new ActiveState(this));
         getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(ElectricalItem::stopDevice);
-        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(d->d.setCurrentState(new OffState(d)));
+        getCurrentRoom().getElectricalItems().stream().filter(d-> !Objects.equals(d.getName(), DeviceType.FIRE_SUPPRESSION.name())).forEach(d->d.setCurrentState(new NonEnergyState(d)));
         setUsedTimes(getUsedTimes()+1);
         Observer.getInstance().logAction(this.getName() + " is starting at " + getHouse().getTime() + "\n");
         generateReportForObserver();

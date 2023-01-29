@@ -62,4 +62,8 @@ public abstract class SportEquipment {
             this.setCurrentState(new IdleState(this));
         }
     }
+
+    public void generateReportForDay(){
+        Observer.getInstance().handleSportDayReport(this);
+    }
 }

@@ -4,10 +4,7 @@ import house.House;
 import house.Room;
 import items.state.*;
 import items.*;
-import livingEntities.Adult;
-import livingEntities.LivingEntity;
 
-import java.time.LocalTime;
 import java.util.Random;
 
 public abstract class Device implements ElectricalItem{
@@ -186,7 +183,7 @@ public abstract class Device implements ElectricalItem{
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
             Observer.getInstance().logAction(this.getName() + " is broken at  " + house.getTime()+ "\n");
-        }else if(this.getCurrentState().getType()== StateType.OFF){
+        }else if(this.getCurrentState().getType()== StateType.NON_ENERGY){
             changeState();
         }
     }
@@ -194,10 +191,10 @@ public abstract class Device implements ElectricalItem{
     public void changeState(){
         this.setCurrentState(new IdleState(this));
         if(!isIsWaterOn() && (this.getType()==DeviceType.DISHWASHER || this.getType()==DeviceType.WASHING_MACHINE || this.getType()==DeviceType.FIRE_SUPPRESSION)){
-            this.setCurrentState(new OffState(this));
+            this.setCurrentState(new NonEnergyState(this));
         }
         if(!isIsEnergyOn()){
-            this.setCurrentState(new OffState(this));
+            this.setCurrentState(new NonEnergyState(this));
         }
     }
 
@@ -208,7 +205,7 @@ public abstract class Device implements ElectricalItem{
     public void setIsWaterOn(boolean isWaterOn) {
         Device.isWaterOn = isWaterOn;
         if(!isWaterOn){
-            setCurrentState(new OffState(this));
+            setCurrentState(new NonEnergyState(this));
         }else{
             setCurrentState(new IdleState(this));
         }
@@ -221,7 +218,7 @@ public abstract class Device implements ElectricalItem{
     public void setIsEnergyOn(boolean isEnergyOn) {
         Device.isEnergyOn = isEnergyOn;
         if(!isEnergyOn){
-            setCurrentState(new OffState(this));
+            setCurrentState(new NonEnergyState(this));
         }else{
             setCurrentState(new IdleState(this));
         }

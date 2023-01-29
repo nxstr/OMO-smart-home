@@ -35,7 +35,7 @@ public class WaterSensor extends Sensor{
             } else {
                 isWaterOn = true;
                 getDeviceFactory().getDevices().stream()
-                        .filter(i -> i.getCurrentState().getType() == StateType.OFF)
+                        .filter(i -> i.getCurrentState().getType() == StateType.NON_ENERGY)
                         .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE)
                         .forEach(d->d.setIsWaterOn(true));
                 Observer.getInstance().logAction("Water is on! All water-using devices are available!\n");

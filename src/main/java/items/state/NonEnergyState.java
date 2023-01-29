@@ -2,14 +2,14 @@ package items.state;
 
 import items.ElectricalItem;
 
-public class OffState implements ObjectState{
+public class NonEnergyState implements ObjectState{
     ElectricalItem device;
 
     final private StateType type;
 
-    public OffState(ElectricalItem device) {
+    public NonEnergyState(ElectricalItem device) {
         this.device = device;
-        this.type = StateType.OFF;
+        this.type = StateType.NON_ENERGY;
     }
 
     @Override

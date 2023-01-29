@@ -177,12 +177,21 @@ public class ReportGenerator {
 
     public void consumptionReport(ElectricalItem item){
         try{
-            consumption.write("\n" + item.getName() + " was broken " + item.getBrokenTimes() + "\n");
+            consumption.write("\n" + item.getName() + " was broken " + item.getBrokenTimes() + " times\n");
             if(Objects.equals(item.getMainType(), "device")){
                 Device d = (Device) item;
-                consumption.write("\n" + item.getName() + " was used " + d.getUsedTimes() + "\n");
+                consumption.write("\n" + item.getName() + " was used " + d.getUsedTimes() + " times\n");
             }
             consumption.write(item.getElectricityUsed() + " electricity was used by " + item.getName() + "\n\n");
+            consumption.flush();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void usageReport(SportEquipment item){
+        try{
+            consumption.write("\n"+item.getType() + " was used " + item.getUsedTimes() + " times\n\n");
             consumption.flush();
         }catch (IOException e){
             e.printStackTrace();

@@ -4,9 +4,7 @@ import house.House;
 import house.Room;
 import items.ElectricalItem;
 import items.Observer;
-import items.device.Device;
 import items.device.DeviceFactory;
-import items.device.DeviceType;
 import items.device.Manual;
 import items.state.*;
 import java.util.Random;
@@ -169,7 +167,7 @@ public abstract class Sensor implements ElectricalItem {
             Observer.getInstance().logAction(this.getName() + " is finally fixed at " + house.getTime()+"\n");
             this.setCurrentState(new ActiveState(this));
             if(!isIsEnergyOn()){
-                this.setCurrentState(new OffState(this));
+                this.setCurrentState(new NonEnergyState(this));
             }
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
@@ -184,7 +182,7 @@ public abstract class Sensor implements ElectricalItem {
     public void setIsEnergyOn(boolean isEnergyOn) {
         Sensor.isEnergyOn = isEnergyOn;
         if(!isEnergyOn){
-            setCurrentState(new OffState(this));
+            setCurrentState(new NonEnergyState(this));
         }else{
             setCurrentState(new ActiveState(this));
         }

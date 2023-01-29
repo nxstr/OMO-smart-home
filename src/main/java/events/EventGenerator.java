@@ -20,7 +20,7 @@ public abstract class EventGenerator {
 
 
 
-    public void chooseRandomTime(LocalTime time){
+    public void chooseRandomTime(){
         if(getRandomEventTime()==null) {
             Random rand = new Random();
             int hours = rand.nextInt(23);
@@ -41,6 +41,6 @@ public abstract class EventGenerator {
     }
 
     public void generateEvent(LocalTime time, Observer observer){
-        chooseRandomTime(time);
+        chooseRandomTime();
     }
 }

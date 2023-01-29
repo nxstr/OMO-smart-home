@@ -28,10 +28,10 @@ public class ElectricitySensor extends Sensor{
                 Observer.getInstance().logAction("There is no electricity in the house, all devices and sensors are off\n");
             } else {
                 getDeviceFactory().getDevices().stream()
-                        .filter(i -> i.getCurrentState().getType() == StateType.OFF)
+                        .filter(i -> i.getCurrentState().getType() == StateType.NON_ENERGY)
                         .forEach(d -> d.setIsEnergyOn(true));
                 sensorFactory.getSensors().stream()
-                        .filter(i->i.getCurrentState().getType()==StateType.OFF)
+                        .filter(i->i.getCurrentState().getType()==StateType.NON_ENERGY)
                         .forEach(d->d.setIsEnergyOn(true));
                 Observer.getInstance().logAction("Electricity is on! All devices and sensors are available!\n");
             }

@@ -4,7 +4,6 @@ import items.Observer;
 import items.ReportGenerator;
 import items.device.Device;
 import items.device.DeviceType;
-import items.state.IdleState;
 import items.state.StateType;
 import livingEntities.*;
 import org.json.simple.parser.ParseException;
@@ -64,7 +63,7 @@ public class Simulation {
                             }
                             strategy.removeActiveDevice(d);
                         }
-                        if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING || d.getCurrentState().getType()==StateType.OFF){
+                        if(d.getCurrentState().getType()==StateType.BROKEN || d.getCurrentState().getType()==StateType.FIXING || d.getCurrentState().getType()==StateType.NON_ENERGY){
                             strategy.removeActiveDevice(d);
                         }
                     }

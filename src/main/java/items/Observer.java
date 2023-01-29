@@ -59,8 +59,8 @@ public class Observer {
         }
     }
 
-    public void handleSportReport(SportEquipment equipment){
-        //generate report: used times, electricity used, etc.
+    public void handleSportDayReport(SportEquipment equipment){
+        reportGenerator.usageReport(equipment);
     }
 
     public void handleSensorReport(Sensor sensor){

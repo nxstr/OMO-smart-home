@@ -1,638 +1,470 @@
 
-LOCK was broken 0
-
-LOCK was used 0
-0 electricity was used by LOCK
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 0
-0 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-COFFEE_MACHINE was broken 0
-
-COFFEE_MACHINE was used 0
-0 electricity was used by COFFEE_MACHINE
-
-
-FRIDGE was broken 0
-
-FRIDGE was used 0
-0 electricity was used by FRIDGE
-
-
-PET_FEEDER was broken 0
-
-PET_FEEDER was used 0
-0 electricity was used by PET_FEEDER
-
-
-PET_FEEDER was broken 0
-
-PET_FEEDER was used 0
-0 electricity was used by PET_FEEDER
-
-
-PET_FOUNTAIN was broken 0
-
-PET_FOUNTAIN was used 0
-0 electricity was used by PET_FOUNTAIN
-
-
-DISHWASHER was broken 0
-
-DISHWASHER was used 0
-0 electricity was used by DISHWASHER
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 0
-0 electricity was used by VACUUM_CLEANER
-
-
-WASHING_MACHINE was broken 0
-
-WASHING_MACHINE was used 0
-0 electricity was used by WASHING_MACHINE
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 0
-0 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 0
-0 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-LOCK was broken 0
-
-LOCK was used 0
-0 electricity was used by LOCK
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-GAME_CONSOLE was broken 0
-
-GAME_CONSOLE was used 0
-0 electricity was used by GAME_CONSOLE
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 0
-0 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 0
-0 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-COFFEE_MACHINE was broken 0
-
-COFFEE_MACHINE was used 0
-0 electricity was used by COFFEE_MACHINE
-
-
-TV was broken 0
-
-TV was used 0
-0 electricity was used by TV
-
-
-PET_FOUNTAIN was broken 0
-
-PET_FOUNTAIN was used 0
-0 electricity was used by PET_FOUNTAIN
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 0
-0 electricity was used by VACUUM_CLEANER
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 0
-0 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-WASHING_MACHINE was broken 0
-
-WASHING_MACHINE was used 0
-0 electricity was used by WASHING_MACHINE
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-0 electricity was used by FIRE_SUPPRESSION
-
-
-PET_FEEDER was broken 0
-
-PET_FEEDER was used 0
-0 electricity was used by PET_FEEDER
-
-
 ---------------1 DAY---------------
 
 
-LOCK was broken 1
+LOCK was broken 0 times
 
-LOCK was used 1
+LOCK was used 0 times
 144 electricity was used by LOCK
 
 
-AIR_CONDITIONER was broken 0
+AIR_CONDITIONER was broken 0 times
 
-AIR_CONDITIONER was used 1
+AIR_CONDITIONER was used 0 times
 306 electricity was used by AIR_CONDITIONER
 
 
-VACUUM_CLEANER was broken 0
+VACUUM_CLEANER was broken 0 times
 
-VACUUM_CLEANER was used 1
+VACUUM_CLEANER was used 1 times
 645 electricity was used by VACUUM_CLEANER
 
 
-FIRE_SUPPRESSION was broken 0
+FIRE_SUPPRESSION was broken 0 times
 
-FIRE_SUPPRESSION was used 1
+FIRE_SUPPRESSION was used 0 times
 144 electricity was used by FIRE_SUPPRESSION
 
 
-COFFEE_MACHINE was broken 3
+COFFEE_MACHINE was broken 0 times
 
-COFFEE_MACHINE was used 1
-192 electricity was used by COFFEE_MACHINE
-
-
-FRIDGE was broken 0
-
-FRIDGE was used 17
-150 electricity was used by FRIDGE
-
-
-PET_FEEDER was broken 1
-
-PET_FEEDER was used 5
-324 electricity was used by PET_FEEDER
-
-
-PET_FEEDER was broken 0
-
-PET_FEEDER was used 6
-291 electricity was used by PET_FEEDER
-
-
-PET_FOUNTAIN was broken 0
-
-PET_FOUNTAIN was used 9
-145 electricity was used by PET_FOUNTAIN
-
-
-DISHWASHER was broken 0
-
-DISHWASHER was used 1
-328 electricity was used by DISHWASHER
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 1
-645 electricity was used by VACUUM_CLEANER
-
-
-WASHING_MACHINE was broken 0
-
-WASHING_MACHINE was used 1
-352 electricity was used by WASHING_MACHINE
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 1
-306 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-144 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 1
-306 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 6
-336 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 1
-645 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-144 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 1
-306 electricity was used by AIR_CONDITIONER
-
-
-LOCK was broken 0
-
-LOCK was used 2
-144 electricity was used by LOCK
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-144 electricity was used by FIRE_SUPPRESSION
-
-
-GAME_CONSOLE was broken 0
-
-GAME_CONSOLE was used 6
-158 electricity was used by GAME_CONSOLE
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 2
-306 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 6
-336 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 1
-645 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-144 electricity was used by FIRE_SUPPRESSION
-
-
-COFFEE_MACHINE was broken 0
-
-COFFEE_MACHINE was used 2
+COFFEE_MACHINE was used 3 times
 148 electricity was used by COFFEE_MACHINE
 
 
-TV was broken 1
+FRIDGE was broken 1 times
 
-TV was used 1
-384 electricity was used by TV
+FRIDGE was used 5 times
+216 electricity was used by FRIDGE
 
 
-PET_FOUNTAIN was broken 0
+PET_FEEDER was broken 1 times
 
-PET_FOUNTAIN was used 1
+PET_FEEDER was used 1 times
+324 electricity was used by PET_FEEDER
+
+
+PET_FEEDER was broken 0 times
+
+PET_FEEDER was used 3 times
+291 electricity was used by PET_FEEDER
+
+
+PET_FOUNTAIN was broken 0 times
+
+PET_FOUNTAIN was used 1 times
 145 electricity was used by PET_FOUNTAIN
 
 
-VACUUM_CLEANER was broken 0
+DISHWASHER was broken 0 times
 
-VACUUM_CLEANER was used 1
+DISHWASHER was used 1 times
+328 electricity was used by DISHWASHER
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 1 times
 645 electricity was used by VACUUM_CLEANER
 
 
-AIR_CONDITIONER was broken 0
+WASHING_MACHINE was broken 0 times
 
-AIR_CONDITIONER was used 1
-306 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-144 electricity was used by FIRE_SUPPRESSION
-
-
-WASHING_MACHINE was broken 1
-
-WASHING_MACHINE was used 1
+WASHING_MACHINE was used 1 times
 352 electricity was used by WASHING_MACHINE
 
 
-FIRE_SUPPRESSION was broken 0
+AIR_CONDITIONER was broken 0 times
 
-FIRE_SUPPRESSION was used 0
+AIR_CONDITIONER was used 0 times
+306 electricity was used by AIR_CONDITIONER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
 144 electricity was used by FIRE_SUPPRESSION
 
 
-PET_FEEDER was broken 0
+AIR_CONDITIONER was broken 0 times
 
-PET_FEEDER was used 6
+AIR_CONDITIONER was used 0 times
+306 electricity was used by AIR_CONDITIONER
+
+
+TV was broken 0 times
+
+TV was used 4 times
+336 electricity was used by TV
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 1 times
+645 electricity was used by VACUUM_CLEANER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+144 electricity was used by FIRE_SUPPRESSION
+
+
+AIR_CONDITIONER was broken 0 times
+
+AIR_CONDITIONER was used 0 times
+306 electricity was used by AIR_CONDITIONER
+
+
+LOCK was broken 0 times
+
+LOCK was used 0 times
+144 electricity was used by LOCK
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+144 electricity was used by FIRE_SUPPRESSION
+
+
+GAME_CONSOLE was broken 0 times
+
+GAME_CONSOLE was used 2 times
+158 electricity was used by GAME_CONSOLE
+
+
+AIR_CONDITIONER was broken 0 times
+
+AIR_CONDITIONER was used 0 times
+306 electricity was used by AIR_CONDITIONER
+
+
+TV was broken 0 times
+
+TV was used 2 times
+336 electricity was used by TV
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 1 times
+645 electricity was used by VACUUM_CLEANER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+144 electricity was used by FIRE_SUPPRESSION
+
+
+COFFEE_MACHINE was broken 0 times
+
+COFFEE_MACHINE was used 1 times
+148 electricity was used by COFFEE_MACHINE
+
+
+TV was broken 0 times
+
+TV was used 2 times
+336 electricity was used by TV
+
+
+PET_FOUNTAIN was broken 0 times
+
+PET_FOUNTAIN was used 0 times
+145 electricity was used by PET_FOUNTAIN
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 1 times
+645 electricity was used by VACUUM_CLEANER
+
+
+AIR_CONDITIONER was broken 0 times
+
+AIR_CONDITIONER was used 0 times
+306 electricity was used by AIR_CONDITIONER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 1 times
+144 electricity was used by FIRE_SUPPRESSION
+
+
+WASHING_MACHINE was broken 0 times
+
+WASHING_MACHINE was used 1 times
+352 electricity was used by WASHING_MACHINE
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+144 electricity was used by FIRE_SUPPRESSION
+
+
+PET_FEEDER was broken 0 times
+
+PET_FEEDER was used 3 times
 291 electricity was used by PET_FEEDER
+
+
+PET_TOY was used 5 times
+
+
+PET_TOY was used 2 times
+
+
+BICYCLE was used 3 times
+
+
+BICYCLE was used 4 times
+
+
+SKI was used 4 times
+
+
+BICYCLE was used 4 times
+
+
+PET_TOY was used 0 times
 
 
 ---------------2 DAY---------------
 
 
-LOCK was broken 1
+LOCK was broken 0 times
 
-LOCK was used 2
+LOCK was used 4 times
 288 electricity was used by LOCK
 
 
-AIR_CONDITIONER was broken 0
+AIR_CONDITIONER was broken 0 times
 
-AIR_CONDITIONER was used 2
+AIR_CONDITIONER was used 2 times
 612 electricity was used by AIR_CONDITIONER
 
 
-VACUUM_CLEANER was broken 0
+VACUUM_CLEANER was broken 0 times
 
-VACUUM_CLEANER was used 2
+VACUUM_CLEANER was used 2 times
 1290 electricity was used by VACUUM_CLEANER
 
 
-FIRE_SUPPRESSION was broken 0
+FIRE_SUPPRESSION was broken 0 times
 
-FIRE_SUPPRESSION was used 1
+FIRE_SUPPRESSION was used 0 times
 288 electricity was used by FIRE_SUPPRESSION
 
 
-COFFEE_MACHINE was broken 4
+COFFEE_MACHINE was broken 0 times
 
-COFFEE_MACHINE was used 2
-384 electricity was used by COFFEE_MACHINE
-
-
-FRIDGE was broken 0
-
-FRIDGE was used 20
-300 electricity was used by FRIDGE
-
-
-PET_FEEDER was broken 1
-
-PET_FEEDER was used 9
-648 electricity was used by PET_FEEDER
-
-
-PET_FEEDER was broken 0
-
-PET_FEEDER was used 10
-582 electricity was used by PET_FEEDER
-
-
-PET_FOUNTAIN was broken 0
-
-PET_FOUNTAIN was used 11
-290 electricity was used by PET_FOUNTAIN
-
-
-DISHWASHER was broken 0
-
-DISHWASHER was used 2
-656 electricity was used by DISHWASHER
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 2
-1290 electricity was used by VACUUM_CLEANER
-
-
-WASHING_MACHINE was broken 0
-
-WASHING_MACHINE was used 2
-704 electricity was used by WASHING_MACHINE
-
-
-AIR_CONDITIONER was broken 1
-
-AIR_CONDITIONER was used 0
-648 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-288 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 3
-612 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 8
-672 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 2
-1290 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-288 electricity was used by FIRE_SUPPRESSION
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 3
-612 electricity was used by AIR_CONDITIONER
-
-
-LOCK was broken 0
-
-LOCK was used 3
-288 electricity was used by LOCK
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-288 electricity was used by FIRE_SUPPRESSION
-
-
-GAME_CONSOLE was broken 0
-
-GAME_CONSOLE was used 13
-316 electricity was used by GAME_CONSOLE
-
-
-AIR_CONDITIONER was broken 0
-
-AIR_CONDITIONER was used 3
-612 electricity was used by AIR_CONDITIONER
-
-
-TV was broken 0
-
-TV was used 8
-672 electricity was used by TV
-
-
-VACUUM_CLEANER was broken 0
-
-VACUUM_CLEANER was used 2
-1290 electricity was used by VACUUM_CLEANER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-288 electricity was used by FIRE_SUPPRESSION
-
-
-COFFEE_MACHINE was broken 0
-
-COFFEE_MACHINE was used 5
+COFFEE_MACHINE was used 5 times
 296 electricity was used by COFFEE_MACHINE
 
 
-TV was broken 1
+FRIDGE was broken 1 times
 
-TV was used 5
-768 electricity was used by TV
+FRIDGE was used 12 times
+432 electricity was used by FRIDGE
 
 
-PET_FOUNTAIN was broken 0
+PET_FEEDER was broken 2 times
 
-PET_FOUNTAIN was used 1
+PET_FEEDER was used 3 times
+648 electricity was used by PET_FEEDER
+
+
+PET_FEEDER was broken 1 times
+
+PET_FEEDER was used 4 times
+648 electricity was used by PET_FEEDER
+
+
+PET_FOUNTAIN was broken 0 times
+
+PET_FOUNTAIN was used 3 times
 290 electricity was used by PET_FOUNTAIN
 
 
-VACUUM_CLEANER was broken 0
+DISHWASHER was broken 0 times
 
-VACUUM_CLEANER was used 2
+DISHWASHER was used 2 times
+656 electricity was used by DISHWASHER
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 2 times
 1290 electricity was used by VACUUM_CLEANER
 
 
-AIR_CONDITIONER was broken 0
+WASHING_MACHINE was broken 0 times
 
-AIR_CONDITIONER was used 2
-612 electricity was used by AIR_CONDITIONER
-
-
-FIRE_SUPPRESSION was broken 0
-
-FIRE_SUPPRESSION was used 0
-288 electricity was used by FIRE_SUPPRESSION
-
-
-WASHING_MACHINE was broken 1
-
-WASHING_MACHINE was used 2
+WASHING_MACHINE was used 2 times
 704 electricity was used by WASHING_MACHINE
 
 
-FIRE_SUPPRESSION was broken 0
+AIR_CONDITIONER was broken 0 times
 
-FIRE_SUPPRESSION was used 0
+AIR_CONDITIONER was used 1 times
+612 electricity was used by AIR_CONDITIONER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
 288 electricity was used by FIRE_SUPPRESSION
 
 
-PET_FEEDER was broken 0
+AIR_CONDITIONER was broken 0 times
 
-PET_FEEDER was used 10
+AIR_CONDITIONER was used 1 times
+612 electricity was used by AIR_CONDITIONER
+
+
+TV was broken 0 times
+
+TV was used 5 times
+672 electricity was used by TV
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 2 times
+1290 electricity was used by VACUUM_CLEANER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 1 times
+288 electricity was used by FIRE_SUPPRESSION
+
+
+AIR_CONDITIONER was broken 0 times
+
+AIR_CONDITIONER was used 1 times
+612 electricity was used by AIR_CONDITIONER
+
+
+LOCK was broken 1 times
+
+LOCK was used 0 times
+288 electricity was used by LOCK
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+288 electricity was used by FIRE_SUPPRESSION
+
+
+GAME_CONSOLE was broken 0 times
+
+GAME_CONSOLE was used 2 times
+316 electricity was used by GAME_CONSOLE
+
+
+AIR_CONDITIONER was broken 0 times
+
+AIR_CONDITIONER was used 2 times
+612 electricity was used by AIR_CONDITIONER
+
+
+TV was broken 0 times
+
+TV was used 3 times
+672 electricity was used by TV
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 2 times
+1290 electricity was used by VACUUM_CLEANER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+288 electricity was used by FIRE_SUPPRESSION
+
+
+COFFEE_MACHINE was broken 0 times
+
+COFFEE_MACHINE was used 4 times
+296 electricity was used by COFFEE_MACHINE
+
+
+TV was broken 0 times
+
+TV was used 2 times
+672 electricity was used by TV
+
+
+PET_FOUNTAIN was broken 0 times
+
+PET_FOUNTAIN was used 0 times
+290 electricity was used by PET_FOUNTAIN
+
+
+VACUUM_CLEANER was broken 0 times
+
+VACUUM_CLEANER was used 2 times
+1290 electricity was used by VACUUM_CLEANER
+
+
+AIR_CONDITIONER was broken 1 times
+
+AIR_CONDITIONER was used 0 times
+612 electricity was used by AIR_CONDITIONER
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 1 times
+288 electricity was used by FIRE_SUPPRESSION
+
+
+WASHING_MACHINE was broken 1 times
+
+WASHING_MACHINE was used 1 times
+704 electricity was used by WASHING_MACHINE
+
+
+FIRE_SUPPRESSION was broken 0 times
+
+FIRE_SUPPRESSION was used 0 times
+288 electricity was used by FIRE_SUPPRESSION
+
+
+PET_FEEDER was broken 0 times
+
+PET_FEEDER was used 8 times
 582 electricity was used by PET_FEEDER
+
+
+PET_TOY was used 11 times
+
+
+PET_TOY was used 7 times
+
+
+BICYCLE was used 4 times
+
+
+BICYCLE was used 6 times
+
+
+SKI was used 5 times
+
+
+BICYCLE was used 6 times
+
+
+PET_TOY was used 1 times
 
 
 ---------------3 DAY---------------

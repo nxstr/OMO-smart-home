@@ -5,7 +5,7 @@ import items.Observer;
 import java.time.LocalTime;
 import java.util.Random;
 
-public class WaterAndElectricityEventGenerator extends EventGenerator{
+    public class WaterAndElectricityEventGenerator extends EventGenerator{
     private static WaterAndElectricityEventGenerator instance;
     private int eventTicks;
     private int currentTicks = 0;

@@ -1,7 +1,10 @@
 package strategy;
 
+import house.House;
 import items.Observer;
 import items.device.Device;
+import items.equipment.SportEquipment;
+import items.equipment.SportEquipmentFactory;
 import items.state.IdleState;
 import items.state.StateType;
 
@@ -27,7 +30,14 @@ public class Night implements Strategy{
             if(d.getCurrentState().getType()== StateType.ACTIVE) {
                 d.setCurrentState(new IdleState(d));
             }
-            d.generateReportForDay();
+            if(House.getInstance().getDay()!=0) {
+                d.generateReportForDay();
+            }
+        }
+        if(House.getInstance().getDay()!=0) {
+            for (SportEquipment e : SportEquipmentFactory.getInstance().getEquipments()) {
+                e.generateReportForDay();
+            }
         }
     }
 

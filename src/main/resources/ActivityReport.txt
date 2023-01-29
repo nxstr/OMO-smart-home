@@ -3,67 +3,119 @@ It is strategy.Night
 ---------------1 DAY---------------
 
 It is strategy.Morning
+Bob is in the Bedroom at 08:00. 
+Mary is in the Bedroom at 08:00. 
+Stefany is in the Living_room at 08:00. 
+Bob is in the Kitchen at 08:10. Bob is using FRIDGE
+Mary is in the Kitchen at 08:20. Mary is using FRIDGE
+Bob is in the Living_room at 08:30. Bob is using TV
+Stefany is in the Kitchen at 08:30. Stefany is using FRIDGE
+Mary is outside the house at 08:40. Mary is using BICYCLE
+Artur is in the Kitchen at 08:40. Artur is using FRIDGE
+Stefany is in the Kitchen at 08:50. Stefany is using COFFEE_MACHINE
+Jane is in the Kitchen at 08:50. Jane is using FRIDGE
+Artur is outside the house at 09:00. Artur is using BICYCLE
+Alex is in the Kitchen at 09:00. Alex is using FRIDGE
+Stefany is outside the house at 09:10. Stefany is using BICYCLE
+Alex is in the Bedroom at 09:20. Alex is using TV
+Jane is in the Nursery at 09:30. Jane is using GAME_CONSOLE
+Bob is outside the house at 09:50. Bob is using SKI
+Jane is in the Nursery at 10:00. Jane is using GAME_CONSOLE
+Jane is in the Nursery at 10:30. Jane is using TV
+Alex is outside the house at 10:40. Alex is using BICYCLE
+Artur is outside the house at 11:10. Artur is using BICYCLE
+Stefany is outside the house at 11:30. Stefany is using BICYCLE
+Jane is in the Living_room at 11:40. Jane is using TV
+Bob is in the Kitchen at 12:50. Bob is using COFFEE_MACHINE
+Jane is in the Kitchen at 12:50. Jane is using FRIDGE
+Alex is in the Bedroom at 12:50. Alex is using TV
+Mary is in the Nursery at 13:00. Mary is using TV
+Bob is outside the house at 13:10. Bob is using SKI
+Jane is outside the house at 13:10. Jane is using BICYCLE
+It is strategy.Afternoon
+DISHWASHER is switched on by system at 14:00 at room Kitchen
+PET_FEEDER is switched on by system at 14:00 at room Kitchen
+PET_FEEDER is switched on by system at 14:00 at room Garage
+VACUUM_CLEANER is switched on by system at 14:00 at room Garage
+VACUUM_CLEANER is switched on by system at 14:00 at room Kitchen
+VACUUM_CLEANER is switched on by system at 14:00 at room Bedroom
+VACUUM_CLEANER is switched on by system at 14:00 at room Nursery
+VACUUM_CLEANER is switched on by system at 14:00 at room Living_room
+WASHING_MACHINE is switched on by system at 14:00 at room Kitchen
+WASHING_MACHINE is switched on by system at 14:00 at room Laundry
+PET_FEEDER is switched off by system at 14:10 at room Kitchen
+PET_FEEDER is switched off by system at 14:10 at room Garage
+Sasha is in the Kitchen at 14:10. Sasha is using PET_FEEDER
+Jessi is in the Garage at 14:10. Jessi is using PET_FEEDER
+Sasha is in the Garage at 14:30. Sasha is using PET_TOY
+Jessi is in the Garage at 14:40. Jessi is using PET_TOY
+DISHWASHER is switched off by system at 14:50 at room Kitchen
+WASHING_MACHINE is switched off by system at 15:20 at room Kitchen
+WASHING_MACHINE is switched off by system at 15:20 at room Laundry
+Jane is in the Bedroom at 15:20. Jane is using TV
+Stefany is in the Kitchen at 16:10. Stefany is using FRIDGE
+VACUUM_CLEANER is switched off by system at 16:30 at room Garage
+VACUUM_CLEANER is switched off by system at 16:30 at room Kitchen
+VACUUM_CLEANER is switched off by system at 16:30 at room Bedroom
+VACUUM_CLEANER is switched off by system at 16:30 at room Nursery
+VACUUM_CLEANER is switched off by system at 16:30 at room Living_room
+Jane is outside the house at 16:40. Jane is using SKI
+Sasha is in the Garage at 16:40. Sasha is using PET_TOY
+Jessi is outside the house at 17:00. Jessi is using PET_TOY
+Archi is in the Kitchen at 17:50. Archi is using PET_FEEDER
+Artur is in the Kitchen at 18:10. Artur is using FRIDGE
+Stefany is outside the house at 18:20. Stefany is using BICYCLE
+Sasha is outside the house at 18:50. Sasha is using PET_TOY
+It is strategy.Evening
+PET_FEEDER is switched on by system at 19:00 at room Kitchen
+PET_FEEDER is switched on by system at 19:00 at room Garage
+FIRE_SUPPRESSION is switched off by system at 19:30 at room Living_room
+Bob is in the Kitchen at 19:30. Bob is using FRIDGE
+Artur is outside the house at 19:30. Artur is using BICYCLE
+Archi is in the Kitchen at 19:30. Archi is using PET_FOUNTAIN
+Stefany is in the Kitchen at 19:50. Stefany is using COFFEE_MACHINE
+Archi is in the Garage at 19:50. Archi is using PET_TOY
+Stefany is in the Bedroom at 20:10. Stefany is using TV
+Stefany is outside the house at 21:20. Stefany is using BICYCLE
+Jane is in the Kitchen at 21:30. Jane is using FRIDGE
+Bob is outside the house at 21:40. Bob is using BICYCLE
+Artur is outside the house at 21:50. Artur is using SKI
+Archi is in the Garage at 22:00. Archi is using PET_TOY
+Stefany is in the Kitchen at 23:40. Stefany is using FRIDGE
+Bob is in the Living_room at 23:50. Bob is using COFFEE_MACHINE
+It is strategy.Night
+
+---------------2 DAY---------------
+
+AIR_CONDITIONER is switched off by system at 03:00 at room Garage
+FIRE_SUPPRESSION is switched off by system at 04:30 at room Bedroom
+It is strategy.Morning
+COFFEE_MACHINE is switched on by system at 08:00 at room Kitchen
 COFFEE_MACHINE is switched on by system at 08:00 at room Living_room
 PET_FEEDER is switched on by system at 08:00 at room Kitchen
-PET_FEEDER is switched on by system at 08:00 at room Garage
 AIR_CONDITIONER is switched on by system at 08:00 at room Garage
 AIR_CONDITIONER is switched on by system at 08:00 at room Kitchen
 AIR_CONDITIONER is switched on by system at 08:00 at room Bedroom
 AIR_CONDITIONER is switched on by system at 08:00 at room Hallway
 AIR_CONDITIONER is switched on by system at 08:00 at room Nursery
-AIR_CONDITIONER is switched on by system at 08:00 at room Living_room
-Bob is in the Bedroom at 08:00. 
-Mary is in the Bedroom at 08:00. 
-Stefany is in the Living_room at 08:00. 
-COFFEE_MACHINE is switched off by system at 08:10 at room Living_room
-PET_FEEDER is switched off by system at 08:10 at room Kitchen
-PET_FEEDER is switched off by system at 08:10 at room Garage
+Bob is in the Living_room at 08:00. 
+Mary is in the Garage at 08:00. 
+Stefany is in the Kitchen at 08:00. 
 Bob is in the Kitchen at 08:10. Bob is using FRIDGE
 Sasha is in the Kitchen at 08:10. Sasha is using PET_FEEDER
-Jessi is in the Garage at 08:10. Jessi is using PET_FEEDER
-Artur is in the Kitchen at 08:20. Artur is using FRIDGE
-Bob is in the Nursery at 08:30. Bob is using TV
-Jane is in the Kitchen at 08:30. Jane is using FRIDGE
-Sasha is in the Garage at 08:30. Sasha is using PET_TOY
-Jessi is in the Kitchen at 08:30. Jessi is using PET_FOUNTAIN
-Artur is outside the house at 08:40. Artur is using BICYCLE
-Alex is in the Kitchen at 08:40. Alex is using FRIDGE
-Jane is in the Living_room at 08:50. Jane is using TV
-Jessi is in the Garage at 08:50. Jessi is using PET_TOY
-FIRE_SUPPRESSION is switched off by system at 09:30 at room Garage
-Mary is in the Kitchen at 09:30. Mary is using FRIDGE
-Artur is in the Living_room at 09:30. Artur is using TV
-Jane is outside the house at 09:30. Jane is using BICYCLE
-Alex is outside the house at 09:30. Alex is using SKI
-Sasha is in the Garage at 09:30. Sasha is using PET_TOY
-Jessi is in the Kitchen at 09:30. Jessi is using PET_FOUNTAIN
-Archi is in the Kitchen at 09:30. Archi is using PET_FEEDER
-Stefany is in the Kitchen at 09:40. Stefany is using FRIDGE
-Jessi is in the Garage at 09:50. Jessi is using PET_TOY
-Stefany is in the Nursery at 10:00. Stefany is using TV
-Artur is in the Bedroom at 10:40. Artur is using TV
-Stefany is outside the house at 11:10. Stefany is using BICYCLE
-Bob is in the Nursery at 11:40. Bob is using GAME_CONSOLE
-Jane is in the Nursery at 11:40. Jane is using TV
-Sasha is in the Kitchen at 11:40. Sasha is using PET_FOUNTAIN
-Archi is outside the house at 11:40. Archi is using PET_TOY
-Artur is in the Living_room at 11:50. Artur is using TV
-Sasha is in the Kitchen at 12:00. Sasha is using PET_FOUNTAIN
-Mary is in the Kitchen at 12:10. Mary is using COFFEE_MACHINE
-Alex is outside the house at 12:10. Alex is using BICYCLE
-Jessi is in the Kitchen at 12:10. Jessi is using PET_FOUNTAIN
-Bob is outside the house at 12:20. Bob is using BICYCLE
-Sasha is in the Living_room at 12:20. Sasha is using PET_FOUNTAIN
-Sasha is in the Kitchen at 12:40. Sasha is using PET_FOUNTAIN
-Jessi is in the Garage at 12:40. Jessi is using PET_TOY
-Jane is outside the house at 12:50. Jane is using SKI
-Artur is in the Kitchen at 13:00. Artur is using FRIDGE
-Artur is outside the house at 13:20. Artur is using BICYCLE
-Sasha is in the Living_room at 13:20. Sasha is using PET_TOY
-Archi is in the Garage at 13:50. Archi is using PET_TOY
+Archi is in the Garage at 08:10. Archi is using PET_FEEDER
+Archi is outside the house at 08:30. Archi is using PET_TOY
+Artur is in the Kitchen at 10:10. Artur is using FRIDGE
+Bob is outside the house at 10:20. Bob is using BICYCLE
+Sasha is in the Garage at 10:20. Sasha is using PET_TOY
+Archi is outside the house at 10:40. Archi is using PET_TOY
+Jane is in the Kitchen at 12:10. Jane is using FRIDGE
+Artur is outside the house at 12:20. Artur is using BICYCLE
+Bob is outside the house at 12:30. Bob is using BICYCLE
+Sasha is in the Kitchen at 12:30. Sasha is using PET_FOUNTAIN
+Sasha is in the Garage at 12:50. Sasha is using PET_TOY
 It is strategy.Afternoon
 DISHWASHER is switched on by system at 14:00 at room Kitchen
-PET_FEEDER is switched on by system at 14:00 at room Kitchen
 PET_FEEDER is switched on by system at 14:00 at room Kitchen
 PET_FEEDER is switched on by system at 14:00 at room Garage
 VACUUM_CLEANER is switched on by system at 14:00 at room Garage
@@ -73,191 +125,50 @@ VACUUM_CLEANER is switched on by system at 14:00 at room Nursery
 VACUUM_CLEANER is switched on by system at 14:00 at room Living_room
 WASHING_MACHINE is switched on by system at 14:00 at room Kitchen
 WASHING_MACHINE is switched on by system at 14:00 at room Laundry
-PET_FEEDER is switched off by system at 14:10 at room Kitchen
 PET_FEEDER is switched off by system at 14:10 at room Garage
-Alex is in the Kitchen at 14:20. Alex is using FRIDGE
-Bob is in the Kitchen at 14:30. Bob is using COFFEE_MACHINE
-Mary is in the Bedroom at 14:30. Mary is using TV
-Alex is in the Nursery at 14:40. Alex is using GAME_CONSOLE
+Alex is in the Kitchen at 14:10. Alex is using FRIDGE
+Jessi is in the Garage at 14:10. Jessi is using PET_FEEDER
+Jane is outside the house at 14:20. Jane is using BICYCLE
+Jessi is outside the house at 14:40. Jessi is using PET_TOY
 DISHWASHER is switched off by system at 14:50 at room Kitchen
-Jessi is in the Kitchen at 14:50. Jessi is using PET_FEEDER
 WASHING_MACHINE is switched off by system at 15:20 at room Kitchen
 WASHING_MACHINE is switched off by system at 15:20 at room Laundry
-Alex is outside the house at 15:20. Alex is using SKI
-Jessi is in the Kitchen at 15:20. Jessi is using PET_FOUNTAIN
-Artur is outside the house at 15:30. Artur is using BICYCLE
-Jane is in the Kitchen at 15:30. Jane is using FRIDGE
-Sasha is in the Garage at 15:30. Sasha is using PET_FEEDER
-Jessi is in the Garage at 15:40. Jessi is using PET_TOY
-Mary is in the Kitchen at 15:50. Mary is using FRIDGE
-Jane is in the Bedroom at 15:50. Jane is using TV
 PET_FEEDER is switched off by system at 16:00 at room Kitchen
+Sasha is in the Kitchen at 16:00. Sasha is using PET_FEEDER
 Archi is in the Kitchen at 16:00. Archi is using PET_FEEDER
-Sasha is outside the house at 16:10. Sasha is using PET_TOY
+Mary is in the Kitchen at 16:20. Mary is using FRIDGE
+Alex is outside the house at 16:20. Alex is using BICYCLE
 VACUUM_CLEANER is switched off by system at 16:30 at room Garage
 VACUUM_CLEANER is switched off by system at 16:30 at room Kitchen
 VACUUM_CLEANER is switched off by system at 16:30 at room Bedroom
 VACUUM_CLEANER is switched off by system at 16:30 at room Nursery
 VACUUM_CLEANER is switched off by system at 16:30 at room Living_room
-Bob is in the Kitchen at 16:40. Bob is using FRIDGE
-Jane is in the Living_room at 17:10. Jane is using TV
-Bob is in the Living_room at 17:30. Bob is using COFFEE_MACHINE
-Artur is in the Kitchen at 17:40. Artur is using FRIDGE
-Jessi is in the Kitchen at 17:50. Jessi is using PET_FOUNTAIN
-Bob is outside the house at 18:00. Bob is using BICYCLE
-Stefany is in the Kitchen at 18:00. Stefany is using FRIDGE
-Artur is in the Nursery at 18:00. Artur is using GAME_CONSOLE
-Alex is in the Nursery at 18:10. Alex is using TV
-Jessi is in the Kitchen at 18:10. Jessi is using PET_FOUNTAIN
-Jane is in the Bedroom at 18:20. Jane is using TV
-Sasha is outside the house at 18:20. Sasha is using PET_TOY
+Jessi is in the Kitchen at 17:00. Jessi is using PET_FOUNTAIN
+Jessi is in the Garage at 18:00. Jessi is using PET_TOY
+Stefany is in the Kitchen at 18:20. Stefany is using FRIDGE
+Archi is in the Garage at 18:20. Archi is using PET_TOY
 Mary is outside the house at 18:30. Mary is using SKI
-Artur is outside the house at 18:30. Artur is using BICYCLE
-Archi is outside the house at 18:30. Archi is using PET_TOY
-Jessi is in the Living_room at 18:40. Jessi is using PET_TOY
+Sasha is outside the house at 18:40. Sasha is using PET_TOY
 It is strategy.Evening
 PET_FEEDER is switched on by system at 19:00 at room Kitchen
 PET_FEEDER is switched on by system at 19:00 at room Kitchen
 PET_FEEDER is switched on by system at 19:00 at room Garage
-Jane is in the Kitchen at 19:30. Jane is using FRIDGE
-Alex is in the Kitchen at 19:40. Alex is using FRIDGE
-Alex is in the Nursery at 20:00. Alex is using GAME_CONSOLE
-Jane is in the Nursery at 20:10. Jane is using TV
-Stefany is outside the house at 20:30. Stefany is using BICYCLE
-Alex is outside the house at 20:30. Alex is using BICYCLE
-Sasha is in the Kitchen at 20:30. Sasha is using PET_FEEDER
-Artur is in the Bedroom at 20:40. Artur is using TV
-Archi is in the Garage at 20:40. Archi is using PET_TOY
-Jessi is in the Kitchen at 20:50. Jessi is using PET_FEEDER
+PET_FEEDER is switched off by system at 19:10 at room Garage
+Jessi is in the Garage at 20:10. Jessi is using PET_FEEDER
+Artur is in the Kitchen at 20:20. Artur is using FRIDGE
+Stefany is in the Living_room at 20:30. Stefany is using COFFEE_MACHINE
+Jessi is in the Garage at 20:30. Jessi is using PET_TOY
+Archi is outside the house at 20:30. Archi is using PET_TOY
+Stefany is in the Kitchen at 20:50. Stefany is using COFFEE_MACHINE
 PET_FEEDER is switched off by system at 21:00 at room Kitchen
-Jessi is outside the house at 21:10. Jessi is using PET_TOY
-Jane is in the Nursery at 21:20. Jane is using GAME_CONSOLE
-Artur is in the Kitchen at 21:50. Artur is using FRIDGE
-Jane is in the Nursery at 21:50. Jane is using GAME_CONSOLE
-Bob is in the Living_room at 22:30. Bob is using TV
-Stefany is in the Bedroom at 22:40. Stefany is using TV
-Sasha is in the Living_room at 22:40. Sasha is using PET_TOY
-Archi is in the Garage at 22:50. Archi is using PET_FEEDER
-Archi is in the Garage at 23:10. Archi is using PET_TOY
-Mary is in the Kitchen at 23:20. Mary is using FRIDGE
-Jessi is outside the house at 23:30. Jessi is using PET_TOY
-Mary is in the Kitchen at 23:40. Mary is using COFFEE_MACHINE
-Stefany is in the Nursery at 23:50. Stefany is using TV
-It is strategy.Night
-
----------------2 DAY---------------
-
-AIR_CONDITIONER is switched off by system at 01:00 at room Hallway
-It is strategy.Morning
-COFFEE_MACHINE is switched on by system at 08:00 at room Living_room
-PET_FEEDER is switched on by system at 08:00 at room Kitchen
-PET_FEEDER is switched on by system at 08:00 at room Kitchen
-PET_FEEDER is switched on by system at 08:00 at room Garage
-AIR_CONDITIONER is switched on by system at 08:00 at room Garage
-AIR_CONDITIONER is switched on by system at 08:00 at room Kitchen
-AIR_CONDITIONER is switched on by system at 08:00 at room Bedroom
-AIR_CONDITIONER is switched on by system at 08:00 at room Nursery
-AIR_CONDITIONER is switched on by system at 08:00 at room Living_room
-Bob is in the Living_room at 08:00. 
-Mary is in the Kitchen at 08:00. 
-Stefany is in the Nursery at 08:00. 
-COFFEE_MACHINE is switched off by system at 08:10 at room Living_room
-PET_FEEDER is switched off by system at 08:10 at room Kitchen
-PET_FEEDER is switched off by system at 08:10 at room Garage
-Bob is in the Kitchen at 08:10. Bob is using FRIDGE
-Sasha is in the Kitchen at 08:10. Sasha is using PET_FEEDER
-Jessi is in the Garage at 08:10. Jessi is using PET_FEEDER
-Artur is in the Kitchen at 08:20. Artur is using FRIDGE
-Bob is outside the house at 08:30. Bob is using SKI
-Jane is in the Kitchen at 08:30. Jane is using FRIDGE
-Sasha is in the Garage at 08:30. Sasha is using PET_TOY
-Jessi is in the Kitchen at 08:30. Jessi is using PET_FOUNTAIN
-Artur is in the Living_room at 08:40. Artur is using TV
-Alex is in the Kitchen at 08:40. Jane is outside the house at 08:50. Jane is using BICYCLE
-AIR_CONDITIONER is switched off by system at 09:00 at room Garage
-AIR_CONDITIONER is switched off by system at 09:00 at room Kitchen
-AIR_CONDITIONER is switched off by system at 09:00 at room Bedroom
-AIR_CONDITIONER is switched off by system at 09:00 at room Nursery
-AIR_CONDITIONER is switched off by system at 09:00 at room Living_room
-Alex is outside the house at 09:00. Alex is using BICYCLE
-Jessi is outside the house at 09:00. Jessi is using PET_TOY
-PET_FEEDER is switched off by system at 10:00 at room Kitchen
-Archi is in the Kitchen at 10:00. Archi is using PET_FEEDER
-Mary is in the Kitchen at 10:20. Stefany is in the Kitchen at 10:20. Stefany is in the Nursery at 10:40. Stefany is using GAME_CONSOLE
-Artur is outside the house at 10:50. Artur is using BICYCLE
-Mary is outside the house at 11:00. Mary is using BICYCLE
-Sasha is outside the house at 11:00. Sasha is using PET_TOY
-Stefany is outside the house at 11:10. Stefany is using BICYCLE
-Jane is in the Living_room at 11:10. Jane is using TV
-Alex is in the Nursery at 11:10. Alex is using GAME_CONSOLE
-Jessi is in the Garage at 11:20. Jessi is using PET_TOY
-Alex is in the Nursery at 11:50. Alex is using GAME_CONSOLE
-AIR_CONDITIONER is switched off by system at 12:00 at room Bedroom
-Archi is outside the house at 12:10. Archi is using PET_TOY
-Alex is outside the house at 12:20. Alex is using SKI
-Artur is in the Kitchen at 13:00. Mary is outside the house at 13:10. Mary is using BICYCLE
-Bob is in the Living_room at 13:20. Bob is using TV
-Stefany is in the Bedroom at 13:20. Stefany is using TV
-Artur is in the Nursery at 13:20. Artur is using GAME_CONSOLE
-Jane is in the Kitchen at 13:20. Jane is in the Nursery at 13:40. Jane is using GAME_CONSOLE
-Artur is in the Nursery at 13:50. Artur is using TV
-It is strategy.Afternoon
-DISHWASHER is switched on by system at 14:00 at room Kitchen
-PET_FEEDER is switched on by system at 14:00 at room Kitchen
-PET_FEEDER is switched on by system at 14:00 at room Kitchen
-PET_FEEDER is switched on by system at 14:00 at room Garage
-VACUUM_CLEANER is switched on by system at 14:00 at room Garage
-VACUUM_CLEANER is switched on by system at 14:00 at room Kitchen
-VACUUM_CLEANER is switched on by system at 14:00 at room Bedroom
-VACUUM_CLEANER is switched on by system at 14:00 at room Nursery
-VACUUM_CLEANER is switched on by system at 14:00 at room Living_room
-WASHING_MACHINE is switched on by system at 14:00 at room Kitchen
-WASHING_MACHINE is switched on by system at 14:00 at room Laundry
-PET_FEEDER is switched off by system at 14:10 at room Kitchen
-PET_FEEDER is switched off by system at 14:10 at room Garage
-Jane is outside the house at 14:10. Jane is using BICYCLE
-Sasha is in the Kitchen at 14:10. Sasha is using PET_FEEDER
-Jessi is in the Garage at 14:10. Jessi is using PET_FEEDER
-Archi is in the Kitchen at 14:20. Archi is using PET_FOUNTAIN
-Stefany is in the Living_room at 14:30. Stefany is using COFFEE_MACHINE
-Sasha is outside the house at 14:30. Sasha is using PET_TOY
-Jessi is in the Garage at 14:30. Jessi is using PET_TOY
-Archi is outside the house at 14:40. Archi is using PET_TOY
-DISHWASHER is switched off by system at 14:50 at room Kitchen
-Artur is outside the house at 15:00. Artur is using SKI
-Alex is in the Kitchen at 15:00. WASHING_MACHINE is switched off by system at 15:20 at room Kitchen
-WASHING_MACHINE is switched off by system at 15:20 at room Laundry
-Alex is outside the house at 15:20. Alex is using BICYCLE
-Bob is in the Kitchen at 15:30. Mary is outside the house at 15:50. Mary is using BICYCLE
-PET_FEEDER is switched off by system at 16:00 at room Kitchen
-Bob is in the Living_room at 16:10. Bob is using TV
-VACUUM_CLEANER is switched off by system at 16:30 at room Garage
-VACUUM_CLEANER is switched off by system at 16:30 at room Kitchen
-VACUUM_CLEANER is switched off by system at 16:30 at room Bedroom
-VACUUM_CLEANER is switched off by system at 16:30 at room Nursery
-VACUUM_CLEANER is switched off by system at 16:30 at room Living_room
-Jane is in the Nursery at 16:30. Jane is using GAME_CONSOLE
-Sasha is in the Garage at 16:40. Sasha is using PET_TOY
-Jessi is outside the house at 16:40. Jessi is using PET_TOY
-Archi is in the Kitchen at 16:50. Archi is using PET_FEEDER
-Alex is outside the house at 17:40. Alex is using SKI
-Sasha is in the Garage at 18:50. Sasha is using PET_TOY
-Jessi is in the Garage at 18:50. Jessi is using PET_TOY
-It is strategy.Evening
-Bob is outside the house at 19:00. Bob is using BICYCLE
-Archi is in the Living_room at 19:00. Archi is using PET_TOY
-Mary is in the Kitchen at 20:20. Stefany is in the Kitchen at 20:20. Artur is in the Kitchen at 20:20. Jane is in the Kitchen at 20:20. Alex is in the Kitchen at 20:20. Mary is in the Bedroom at 20:40. Mary is using TV
-Stefany is in the Kitchen at 20:40. Stefany is using COFFEE_MACHINE
-Jane is outside the house at 20:40. Jane is using BICYCLE
-Artur is outside the house at 20:50. Artur is using SKI
-Alex is outside the house at 20:50. Alex is using BICYCLE
-Bob is in the Nursery at 21:10. Bob is using TV
-Archi is in the Garage at 21:20. Archi is using PET_TOY
-Mary is in the Living_room at 21:50. Mary is using COFFEE_MACHINE
-Mary is outside the house at 22:10. Mary is using BICYCLE
-Bob is in the Kitchen at 22:20. Bob is in the Nursery at 22:40. Bob is using GAME_CONSOLE
-Stefany is in the Kitchen at 22:50. Stefany is using COFFEE_MACHINE
-Bob is outside the house at 23:10. Bob is using BICYCLE
+PET_FEEDER is switched off by system at 21:00 at room Kitchen
+Sasha is in the Kitchen at 21:00. Sasha is using PET_FEEDER
+Stefany is in the Nursery at 21:10. Stefany is using TV
+Mary is in the Bedroom at 21:20. Mary is using TV
+Stefany is in the Living_room at 22:20. Stefany is using COFFEE_MACHINE
+Bob is in the Kitchen at 22:30. Mary is in the Kitchen at 22:30. Jessi is in the Garage at 22:40. Jessi is using PET_TOY
+Archi is in the Kitchen at 22:40. Archi is using PET_FEEDER
+Sasha is outside the house at 23:10. Sasha is using PET_TOY
 It is strategy.Night
 
 ---------------3 DAY---------------
