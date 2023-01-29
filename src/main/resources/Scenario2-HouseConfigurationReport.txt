@@ -1,0 +1,49 @@
+House with id 2 has one outsideArea and 2 floor(s):
+ - Floor 0 has 3 room(s):
+  - Room named Hallway has:
+   - 3 equipment(s):
+    - PET_TOY; BICYCLE; SKI; 
+   - 4 devices(s):
+    - LOCK; FIRE_SUPPRESSION; PET_FEEDER; PET_FEEDER; 
+   - 5 sensor(s):
+    - TEMPERATURE; FIRE; ENTITY; WATER; ELECTRICITY; 
+  - Room named Kitchen has:
+   - 7 devices(s):
+    - COFFEE_MACHINE; FRIDGE; PET_FEEDER; PET_FOUNTAIN; DISHWASHER; WASHING_MACHINE; FIRE_SUPPRESSION; 
+   - 2 sensor(s):
+    - TEMPERATURE; FIRE; 
+  - Room named Dining_room has:
+   - 4 devices(s):
+    - AIR_CONDITIONER; TV; VACUUM_CLEANER; FIRE_SUPPRESSION; 
+   - 2 sensor(s):
+    - TEMPERATURE; FIRE; 
+ - Floor 1 has 3 room(s):
+  - Room named Nursery has:
+   - 1 equipment(s):
+    - BICYCLE; 
+   - 3 devices(s):
+    - GAME_CONSOLE; TV; FIRE_SUPPRESSION; 
+   - 2 sensor(s):
+    - TEMPERATURE; FIRE; 
+  - Room named Living_room has:
+   - 1 equipment(s):
+    - PET_TOY; 
+   - 4 devices(s):
+    - COMPUTER; PET_FOUNTAIN; VACUUM_CLEANER; FIRE_SUPPRESSION; 
+   - 2 sensor(s):
+    - TEMPERATURE; FIRE; 
+  - Room named Bedroom has:
+   - 3 devices(s):
+    - AIR_CONDITIONER; TV; FIRE_SUPPRESSION; 
+   - 2 sensor(s):
+    - TEMPERATURE; FIRE; 
+There are 9 living entities in the house:
+ - Entity FATHER named Bob in the room Bedroom;
+ - Entity MOTHER named Mary in the room Bedroom;
+ - Entity ADULT named Stefany in the room Living_room;
+ - Entity CHILD named Artur in the room Living_room;
+ - Entity CHILD named Jane in the room Nursery;
+ - Entity CHILD named Alex in the room Nursery;
+ - Entity CAT named Sasha in the room Hallway;
+ - Entity DOG named Jessi in the room Bedroom;
+ - Entity DOG named Archi in the room Kitchen;

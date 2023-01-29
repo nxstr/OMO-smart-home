@@ -49,7 +49,7 @@ public class PetFeeder extends Device{
                 setPortionEated(false);
                 setUsedTimes(getUsedTimes() + 1);
                 setCurrentState(new ActiveState(this));
-                Observer.getInstance().logAction("PET_FEEDER pours one portion of food at " + getHouse().getTime() + ", " + + currentCapacity + " portions are/is left\n");
+                Observer.getInstance().logAction("PET_FEEDER pours one portion of food at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left\n");
                 breakingEvent();
             }
         }else{

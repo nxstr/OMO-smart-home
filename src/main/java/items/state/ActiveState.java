@@ -24,13 +24,4 @@ public class ActiveState implements ObjectState{
         return type;
     }
 
-    @Override
-    public int getUsingHours() {
-        return device.getUsingHours();
-    }
-
-    @Override
-    public void getElectricity() {
-        device.addUsedElectricity(device.getElectricityInOnState());
-    }
 }

@@ -7,7 +7,6 @@ import items.device.Dishwasher;
 import items.device.WashingMachine;
 import items.state.StateType;
 import livingEntities.Adult;
-import livingEntities.EntityType;
 
 import java.util.LinkedList;
 import java.util.Objects;

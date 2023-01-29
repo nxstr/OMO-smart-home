@@ -3,9 +3,6 @@ package items;
 import house.Room;
 import items.device.Manual;
 import items.state.ObjectState;
-import livingEntities.LivingEntity;
-
-import java.time.LocalTime;
 
 public interface ElectricalItem {
 
@@ -36,8 +33,6 @@ public interface ElectricalItem {
     void setBrokenTimes(int brokenTimes);
 
     void resetElectricity();
-
-    void resetBrokenTimes();
 
     void addUsedElectricity(int electricity);
 

@@ -29,7 +29,10 @@ public abstract class Person extends Entity{
     public void findActivity() {
         if((house.getTime().isAfter(LocalTime.of(22, 0)) || house.getTime().isBefore(LocalTime.of(8, 0))) && age<16){
             sleeping();
-        }else {
+        }else if(house.getTime().isBefore(LocalTime.of(8, 0)) && age>=16){
+            sleeping();
+        }
+        else {
             if(isAsleep()) {
                 setAsleep(false);
             }

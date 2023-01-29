@@ -34,13 +34,6 @@ public class SensorFactory {
             }
         }
 
-        public Sensor findSensorByName(String name) {
-            for (Sensor sensor : sensors) {
-                if (sensor.getName().equals(name)) return sensor;
-            }
-            return null;
-        }
-
         public List<Sensor> getSensors() {
             return sensors;
         }

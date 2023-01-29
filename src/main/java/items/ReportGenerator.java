@@ -25,14 +25,22 @@ public class ReportGenerator {
     private static FileWriter activity = null;
     private static FileWriter consumption = null;
     private static FileWriter simulationRun = null;
+    private static String filename = null;
 
     public ReportGenerator() {
+    }
+
+    public void setTrace(String name){
         try {
-            this.configuration = new FileWriter("src/main/resources/HouseConfigurationReport.txt");
-            eventReport = new FileWriter("src/main/resources/EventReport.txt");
-            activity = new FileWriter("src/main/resources/ActivityReport.txt");
-            consumption = new FileWriter("src/main/resources/ConsumptionReport.txt");
-            simulationRun = new FileWriter("src/main/resources/SimulationRun.txt");
+            if(filename==null){
+                name = name.substring(0, name.indexOf(".json"));
+                filename = name;
+            }
+            this.configuration = new FileWriter("src/main/resources/"+filename+"-HouseConfigurationReport.txt");
+            eventReport = new FileWriter("src/main/resources/"+filename+"-EventReport.txt");
+            activity = new FileWriter("src/main/resources/"+filename+"-ActivityReport.txt");
+            consumption = new FileWriter("src/main/resources/"+filename+"-ConsumptionReport.txt");
+            simulationRun = new FileWriter("src/main/resources/"+filename+"-SimulationRun.txt");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -53,8 +61,8 @@ public class ReportGenerator {
                     }
                     configuration.write("\n");
                 }
-                if(room.getElectricalItems().stream().anyMatch(e->e.getMainType()=="device")){
-                    List<ElectricalItem> devices = room.getElectricalItems().stream().filter(e->e.getMainType()=="device").toList();
+                if(room.getElectricalItems().stream().anyMatch(e-> Objects.equals(e.getMainType(), "device"))){
+                    List<ElectricalItem> devices = room.getElectricalItems().stream().filter(e-> Objects.equals(e.getMainType(), "device")).toList();
                     configuration.write("   - " + devices.size() + " devices(s):\n");
                     configuration.write("    - ");
                     for(ElectricalItem e: devices){
@@ -62,8 +70,8 @@ public class ReportGenerator {
                     }
                     configuration.write("\n");
                 }
-                if(room.getElectricalItems().stream().anyMatch(e->e.getMainType()=="sensor")){
-                    List<ElectricalItem> sensors = room.getElectricalItems().stream().filter(e->e.getMainType()=="sensor").toList();
+                if(room.getElectricalItems().stream().anyMatch(e-> Objects.equals(e.getMainType(), "sensor"))){
+                    List<ElectricalItem> sensors = room.getElectricalItems().stream().filter(e-> Objects.equals(e.getMainType(), "sensor")).toList();
                     configuration.write("   - " + sensors.size() + " sensor(s):\n");
                     configuration.write("    - ");
                     for(ElectricalItem e: sensors){

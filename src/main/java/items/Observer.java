@@ -9,7 +9,6 @@ import items.sensors.Sensor;
 import items.sensors.SensorFactory;
 import items.sensors.SensorType;
 import items.state.StateType;
-import jdk.javadoc.doclet.Reporter;
 import livingEntities.Adult;
 import livingEntities.LivingEntity;
 import strategy.Strategy;
@@ -22,7 +21,7 @@ public class Observer {
     private static Observer instance = null;
     private final SensorFactory sensorFactory = SensorFactory.getInstance();
     private Strategy strategy;
-    private ReportGenerator reportGenerator = new ReportGenerator();
+    private final ReportGenerator reportGenerator = new ReportGenerator();
 
     private Observer() {
     }
@@ -40,12 +39,7 @@ public class Observer {
         this.strategy = strategy;
     }
 
-    public static void setInstance(Observer instance) {
-        Observer.instance = instance;
-    }
-
     public void handleDeviceReport(Device device){
-        //generate report: used times, electricity used, etc.
         if(device.getType() == DeviceType.FIRE_SUPPRESSION && device.getCurrentState().getType() == StateType.IDLE){
             for(LivingEntity e: device.getHouse().getLivingEntities()){
                 e.setAlarmMode(false);

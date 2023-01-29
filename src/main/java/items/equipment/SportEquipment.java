@@ -47,10 +47,6 @@ public abstract class SportEquipment {
         return usedTimes;
     }
 
-    public void setUsedTimes(int usedTimes) {
-        this.usedTimes = usedTimes;
-    }
-
     public void usingEquipment(){
         usedTimes++;
         setCurrentState(new ActiveState(this));

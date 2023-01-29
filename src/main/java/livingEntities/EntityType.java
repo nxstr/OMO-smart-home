@@ -1,7 +1,5 @@
 package livingEntities;
 
-import items.sensors.SensorType;
-
 import java.util.Objects;
 
 public enum EntityType {

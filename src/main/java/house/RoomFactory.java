@@ -1,7 +1,5 @@
 package house;
 
-import items.device.DeviceFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 

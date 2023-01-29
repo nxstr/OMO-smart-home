@@ -32,13 +32,6 @@ public class SportEquipmentFactory {
         }
     }
 
-    public SportEquipment findEquipmentByType(SportEquipmentType name) {
-        for (SportEquipment equipment : equipments) {
-            if (equipment.getType().equals(name)) return equipment;
-        }
-        return null;
-    }
-
     public List<SportEquipment> getEquipments() {
         return equipments;
     }

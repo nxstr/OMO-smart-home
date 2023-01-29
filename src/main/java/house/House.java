@@ -84,17 +84,9 @@ public class House {
         public HouseBuilder() {
         }
 
-        public List<Floor> getFloors() {
-            return floors;
-        }
-
         public HouseBuilder setId(int houseId){
             this.houseId = houseId;
             return this;
-        }
-
-        public OutsideArea getOutSideArea() {
-            return outSideArea;
         }
 
         public HouseBuilder setOutSideArea(OutsideArea outSideArea) {
@@ -104,16 +96,6 @@ public class House {
 
         public HouseBuilder addFloor(Floor floor) {
             this.floors.add(floor);
-            return this;
-        }
-
-        public HouseBuilder setFloors(List<Floor> floors) {
-            this.floors = floors;
-            return this;
-        }
-
-        public HouseBuilder setLivingEntities(List<LivingEntity> livingEntities) {
-            this.livingEntities = livingEntities;
             return this;
         }
 

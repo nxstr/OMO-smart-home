@@ -21,7 +21,7 @@ public abstract class Entity implements LivingEntity{
     private final Observer observer = Observer.getInstance();
     private boolean isAlarmMode = false;
     private boolean isAsleep = false;
-    private ReportGenerator reportGenerator = new ReportGenerator();
+    private final ReportGenerator reportGenerator = new ReportGenerator();
 
     public Entity(String name, EntityType type, Room room, int hungerTicks) {
         this.room = room;

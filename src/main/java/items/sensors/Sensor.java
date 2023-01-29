@@ -107,16 +107,8 @@ public abstract class Sensor implements ElectricalItem {
         this.electricityUsed = 0;
     }
 
-    public void resetBrokenTimes(){
-        this.brokenTimes = 0;
-    }
-
     public void addUsedElectricity(int electricity) {
         electricityUsed += electricity;
-    }
-
-    public void usingElectricity() {
-        currentState.getElectricity();
     }
 
     public void breakingItem() {

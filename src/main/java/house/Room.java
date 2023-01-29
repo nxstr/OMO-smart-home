@@ -1,7 +1,6 @@
 package house;
 
 import items.ElectricalItem;
-import items.device.Device;
 import items.equipment.SportEquipment;
 
 import java.util.ArrayList;
@@ -22,19 +21,12 @@ public class Room {
         return name;
     }
 
-    public Floor getFloor() {
-        return floor;
-    }
-
     public List<ElectricalItem> getElectricalItems() {
         return electricalItems;
     }
 
     public void addElectricalItem(ElectricalItem electricalItem){
         this.electricalItems.add(electricalItem);
-    }
-    public void removeElectricalItem(ElectricalItem electricalItem){
-        this.electricalItems.remove(electricalItem);
     }
 
     public List<SportEquipment> getEquipment() {
@@ -43,9 +35,6 @@ public class Room {
 
     public void addEquipment(SportEquipment equipment1){
         this.equipment.add(equipment1);
-    }
-    public void removeEquipment(SportEquipment equipment1){
-        this.equipment.remove(equipment1);
     }
 
 }

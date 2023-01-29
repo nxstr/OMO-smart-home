@@ -14,7 +14,7 @@ import java.util.Objects;
 public class TemperatureSensor extends Sensor {
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
-    private static final int electricityInBrokeState = 2;
+    private static final int electricityInBrokeState = 1;
 
     public TemperatureSensor(Room currentRoom) {
         super(SensorType.TEMPERATURE, currentRoom, electricityInOnState, electricityInBrokeState);

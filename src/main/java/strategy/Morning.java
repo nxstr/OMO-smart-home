@@ -1,6 +1,5 @@
 package strategy;
 
-import house.Floor;
 import items.Observer;
 import items.device.Device;
 import items.device.DeviceType;

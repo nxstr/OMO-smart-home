@@ -17,13 +17,4 @@ public class FixingState implements ObjectState{
         return type;
     }
 
-    @Override
-    public int getUsingHours() {
-        return 0;
-    }
-
-    @Override
-    public void getElectricity() {
-        device.addUsedElectricity(0);
-    }
 }

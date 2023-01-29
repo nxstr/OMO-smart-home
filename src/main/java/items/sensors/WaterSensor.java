@@ -8,11 +8,11 @@ import items.state.StateType;
 public class WaterSensor extends Sensor{
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
-    private static final int electricityInBrokeState = 2;
+    private static final int electricityInBrokeState = 1;
     private boolean isWaterOn = true;
 
     /*
-    Means sensor, that makes reaction when water cuts off in house
+    sensor, that makes reaction when water cuts off in house
      */
 
     public boolean isWaterOn() {

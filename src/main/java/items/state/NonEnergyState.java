@@ -17,13 +17,4 @@ public class NonEnergyState implements ObjectState{
         return type;
     }
 
-    @Override
-    public int getUsingHours() {
-        return device.getUsingHours();
-    }
-
-    @Override
-    public void getElectricity() {
-        device.addUsedElectricity(0);
-    }
 }

@@ -8,7 +8,7 @@ import items.state.StateType;
 public class ElectricitySensor extends Sensor{
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
-    private static final int electricityInBrokeState = 2;
+    private static final int electricityInBrokeState = 1;
     private final SensorFactory sensorFactory = SensorFactory.getInstance();
 
     public ElectricitySensor(Room currentRoom) {

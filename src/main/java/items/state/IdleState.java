@@ -26,14 +26,5 @@ public class IdleState implements ObjectState{
         return type;
     }
 
-    @Override
-    public int getUsingHours() {
-        return offTicks;
-    }
-
-    @Override
-    public void getElectricity() {
-        device.addUsedElectricity(device.getElectricityInOffState());
-    }
 
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
 public class EntitySensor extends Sensor{
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
-    private static final int electricityInBrokeState = 2;
+    private static final int electricityInBrokeState = 1;
 
     public EntitySensor(Room currentRoom) {
         super(SensorType.ENTITY, currentRoom, electricityInOnState, electricityInBrokeState);

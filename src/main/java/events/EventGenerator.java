@@ -1,8 +1,5 @@
 package events;
 
-
-import house.House;
-import house.Room;
 import house.RoomFactory;
 import items.Observer;
 
@@ -11,7 +8,7 @@ import java.util.Random;
 
 public abstract class EventGenerator {
 
-    private RoomFactory roomFactory = RoomFactory.getInstance();
+    private final RoomFactory roomFactory = RoomFactory.getInstance();
 
     private LocalTime randomEventTime;
 

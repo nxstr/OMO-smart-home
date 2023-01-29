@@ -61,20 +61,6 @@ public class DeviceFactory {
         }
     }
 
-    public Device findDeviceByName(String name) {
-        for (Device device : devices) {
-            if (device.getName().equals(name)) return device;
-        }
-        return null;
-    }
-
-    public Device findDeviceByType(DeviceType name) {
-        for (Device device : devices) {
-            if (device.getType().equals(name)) return device;
-        }
-        return null;
-    }
-
     public List<Device> getDevices() {
         return devices;
     }

@@ -1,7 +1,5 @@
 package house;
 
-import items.ElectricalItem;
-import items.equipment.SportEquipment;
 import livingEntities.LivingEntity;
 
 import java.util.ArrayList;

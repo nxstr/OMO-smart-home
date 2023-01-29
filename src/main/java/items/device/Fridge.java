@@ -2,6 +2,7 @@ package items.device;
 
 import house.Room;
 import items.Observer;
+import items.state.BrokenState;
 import items.state.IdleState;
 import items.state.ActiveState;
 
@@ -30,8 +31,9 @@ public class Fridge extends Device{
 
     public void usingDevice() {
         if (isEmpty()) {
-            setCurrentState(new IdleState(this));
+            setCurrentState(new BrokenState(this));
             Observer.getInstance().logAction("Food in FRIDGE is needs to refill\n");
+            generateReportForObserver();
         } else {
             setCurrentState(new ActiveState(this));
             setUsedTimes(getUsedTimes() + 1);

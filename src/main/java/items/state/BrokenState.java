@@ -18,13 +18,4 @@ public class BrokenState implements ObjectState{
         return type;
     }
 
-    @Override
-    public int getUsingHours() {
-        return 0;
-    }
-
-    @Override
-    public void getElectricity() {
-        device.addUsedElectricity(device.getElectricityInBrokeState());
-    }
 }

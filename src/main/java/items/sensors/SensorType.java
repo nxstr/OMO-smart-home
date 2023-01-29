@@ -1,8 +1,6 @@
 package items.sensors;
 
 
-import java.util.Objects;
-
 public enum SensorType {
     TEMPERATURE("temperature"), //activates air conditioner
     FIRE("fire"), //activate alarm, sets all devices and sensors to fixing (cause it s no use of electrisity state) when all people are out
@@ -14,12 +12,5 @@ public enum SensorType {
 
     SensorType(String name) {
         this.name = name;
-    }
-
-    public static SensorType getTypeByName(String name) {
-        for (SensorType sensor : SensorType.values()) {
-            if (Objects.equals(sensor.name, name)) return sensor;
-        }
-        return null;
     }
 }

@@ -13,6 +13,11 @@ public abstract class Device implements ElectricalItem{
 
     private ObjectState currentState = new IdleState(this);
 
+    /*
+    it is ticks, one "usingHour" == 10 minutes.
+    In early versions I wanted to make simulation by hours, then I made it by 10-minutes-ticks
+    and forgot to change variable name when it was like in couple classes
+     */
     private int usingHours;
     private final Room currentRoom;
     private int electricityUsed =0;
@@ -115,10 +120,6 @@ public abstract class Device implements ElectricalItem{
 
     public void resetUsedTimes(){
         this.usedTimes = 0;
-    }
-
-    public void resetBrokenTimes(){
-        this.brokenTimes = 0;
     }
 
     public void addUsedElectricity(int electricity) {

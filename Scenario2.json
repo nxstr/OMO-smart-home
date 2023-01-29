@@ -2,29 +2,23 @@
   "simulation": [
     {
       "starting_hour": 0,
-      "iterations": 300
+      "iterations": 1000
     }
   ],
   "house": [
     {
-      "houseId": 1,
+      "houseId": 2,
       "floors": [
         {
           "level": 0,
           "rooms": [
             {
-              "name": "Garage",
+              "name": "Hallway",
               "items": [
                 {
                   "equipments": [
                     {
                       "type": "pet_toy"
-                    },
-                    {
-                      "type": "pet_toy"
-                    },
-                    {
-                      "type": "bicycle"
                     },
                     {
                       "type": "bicycle"
@@ -36,12 +30,6 @@
                   "devices": [
                     {
                       "type": "lock"
-                    },
-                    {
-                      "type": "air_conditioner"
-                    },
-                    {
-                      "type": "vacuum_cleaner"
                     }
                   ]
                 }
@@ -63,29 +51,20 @@
                       "type": "pet_feeder"
                     },
                     {
-                      "type": "pet_feeder"
-                    },
-                    {
                       "type": "pet_fountain"
                     },
                     {
                       "type": "dishwasher"
                     },
                     {
-                      "type": "vacuum_cleaner"
-                    },
-                    {
                       "type": "washing_machine"
-                    },
-                    {
-                      "type": "air_conditioner"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "Bedroom",
+              "name": "Dining_room",
               "items": [
                 {
                   "equipments": [],
@@ -98,22 +77,6 @@
                     },
                     {
                       "type": "vacuum_cleaner"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Hallway",
-              "items": [
-                {
-                  "equipments": [],
-                  "devices": [
-                    {
-                      "type": "air_conditioner"
-                    },
-                    {
-                      "type": "lock"
                     }
                   ]
                 }
@@ -138,13 +101,7 @@
                       "type": "game_console"
                     },
                     {
-                      "type": "air_conditioner"
-                    },
-                    {
                       "type": "tv"
-                    },
-                    {
-                      "type": "vacuum_cleaner"
                     }
                   ]
                 }
@@ -161,35 +118,29 @@
                   ],
                   "devices": [
                     {
-                      "type": "coffee_machine"
-                    },
-                    {
-                      "type": "tv"
+                      "type": "computer"
                     },
                     {
                       "type": "pet_fountain"
                     },
                     {
                       "type": "vacuum_cleaner"
-                    },
-                    {
-                      "type": "air_conditioner"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "Laundry",
+              "name": "Bedroom",
               "items": [
                 {
                   "equipments": [],
                   "devices": [
                     {
-                      "type": "washing_machine"
+                      "type": "air_conditioner"
                     },
                     {
-                      "type": "fire_suppression"
+                      "type": "tv"
                     }
                   ]
                 }
@@ -228,12 +179,12 @@
               "children": [
                 {
                   "name": "Artur",
-                  "age": 8,
-                  "room": "Nursery"
+                  "age": 17,
+                  "room": "Living_room"
                 },
                 {
                   "name": "Jane",
-                  "age": 12,
+                  "age": 10,
                   "room": "Nursery"
                 },
                 {
@@ -250,7 +201,7 @@
             {
               "name": "Sasha",
               "type": "cat",
-              "room": "Bedroom"
+              "room": "Hallway"
             },
             {
               "name": "Jessi",

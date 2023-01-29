@@ -19,7 +19,7 @@ public class Simulation {
     private LocalTime time;
     private final EventGenerator offEventGenerator = WaterAndElectricityEventGenerator.getInstance();
     private final EventGenerator onEventGenerator = FireAndTemperatureEventGenerator.getInstance();
-    private ReportGenerator reportGenerator = new ReportGenerator();
+    private final ReportGenerator reportGenerator = new ReportGenerator();
 
     private Strategy strategy;
     private final Observer observer = Observer.getInstance();
@@ -27,6 +27,7 @@ public class Simulation {
     }
 
     public void start(String file) throws IOException, ParseException {
+        reportGenerator.setTrace(file);
         Config config = new Config();
         config.configure(file);
         List<Integer> setupList = config.configureSimulation(file);
