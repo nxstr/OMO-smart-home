@@ -18,14 +18,15 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class ReportGenerator {
     private FileWriter configuration = null;
     private static FileWriter eventReport = null;
     private static FileWriter activity = null;
     private static FileWriter consumption = null;
-    private static FileWriter simulationRun = null;
     private static String filename = null;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public ReportGenerator() {
     }
@@ -40,7 +41,6 @@ public class ReportGenerator {
             eventReport = new FileWriter("src/main/resources/"+filename+"-EventReport.txt");
             activity = new FileWriter("src/main/resources/"+filename+"-ActivityReport.txt");
             consumption = new FileWriter("src/main/resources/"+filename+"-ConsumptionReport.txt");
-            simulationRun = new FileWriter("src/main/resources/"+filename+"-SimulationRun.txt");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -87,11 +87,13 @@ public class ReportGenerator {
         }
         configuration.flush();
         configuration.close();
+        logger.info("houseConfigurationReport generated");
     }
 
     public void eventReport(Event event) throws IOException {
         eventReport.write("Event " + event.getType() + " is generated at " + event.getTime() + "\n");
         eventReport.flush();
+        logger.info("eventReport generated");
     }
 
 
@@ -119,6 +121,7 @@ public class ReportGenerator {
         }
         eventReport.write("\n");
         eventReport.flush();
+        logger.info("eventSensorReport generated");
     }
 
     public void writeEventDay(int day) throws IOException {
@@ -157,8 +160,10 @@ public class ReportGenerator {
                 }
             }
             activity.flush();
+            logger.info("entityActivityReport generated");
         }catch (IOException e){
             e.printStackTrace();
+            logger.warning("entityActivityReport is not successfull");
         }
     }
 
@@ -170,6 +175,7 @@ public class ReportGenerator {
             }else if(device.getCurrentState().getType() == StateType.IDLE){
                 activity.write(device.getName() + " is switched off by system at " + time + " at room " + device.getCurrentRoom().getName() + "\n");
             }
+            logger.info("strategyReport generated");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -192,6 +198,7 @@ public class ReportGenerator {
             }
             consumption.write(item.getElectricityUsed() + " electricity was used by " + item.getName() + "\n\n");
             consumption.flush();
+            logger.info("consumptionReport generated");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -201,6 +208,7 @@ public class ReportGenerator {
         try{
             consumption.write("\n"+item.getType() + " was used " + item.getUsedTimes() + " times\n\n");
             consumption.flush();
+            logger.info("usageReport generated");
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -209,14 +217,5 @@ public class ReportGenerator {
     public void writeConsumptionDay(int day) throws IOException {
         consumption.write("\n---------------" + day + " DAY---------------\n\n");
         consumption.flush();
-    }
-
-    public void simulationRunLog(String s){
-        try{
-            simulationRun.write(s);
-            simulationRun.flush();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 }

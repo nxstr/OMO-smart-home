@@ -5,11 +5,14 @@ import items.Observer;
 import items.device.DeviceType;
 import items.state.StateType;
 
+import java.util.logging.Logger;
+
 public class WaterSensor extends Sensor{
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
     private static final int electricityInBrokeState = 1;
     private boolean isWaterOn = true;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     /*
     sensor, that makes reaction when water cuts off in house
@@ -31,16 +34,16 @@ public class WaterSensor extends Sensor{
                         .filter(i -> i.getCurrentState().getType() == StateType.IDLE)
                         .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE)
                         .forEach(d->d.setIsWaterOn(false));
-                Observer.getInstance().logAction("There is no water in the house, all water-using devices are off\n");
+                logger.info("There is no water in the house, all water-using devices are off at " + getHouse().getTime());
             } else {
                 isWaterOn = true;
                 getDeviceFactory().getDevices().stream()
                         .filter(i -> i.getCurrentState().getType() == StateType.NON_ENERGY)
                         .filter(d -> d.getType() == DeviceType.DISHWASHER || d.getType() == DeviceType.WASHING_MACHINE)
                         .forEach(d->d.setIsWaterOn(true));
-                Observer.getInstance().logAction("Water is on! All water-using devices are available!\n");
+                logger.info("Water is on! All water-using devices are available at " + getHouse().getTime());
             }
-            Observer.getInstance().logAction(this.getType() + " sensor got event\n");
+            logger.info(this.getType() + " sensor got event at " + getHouse().getTime());
             generateReportForObserver();
         }
     }

@@ -6,13 +6,14 @@ import items.state.*;
 import items.*;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 public abstract class Device implements ElectricalItem{
 
     private final DeviceType type;
 
     private ObjectState currentState = new IdleState(this);
-
+    private static final Logger logger = Logger.getLogger("Smarthome");
     /*
     it is ticks, one "usingHour" == 10 minutes.
     In early versions I wanted to make simulation by hours, then I made it by 10-minutes-ticks
@@ -129,7 +130,7 @@ public abstract class Device implements ElectricalItem{
     public void usingDevice(){
         usedTimes++;
         setCurrentState(new ActiveState(this));
-        Observer.getInstance().logAction(this.getName() + " is starting at " + house.getTime() + "\n");
+        logger.info(this.getName() + " is starting at " + house.getTime());
         breakingEvent();
         generateReportForObserver();
     }
@@ -137,7 +138,7 @@ public abstract class Device implements ElectricalItem{
     public void breakingItem() {
         brokenTimes++;
         setCurrentState(new BrokenState(this));
-        Observer.getInstance().logAction(this.getName() + " is broke at " + house.getTime() + "\n");
+        logger.info(this.getName() + " is broke at " + house.getTime());
         generateReportForObserver();
         resetUsedTimes();
     }
@@ -145,6 +146,7 @@ public abstract class Device implements ElectricalItem{
     public void fixingItem() {
         setUsingHours(12);
         setCurrentState(new FixingState(this));
+        logger.info(this.getName() + " is fixing at " + house.getTime());
         Manual manual = getManual();
         manual.readDeviceManual();
         resetElectricity();
@@ -169,21 +171,21 @@ public abstract class Device implements ElectricalItem{
     public void generateReportForDay(){
         int electricity = (getElectricityInOnState()*getUsingHours()+getElectricityInOffState()*(24*6-getUsingHours()))*(getHouse().getDay());
         setElectricityUsed(electricity);
-        Observer.getInstance().logAction(electricity + " electricity was used this day by " + this.getType() + "\n");
+        logger.info(electricity + " electricity was used this day by " + this.getType());
         observer.handleDayConsumptionReport(this);
     }
 
     public void stopDevice(){
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
-            Observer.getInstance().logAction(this.getName() + " switched off at " + house.getTime() + "\n");
+            logger.info(this.getName() + " switched off at " + house.getTime());
             changeState();
         }
         else if(this.getCurrentState().getType()== StateType.FIXING) {
-            Observer.getInstance().logAction(this.getName() + " is finally fixed at " + house.getTime()+ "\n");
+            logger.info(this.getName() + " finally fixed at " + house.getTime());
             changeState();
         }
         else if(this.getCurrentState().getType()== StateType.BROKEN) {
-            Observer.getInstance().logAction(this.getName() + " is broken at  " + house.getTime()+ "\n");
+            logger.info(this.getName() + " broken at " + house.getTime());
         }else if(this.getCurrentState().getType()== StateType.NON_ENERGY){
             changeState();
         }
@@ -193,9 +195,11 @@ public abstract class Device implements ElectricalItem{
         this.setCurrentState(new IdleState(this));
         if(!isIsWaterOn() && (this.getType()==DeviceType.DISHWASHER || this.getType()==DeviceType.WASHING_MACHINE || this.getType()==DeviceType.FIRE_SUPPRESSION)){
             this.setCurrentState(new NonEnergyState(this));
+            logger.info(this.getName() + " is setted to non energy state cause water is off at "+house.getTime());
         }
         if(!isIsEnergyOn()){
             this.setCurrentState(new NonEnergyState(this));
+            logger.info(this.getName() + " is setted to non energy state cause electricity is off at "+house.getTime());
         }
     }
 
@@ -207,8 +211,10 @@ public abstract class Device implements ElectricalItem{
         Device.isWaterOn = isWaterOn;
         if(!isWaterOn){
             setCurrentState(new NonEnergyState(this));
+            logger.info(this.getName() + " is setted to non energy state cause water is off at "+house.getTime());
         }else{
             setCurrentState(new IdleState(this));
+            logger.info(this.getName() + " is setted to idle state cause water is on at "+house.getTime());
         }
     }
 
@@ -220,8 +226,10 @@ public abstract class Device implements ElectricalItem{
         Device.isEnergyOn = isEnergyOn;
         if(!isEnergyOn){
             setCurrentState(new NonEnergyState(this));
+            logger.info(this.getName() + " is setted to non energy state electricity is off at "+house.getTime());
         }else{
             setCurrentState(new IdleState(this));
+            logger.info(this.getName() + " is setted to idle state electricity is on at "+house.getTime());
         }
     }
 }

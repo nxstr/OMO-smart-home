@@ -11,11 +11,13 @@ import livingEntities.Adult;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Queue;
+import java.util.logging.Logger;
 
 public class TaskList {
     private static TaskList instance;
 
     private static final Queue<ElectricalItem> devicesToControl = new LinkedList<>();
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public TaskList() {
 
@@ -42,11 +44,11 @@ public class TaskList {
                         Dishwasher d = (Dishwasher) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            Observer.getInstance().logAction(adult.getName() + " filled dishwasher at " + House.getInstance().getTime()+"\n");
+                            logger.info(adult.getName() + " filled dishwasher at " + House.getInstance().getTime());
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                Observer.getInstance().logAction(adult.getName() + " emptied dishwasher at " + House.getInstance().getTime()+"\n");
+                                logger.info(adult.getName() + " emptied dishwasher at " + House.getInstance().getTime());
                                 addTask(d);
                             }
                         }
@@ -55,11 +57,11 @@ public class TaskList {
                         WashingMachine d = (WashingMachine) device;
                         if (d.isEmpty()) {
                             d.fill();
-                            Observer.getInstance().logAction(adult.getName() + " filled washing machine at " + House.getInstance().getTime()+"\n");
+                            logger.info(adult.getName() + " filled washing machine at " + House.getInstance().getTime());
                         } else {
                             if (d.isClean()) {
                                 d.emptyDevice();
-                                Observer.getInstance().logAction(adult.getName() + " emptied washing machine at " + House.getInstance().getTime()+"\n");
+                                logger.info(adult.getName() + " emptied washing machine at " + House.getInstance().getTime());
                                 addTask(d);
                             }
                         }

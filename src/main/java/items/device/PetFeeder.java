@@ -6,6 +6,8 @@ import items.state.BrokenState;
 import items.state.ActiveState;
 import items.state.IdleState;
 
+import java.util.logging.Logger;
+
 public class PetFeeder extends Device{
 
     private static final int usingHours = 1;
@@ -14,6 +16,7 @@ public class PetFeeder extends Device{
     private static final int maxCapacity = 10;
     private int currentCapacity = maxCapacity;
     private boolean isPortionEated = true;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
 
     public PetFeeder(Room currentRoom) {
@@ -25,7 +28,7 @@ public class PetFeeder extends Device{
     }
 
     public void refill(){
-        Observer.getInstance().logAction("PET_FEEDER is filled\n");
+        logger.info("PET_FEEDER is filled at " + getHouse().getTime());
         currentCapacity = maxCapacity;
         setCurrentState(new IdleState(this));
     }
@@ -42,18 +45,18 @@ public class PetFeeder extends Device{
         if(isPortionEated) {
             if (isEmpty()) {
                 setCurrentState(new BrokenState(this));
-                Observer.getInstance().logAction("PER_FEEDER is empty!\n");
+                logger.info("PET_FEEDER is empty at " + getHouse().getTime());
                 generateReportForObserver();
             } else {
                 currentCapacity--;
                 setPortionEated(false);
                 setUsedTimes(getUsedTimes() + 1);
                 setCurrentState(new ActiveState(this));
-                Observer.getInstance().logAction("PET_FEEDER pours one portion of food at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left\n");
+                logger.info("PET_FEEDER pours one portion of food at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left at " + getHouse().getTime());
                 breakingEvent();
             }
         }else{
-            Observer.getInstance().logAction("PET_FEEDER is full\n");
+            logger.info("PET_FEEDER is full at " + getHouse().getTime());
         }
     }
 

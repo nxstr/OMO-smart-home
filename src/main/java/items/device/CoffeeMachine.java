@@ -6,6 +6,8 @@ import items.state.BrokenState;
 import items.state.ActiveState;
 import items.state.IdleState;
 
+import java.util.logging.Logger;
+
 public class CoffeeMachine extends Device{
 
     private static final int usingHours = 1;
@@ -13,6 +15,7 @@ public class CoffeeMachine extends Device{
     private static final int electricityInOffState = 1;
     private static final int maxCapacity = 10;
     private int currentCapacity = maxCapacity;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public CoffeeMachine(Room currentRoom) {
         super(DeviceType.COFFEE_MACHINE, usingHours, currentRoom, electricityInOnState, electricityInOffState);
@@ -23,7 +26,7 @@ public class CoffeeMachine extends Device{
     }
 
     public void refill() {
-        Observer.getInstance().logAction(this.getName() + " is filled.\n");
+        logger.info(this.getName() + " is filled at " + getHouse().getTime());
         currentCapacity = maxCapacity;
         setCurrentState(new IdleState(this));
     }
@@ -31,13 +34,13 @@ public class CoffeeMachine extends Device{
     public void usingDevice() {
         if (isEmpty()) {
             setCurrentState(new BrokenState(this));
-            Observer.getInstance().logAction("Coffee beans in " + this.getName() + " are over!\n");
+            logger.info("Coffee beans in " + this.getName() + " are over at " + getHouse().getTime());
             generateReportForObserver();
         } else {
             currentCapacity--;
             setUsedTimes(getUsedTimes() + 1);
             setCurrentState(new ActiveState(this));
-            Observer.getInstance().logAction(this.getName() + " is starting at " + getHouse().getTime() + ", " + currentCapacity + " portions are/is left.\n");
+            logger.info("this.getName() + \" is starting at \" + getHouse().getTime() + \", \" + currentCapacity + \" portions are/is left at " + getHouse().getTime());
             breakingEvent();
         }
     }

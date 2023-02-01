@@ -13,12 +13,13 @@ import items.state.StateType;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public abstract class Person extends Entity{
     private final int age;
     private final List<Device> devices = DeviceFactory.getInstance().getHumanDevices();
     private final List<SportEquipment> equipments = SportEquipmentFactory.getInstance().getEquipments();
-
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public Person(String name, EntityType type, Room room, int age, int hungerTicks) {
         super(name, type, room, hungerTicks);
@@ -55,11 +56,12 @@ public abstract class Person extends Entity{
         List<Device> fridges = devices.stream().filter(d->d.getType()== DeviceType.FRIDGE).filter(d->d.getCurrentState().getType()== StateType.IDLE).toList();
         if(!fridges.isEmpty()){
             moveToRoom(fridges.get(0).getCurrentRoom());
-            Observer.getInstance().logAction(this.getName() + " is eating\n");
+            logger.info(this.getName() + " is trying to eat" + " at "+ house.getTime());
             fridges.get(0).usingDevice();
             setCurrentDevice(fridges.get(0));
             if(fridges.get(0).getCurrentState().getType()==StateType.BROKEN){
                 stopCurrentActivity();
+                logger.info(this.getName() + " can not eat cause fridge is broken");
                 return false;
             }
             resetCurrentHunger();
@@ -82,10 +84,11 @@ public abstract class Person extends Entity{
             moveToRoom(e.getCurrentRoom());
             e.usingEquipment();
             goOut();
-            Observer.getInstance().logAction(this.getName() + " is goes sport outside\n");
+            logger.info(this.getName() + " is goes sport outside" + " at "+ house.getTime());
             setCurrentEq(e);
             if(e.getCurrentState().getType()==StateType.BROKEN){
                 stopCurrentActivity();
+                logger.info(this.getName() + " can not sport cause equipment is broken");
                 return;
             }
             getReportGenerator().entityActivityReport(this, house.getTime());
@@ -97,9 +100,10 @@ public abstract class Person extends Entity{
         moveToRoom(freeDevices.get(rand).getCurrentRoom());
         freeDevices.get(rand).usingDevice();
         setCurrentDevice(freeDevices.get(rand));
-        Observer.getInstance().logAction(this.getName() + " is using device " + freeDevices.get(rand).getType()+"\n");
+        logger.info(this.getName() + " is using device " + freeDevices.get(rand).getType() + " at "+ house.getTime());
         if(freeDevices.get(rand).getCurrentState().getType()==StateType.BROKEN){
             stopCurrentActivity();
+            logger.info(this.getName() + " can not sport cause device is broken");
             return;
         }
         getReportGenerator().entityActivityReport(this, house.getTime());

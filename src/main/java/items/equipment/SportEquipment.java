@@ -8,6 +8,8 @@ import items.state.IdleState;
 import items.state.ActiveState;
 import items.state.StateType;
 
+import java.util.logging.Logger;
+
 public abstract class SportEquipment {
     private final SportEquipmentType type;
 
@@ -16,6 +18,8 @@ public abstract class SportEquipment {
     private final int usingHours;
     private final Room currentRoom;
     private int usedTimes =0;
+
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     protected SportEquipment(SportEquipmentType type, int usingHours, Room currentRoom) {
         this.type = type;
@@ -54,7 +58,7 @@ public abstract class SportEquipment {
 
     public void stopEquipment(){
         if(this.getCurrentState().getType()== StateType.ACTIVE) {
-            Observer.getInstance().logAction(this.getType() + " set to idle at " + House.getInstance().getTime()+"\n");
+            logger.info(this.getType() + " set to idle at " + House.getInstance().getTime());
             this.setCurrentState(new IdleState(this));
         }
     }

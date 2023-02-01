@@ -10,11 +10,13 @@ import strategy.Strategy;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class TemperatureSensor extends Sensor {
 
     private static final int electricityInOnState = 1; //per one tick (10 minutes)
     private static final int electricityInBrokeState = 1;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public TemperatureSensor(Room currentRoom) {
         super(SensorType.TEMPERATURE, currentRoom, electricityInOnState, electricityInBrokeState);
@@ -38,7 +40,7 @@ public class TemperatureSensor extends Sensor {
                 breakingEvent();
             }
         } catch (Exception e) {
-            Observer.getInstance().logAction("There is no available air conditioner in the room\n");
+            logger.warning("There is no available air conditioner in the room " + this.getCurrentRoom().getName());
         }
 
     }

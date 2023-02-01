@@ -4,6 +4,8 @@ import house.Room;
 import items.Observer;
 import items.state.ActiveState;
 
+import java.util.logging.Logger;
+
 public class Dishwasher extends Device{
 
     private static final int usingHours = 5;
@@ -12,6 +14,7 @@ public class Dishwasher extends Device{
     private final int maxCapacity = 6;
     private int currentCapacity = maxCapacity;
     private boolean isClean = false;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public Dishwasher(Room currentRoom) {
         super(DeviceType.DISHWASHER, usingHours, currentRoom, electricityInOnState, electricityInOffState);
@@ -43,13 +46,13 @@ public class Dishwasher extends Device{
                 setCurrentState(new ActiveState(this));
                 setUsedTimes(getUsedTimes() + 1);
                 isClean = true;
-                Observer.getInstance().logAction(this.getName() +" is started at " + getHouse().getTime()+ "\n");
+                logger.info(this.getName() +" is started at " + getHouse().getTime());
             }else{
-                Observer.getInstance().logAction(this.getName() +" is needs to empty\n");
+                logger.info(this.getName() +" is needs to empty at " + getHouse().getTime());
                 generateReportForObserver();
             }
         }else{
-            Observer.getInstance().logAction(this.getName()+" is empty\n");
+            logger.info(this.getName() +" is empty at " + getHouse().getTime());
             generateReportForObserver();
         }
 

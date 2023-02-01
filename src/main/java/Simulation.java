@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
 
 public class Simulation {
     private int days = 0;
@@ -20,6 +22,8 @@ public class Simulation {
     private final EventGenerator offEventGenerator = WaterAndElectricityEventGenerator.getInstance();
     private final EventGenerator onEventGenerator = FireAndTemperatureEventGenerator.getInstance();
     private final ReportGenerator reportGenerator = new ReportGenerator();
+    private static final Logger logger = Logger.getLogger("Smarthome");
+
 
     private Strategy strategy;
     private final Observer observer = Observer.getInstance();
@@ -36,6 +40,7 @@ public class Simulation {
         time = LocalTime.of(setupList.get(1), 0);
         House house = House.getInstance();
         reportGenerator.houseConfigurationReport();
+        logger.info("house was configured from file " + file + ", simulation starting time is " + time);
         checkStrategy();
         for(int i = 0; i< interactionCount; i++){
             time = time.plusMinutes(10);
@@ -43,7 +48,7 @@ public class Simulation {
             List<LivingEntity> entities = house.getLivingEntities();
             if(time.getMinute()==0){
                 int hours = time.getHour();
-                Observer.getInstance().logAction(hours + " hours\n");
+                logger.info("\nit's " + hours + " hours");
                 checkStrategy();
                 house.setDay(days);
             }
@@ -105,7 +110,6 @@ public class Simulation {
     public void dayStrategySetup() throws IOException {
         if(days==0){
             days++;
-            Observer.getInstance().logAction(days + " day\n");
             reportGenerator.writeEventDay(days);
             reportGenerator.writeActivityDay(days);
             reportGenerator.writeConsumptionDay(days);
@@ -144,7 +148,7 @@ public class Simulation {
             strategy = new Night();
             nightStrategySetup();
             days++;
-            Observer.getInstance().logAction(days + " day\n");
+            logger.info("\nit's " + days + " day");
             reportGenerator.writeEventDay(days);
             reportGenerator.writeActivityDay(days);
             reportGenerator.writeConsumptionDay(days);

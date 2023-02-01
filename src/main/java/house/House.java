@@ -5,6 +5,8 @@ import livingEntities.LivingEntity;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class House {
     private static House instance = null;
@@ -13,6 +15,7 @@ public class House {
     private LocalTime time;
     private final OutsideArea outSideArea;
     private int day = 0;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     private final int houseId;
 
@@ -25,10 +28,11 @@ public class House {
     }
 
     public static HouseBuilder newBuilder() {
-        if (instance != null) {
-            throw new IllegalStateException("Home has already been built.");
-        }
-        return new HouseBuilder();
+            if (instance != null) {
+                logger.log(Level.WARNING, "Home has already been built.");
+                throw new IllegalStateException("Home has already been built.");
+            }
+            return new HouseBuilder();
     }
 
     public int getDay() {

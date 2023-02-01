@@ -10,10 +10,12 @@ import items.state.StateType;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class Adult extends Person{
 
     private static final int hungerTicks = 36;
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     public Adult(String name, EntityType type, Room room, int age) {
         super(name, type, room, age, hungerTicks);
@@ -68,7 +70,7 @@ public class Adult extends Person{
     }
 
     public void repairDevice(ElectricalItem item){
-        Observer.getInstance().logAction(this.getName() + " repairing " + item.getName() + " at " +house.getTime()+"\n");
+        logger.info(this.getName() + " repairing " + item.getName() + " at " +house.getTime());
         item.fixingItem();
     }
 

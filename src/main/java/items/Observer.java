@@ -16,12 +16,14 @@ import strategy.Strategy;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Observer {
     private static Observer instance = null;
     private final SensorFactory sensorFactory = SensorFactory.getInstance();
     private Strategy strategy;
     private final ReportGenerator reportGenerator = new ReportGenerator();
+    private static final Logger logger = Logger.getLogger("Smarthome");
 
     private Observer() {
     }
@@ -59,7 +61,6 @@ public class Observer {
 
     public void handleSensorReport(Sensor sensor){
         if(sensor.isAlarmMode() && sensor.getCurrentState().getType()!=StateType.BROKEN){
-            logAction("!!!EmErGeNcY bEhAvIoR!!!\n");
             for(LivingEntity e: sensor.getHouse().getLivingEntities()){
                 e.setAlarmMode(true);
             }
@@ -69,7 +70,7 @@ public class Observer {
         }else{
             sensor.generateReportForDay();
         }
-        logAction(sensor.getType() + " generated report.\n");
+        logger.info(sensor.getType() + " generated report.");
         try{
             reportGenerator.eventSensorReport(sensor);
         }catch (IOException e){
@@ -78,7 +79,7 @@ public class Observer {
     }
 
     public void eventHandler(Event event){
-        logAction("Event " + event.getType() + " is generated at " + event.getTime() + "\n");
+        logger.info("Event " + event.getType() + " is generated at " + event.getTime());
         try {
             reportGenerator.eventReport(event);
         }catch (IOException e){
@@ -110,9 +111,5 @@ public class Observer {
 
     public void handleDayConsumptionReport(ElectricalItem item){
         reportGenerator.consumptionReport(item);
-    }
-
-    public void logAction(String s){
-        reportGenerator.simulationRunLog(s);
     }
 }
